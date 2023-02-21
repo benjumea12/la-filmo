@@ -1,7 +1,3 @@
-<?php
-the_post();
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -17,11 +13,9 @@ the_post();
 
 
   <!-- Page content -->
-  <div class="container py-5">
-    <h1><?php echo get_the_title(); ?></h1>
-    <img src="<?php echo get_the_post_thumbnail_url(); ?>" style="width: 600px;" class="" alt="...">
-    <p><?php echo get_the_content(); ?></p>
-  </div>
+  <main>
+    <h1>Single Autor</h1>
+  </main>
   <!-- End page content -->
 
 

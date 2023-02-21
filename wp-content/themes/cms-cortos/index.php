@@ -1,25 +1,3 @@
-<?php
-// Get authors
-$args_authors = array(
-  'post_type' => 'autor',
-  'post_status' => 'publish',
-  'posts_per_page' => -1,
-);
-
-$the_query_authors = new WP_Query($args_authors);
-
-// Get shortfilms
-$args_shortfilms = array(
-  'post_type' => 'cortometraje',
-  'post_status' => 'publish',
-  'posts_per_page' => -1,
-);
-
-$the_query_shortfilms = new WP_Query($args_shortfilms);
-
-?>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -35,66 +13,33 @@ $the_query_shortfilms = new WP_Query($args_shortfilms);
 
 
   <!-- Page content -->
-  <div class="container py-5">
+  <main>
+    <h1 class="title-1">Página Home</h1>
 
-    <!-- Section AUTORES -->
-    <h1>Autores</h1>
+    <p class="text-1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 
-    <div class="text-center mb-4">
-      <div class="d-flex">
-        <?php
-        if ($the_query_authors->have_posts()) :
-          while ($the_query_authors->have_posts()) :
-            $the_query_authors->the_post();
-        ?>
-            <a class="card" style="width: 18rem;" href="<?php echo get_the_permalink(); ?>">
-              <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><?php echo get_the_title(); ?></h5>
-                <p class="card-text"><?php echo get_the_excerpt(); ?></p>
-              </div>
-            </a>
-        <?php
-          endwhile;
-        endif;
-        ?>
+    <button class="btn">Botón</button>
+    <a href="#" class="btn btn-primary" type="button">Botón</a>
+    <button class="btn btn-lg">Botón</button>
+
+    <!-- Swiper -->
+    <div class="swiper example-swiper" style="width: 900px; margin: 2em 0;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/assets/images/swiper-image.png" alt=""></div>
+        <div class="swiper-slide"><img style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/assets/images/swiper-image.png" alt=""></div>
+        <div class="swiper-slide"><img style="width: 100%;" src="<?php echo get_template_directory_uri(); ?>/assets/images/swiper-image.png" alt=""></div>
       </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
 
-    <a href="<?php echo get_site_url(); ?>/autores">Ver todos</a>
-    <hr class="my-5" />
-
-    <!-- Section CORTOS -->
-    <h1>Cortos</h1>
-
-    <div class="text-center mb-4">
-      <div class="d-flex">
-        <?php
-        if ($the_query_shortfilms->have_posts()) :
-          while ($the_query_shortfilms->have_posts()) :
-            $the_query_shortfilms->the_post();
-
-        ?>
-            <a class="card" style="width: 18rem;" href="<?php echo get_the_permalink(); ?>">
-              <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><?php echo get_the_title(); ?></h5>
-                <p class="card-text"><?php echo get_the_excerpt(); ?></p>
-              </div>
-            </a>
-        <?php
-          endwhile;
-        endif;
-        ?>
-      </div>
-
-    </div>
-    <a href="<?php echo get_site_url(); ?>/cortometrajes">Ver todos</a>
-    <!-- End page content -->
+  </main>
+  <!-- End page content -->
 
 
-    <!-- Import footer -->
-    <?php get_footer(); ?>
+  <!-- Import footer -->
+  <?php get_footer(); ?>
 
 </body>
 

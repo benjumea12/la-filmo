@@ -6,12 +6,9 @@
     Version: 1.0
 */
 
-html {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-* {
+*,
+html,
+body {
   padding: 0 !important;
   margin: 0 !important;
 }

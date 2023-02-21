@@ -1,3 +1,3 @@
-<footer class="bg-dark py-4">
-  <h6 class="text-light text-center">Footer</h6>
+<footer id="footer-page">
+  <h3>Footer</h3>
 </footer>
