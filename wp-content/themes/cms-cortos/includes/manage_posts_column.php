@@ -1,4 +1,5 @@
 <?php
+add_theme_support('post-thumbnails');
 add_filter('manage_posts_columns', 'add_img_column');
 add_filter('manage_posts_custom_column', 'manage_img_column', 10, 2);
 
