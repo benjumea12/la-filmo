@@ -8,6 +8,9 @@ body {
   background-color: #0A0909;
   color: #FFFFFF;
 }
+body main {
+  padding: 2%;
+}
 
 .btn {
   color: #FFFFFF;
