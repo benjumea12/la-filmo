@@ -6,11 +6,11 @@
 }
 body {
   background-color: #0A0909;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .btn {
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 18px;
   font-family: "THICCCBOI", sans-serif;
   text-decoration: none;
@@ -23,7 +23,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #ff0000;
+  background-color: #15C570;
 }
 
 .btn-lg {
@@ -81,15 +81,15 @@ p, span {
 }
 
 .color-primary {
-  color: #ff0000;
+  color: #15C570;
 }
 
 .color-secondary {
-  color: #ffdc60;
+  color: #EAA410;
 }
 
 .color-tertiary {
-  color: #9f13e5;
+  color: #9F13E5;
 }
 
 .color-dark {
@@ -97,7 +97,7 @@ p, span {
 }
 
 .color-light {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 ::-webkit-scrollbar {
