@@ -2,6 +2,10 @@
 @use '../utils/fonts'
 @use '../utils/media'
 
+body 
+  background-color: colors.$dark
+  color: colors.$light
+
 // Styles of UI elements
 .btn
   color: colors.$light
@@ -19,6 +23,16 @@
 .btn-lg
   font-size: 25px
   padding: 1.2vh 2.5vw
+
+
+// Add fonts
+h1, h2, h3, h4, h5, h6, a, button
+  font-family: fonts.$primary
+  font-weight: 800
+  
+p, span
+  font-family: fonts.$secondary
+
 
 // Titles
 .title-1
@@ -55,3 +69,21 @@
   color: colors.$dark
 .color-light
   color: colors.$light
+
+
+// Scroll bar
+::-webkit-scrollbar 
+  width: 5px
+
+/* Track */
+::-webkit-scrollbar-track 
+  background: #000000
+
+/* Handle */
+::-webkit-scrollbar-thumb 
+  background: #888
+  border-radius: 10px
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover 
+  background: #555

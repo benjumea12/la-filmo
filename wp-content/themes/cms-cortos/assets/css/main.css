@@ -1,17 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-h1, h2, h3, h4, h5, h6, a, button {
-  font-family: "Work Sans", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("../../fonts/THICCCBOI-font/Webfont/THICCCBOI-Regular.woff2") format("woff2");
+  font-style: normal;
 }
-
-p, span {
-  font-family: "Roboto", sans-serif;
+body {
+  background-color: #0A0909;
+  color: #ffffff;
 }
 
 .btn {
   color: #ffffff;
   font-size: 18px;
-  font-family: "Work Sans", sans-serif;
+  font-family: "THICCCBOI", sans-serif;
   text-decoration: none;
   border: none;
   background-color: gray;
@@ -28,6 +29,15 @@ p, span {
 .btn-lg {
   font-size: 25px;
   padding: 1.2vh 2.5vw;
+}
+
+h1, h2, h3, h4, h5, h6, a, button {
+  font-family: "THICCCBOI", sans-serif;
+  font-weight: 800;
+}
+
+p, span {
+  font-family: "Poppins", sans-serif;
 }
 
 .title-1 {
@@ -83,11 +93,31 @@ p, span {
 }
 
 .color-dark {
-  color: #1e1e1e;
+  color: #0A0909;
 }
 
 .color-light {
   color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* IMPORT IN THE MAIN */
