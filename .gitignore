@@ -23,7 +23,7 @@ wp-config.php
 *.log
 
 # css sass
-/wp-content/themes/cms-cortos/css/
+/wp-content/themes/cms-cortos/assets/css/
 
 # htaccess
 
