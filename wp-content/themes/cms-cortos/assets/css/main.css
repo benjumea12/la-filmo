@@ -120,6 +120,16 @@ p, span {
   background: #555;
 }
 
+#nav-page .nav-contain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#nav-page .nav-contain .nav-logo {
+  display: flex;
+  align-items: center;
+}
+
 /* IMPORT IN THE MAIN */
 /* IMPORT IN THE MAIN */
 
