@@ -22,6 +22,9 @@ wp-config.php
 # Log files
 *.log
 
+# css sass
+/wp-content/themes/cms-cortos/assets/css/
+
 # htaccess
 
 # All plugins
