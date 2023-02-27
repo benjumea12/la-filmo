@@ -13,19 +13,40 @@
       display: flex
       align-items: center 
       img
-        height: 60px
+        height: 70px
         margin-right: 10px
       span
-        font-size: 40px
+        font-size: 50px
         font-weight: 800
         font-family: fonts.$primary
     .nav-links
       display: flex
       align-items: center
+      justify-content: flex-end
       list-style: none
+      width: 100%
       .link-item
-        font-weight: 200
-        color: red
-        font-family: fonts.$secondary
+        margin-left: 5%
+        display: flex
+        flex-direction: column
+        align-items: center
+        a
+          font-weight: 500
+          text-decoration: none
+          font-size: 20px
+          color: colors.$light
+          font-family: fonts.$primary
+          transition: all .2s
+          white-space: nowrap
+        span
+          height: 1px
+          width: 0%
+          background: colors.$primary 
+          transition: all .2s
+        &:hover
+          a
+            color: colors.$primary
+          span
+            width: 100%
         
 

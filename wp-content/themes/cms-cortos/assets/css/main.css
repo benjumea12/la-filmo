@@ -170,23 +170,47 @@ p, span {
   align-items: center;
 }
 #nav-page .nav-contain .nav-logo img {
-  height: 60px;
+  height: 70px;
   margin-right: 10px;
 }
 #nav-page .nav-contain .nav-logo span {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 800;
   font-family: "THICCCBOI", sans-serif;
 }
 #nav-page .nav-contain .nav-links {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   list-style: none;
+  width: 100%;
 }
 #nav-page .nav-contain .nav-links .link-item {
-  font-weight: 200;
-  color: red;
-  font-family: "Poppins", sans-serif;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#nav-page .nav-contain .nav-links .link-item a {
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: "THICCCBOI", sans-serif;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+#nav-page .nav-contain .nav-links .link-item span {
+  height: 1px;
+  width: 0%;
+  background: #15C570;
+  transition: all 0.2s;
+}
+#nav-page .nav-contain .nav-links .link-item:hover a {
+  color: #15C570;
+}
+#nav-page .nav-contain .nav-links .link-item:hover span {
+  width: 100%;
 }
 
 /* IMPORT IN THE MAIN */
