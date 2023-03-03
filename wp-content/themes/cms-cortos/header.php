@@ -3,5 +3,6 @@
   <div>
     <a href="<?php echo get_site_url(); ?>/autores">Autores</a>
     <a href="<?php echo get_site_url(); ?>/cortometrajes">Cortometrajes</a>
+    <a href="<?php echo get_site_url(); ?>/artistas">Artistas</a>
   </div>
 </nav>
