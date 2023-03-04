@@ -5,19 +5,20 @@
 .section-basic
   .section-basic-header
     display: flex
-    margin-bottom: 2.5em
+    margin-bottom: 4vh
     align-items: center
     justify-content: space-between
     .section-basic-title
-      font-size: 2vw
+      font-size: 3.3rem
     .section-basic-action
-      font-size: 1.3vw
+      font-size: 2rem 
       color: colors.$gray-light
       text-decoration: none
       transition: all .2s
       &:hover
         color: colors.$primary
   .section-basic-content
+    margin: 0
 
 .swiper-contain
   position: relative
@@ -67,14 +68,14 @@
             opacity: 0
 
           .swiper-slide-title
-            font-size: 5vw
+            font-size: 7rem
             font-weight: 700
 
           .swiper-slide-text
-            font-size: 1.2vw
+            font-size: 2rem
             font-weight: 400
             color: #FFFFFFCC
-            margin: 20px
+            margin: 3rem 0px
 
         // Animacion hover not-hover del contenido
         &:not(:hover)
@@ -151,20 +152,20 @@
       .swiper-slide-content
         position: absolute
         top: 0
-        padding: 2em 1.5em
-        height: calc(100% - 4em)
-        width: calc(100% - 3em)
+        padding: 4vh 4vh
+        width: calc(100% - 8vh)
+        height: calc(100% - 8vh)
         z-index: 2
         display: flex
         flex-direction: column
         justify-content: flex-end
         background-color: rgba(0, 0, 0, 0.4)
         .swiper-slide-title
-          font-size: 2.4vw
+          font-size: 3.6rem
           font-weight: 600
           margin-bottom: 10px
         .swiper-slide-text
-          font-size: 1vw
+          font-size: 1.8rem
           font-weight: 300
 
       &:hover
