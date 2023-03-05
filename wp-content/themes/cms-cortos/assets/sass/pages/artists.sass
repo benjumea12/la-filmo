@@ -1,0 +1,101 @@
+@use '../utils/colors'
+@use '../utils/fonts'
+@use '../utils/media'
+  
+.main-page-artists
+  h1
+    &.title
+      width: 100%
+      text-align: center
+      font-family: fonts.$primary
+      font-style: normal
+      font-weight: 700
+      font-size: 96px
+      line-height: 111px
+      color: #FFFFFF
+      margin: 10px
+      margin-top: 85px
+  section
+    &.subtitle
+      display: block
+      margin: 0 auto
+      width: 40%
+      text-align: center
+      font-family: fonts.$secondary
+      font-style: normal
+      font-weight: 400
+      font-size: 20px
+      line-height: 170%
+      font-size: 20px
+      color: rgba(255, 255, 255, 0.8)
+  p
+    &.bold
+      font-weight: bold
+      margin-top: 0
+  .container
+    display: flex
+    justify-content: center
+  .grid-container
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: 25px
+    justify-content: center
+    align-items: center
+  .card
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 203px
+    height: 272px
+    background: rgba(255, 255, 255, 0.05)
+    border-radius: 10px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    max-width: 1200px
+    & > *
+      flex: 0 0 calc(20% - 20px)
+      margin: 10px
+    &:hover
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
+      transform: scale(1.1)
+  .artist
+    width: 100%
+    height: auto
+  img
+    &.artist
+      width: 120px
+      height: 120px
+      border-radius: 30px
+  div
+    &.art-types
+      display: flex
+      justify-content: center
+      font-family: fonts.$primary
+      font-style: normal
+      font-weight: 600
+      font-size: 20px
+      line-height: 23px
+      color: #FFFFFF
+  .menu-artistas
+    display: flex
+    justify-content: center
+    list-style: none
+    margin: 0
+    padding: 0
+    margin: 40px
+    font-family: fonts.$primary
+    font-size: 20px
+    li
+      margin: 0 10px
+      margin-right: 50px
+      a
+        &:focus
+          border-bottom: 1px solid black
+        &.selected
+          border-bottom: 1px solid white
+          padding: 5px
+    a
+      color: white
+      text-decoration: none
