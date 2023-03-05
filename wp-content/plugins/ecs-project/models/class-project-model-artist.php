@@ -1,6 +1,6 @@
 <?php
 
-class Project_Model_Author
+class Project_Model_Artist
 {
 
   private $post_type_name;
@@ -12,9 +12,9 @@ class Project_Model_Author
   function __construct($template_parser)
   {
     $this->template_parser = $template_parser;
-    $this->post_type_name = 'autor';
-    $this->post_type_singular = __('Autor', 'enigmind');
-    $this->post_type_plural = __('Autores', 'enigmind');
+    $this->post_type_name = 'artist';
+    $this->post_type_singular = __('Artista', 'enigmind');
+    $this->post_type_plural = __('Artistas', 'enigmind');
     $this->menu_icon = 'dashicons-admin-users';
 
     add_action('init', array($this, 'create_post_type'));
@@ -78,7 +78,7 @@ class Project_Model_Author
 
   function metabox_general()
   {
-    $prefix = 'author_';
+    $prefix = 'artist_';
 
     $cmb = new_cmb2_box(array(
       'id'           => $prefix . 'general',

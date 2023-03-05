@@ -1,8 +1,19 @@
 @use '../utils/colors'
 @use '../utils/fonts'
 @use '../utils/media'
+
+.image-page-artists
+  position: fixed
+  height: 100%
+  width: 100%
+  object-fit: cover
+  z-index: 0
+  top: 0
   
 .main-page-artists
+  margin-bottom: 15vh
+  position: relative
+  z-index: 1
   h1
     &.title
       width: 100%
@@ -10,7 +21,7 @@
       font-family: fonts.$primary
       font-style: normal
       font-weight: 700
-      font-size: 96px
+      font-size: 10rem
       line-height: 111px
       color: #FFFFFF
       margin: 10px
@@ -24,9 +35,8 @@
       font-family: fonts.$secondary
       font-style: normal
       font-weight: 400
-      font-size: 20px
       line-height: 170%
-      font-size: 20px
+      font-size: 2rem
       color: rgba(255, 255, 255, 0.8)
   p
     &.bold
@@ -38,15 +48,15 @@
   .grid-container
     display: grid
     grid-template-columns: repeat(5, 1fr)
-    grid-gap: 25px
+    grid-gap: 23px
     justify-content: center
     align-items: center
   .card
     display: flex
     flex-direction: column
     align-items: center
-    width: 203px
-    height: 272px
+    width: 15vw
+    height: 18vw
     background: rgba(255, 255, 255, 0.05)
     border-radius: 10px
     display: flex
@@ -54,6 +64,15 @@
     justify-content: center
     align-items: center
     max-width: 1200px
+    transition: all .2s
+    text-decoration: none
+    color: colors.$light
+    h2
+      font-size: 1.9rem
+    p
+      font-size: 1.5rem
+      text-transform: uppercase
+      color: #FFFFFF80
     & > *
       flex: 0 0 calc(20% - 20px)
       margin: 10px
@@ -65,19 +84,20 @@
     height: auto
   img
     &.artist
-      width: 120px
-      height: 120px
+      width: 8vw
+      height: 8vw
       border-radius: 30px
-  div
+  nav
     &.art-types
       display: flex
       justify-content: center
       font-family: fonts.$primary
       font-style: normal
       font-weight: 600
-      font-size: 20px
+      font-size: 10rem
       line-height: 23px
       color: #FFFFFF
+      margin: 5vh 0px
   .menu-artistas
     display: flex
     justify-content: center
@@ -86,16 +106,18 @@
     padding: 0
     margin: 40px
     font-family: fonts.$primary
-    font-size: 20px
+    font-size: 2rem
     li
       margin: 0 10px
       margin-right: 50px
       a
+        color: #FFFFFF80
+        padding: 5px 0
         &:focus
           border-bottom: 1px solid black
         &.selected
+          color: colors.$light
           border-bottom: 1px solid white
-          padding: 5px
     a
       color: white
       text-decoration: none

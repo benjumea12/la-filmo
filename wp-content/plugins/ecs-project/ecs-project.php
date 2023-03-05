@@ -55,7 +55,7 @@ class ECS_Project_Manager
 {
 
   public $base_path;
-  public $author;
+  public $artist;
   public $shortfilm;
 
   function __construct()
@@ -65,7 +65,7 @@ class ECS_Project_Manager
     require_once $this->base_path . 'class-twig-initializer.php';
 
     //Add models to WORDPRESS
-    $this->author = new Project_Model_Author($this);
+    $this->artist = new Project_Model_Artist($this);
     $this->shortfilm = new Project_Model_Shortfilm($this);
 
 

@@ -26,14 +26,14 @@
         </div>
       </li>
       <li class="link-item dropdown">
-        <a href="<?php echo get_site_url(); ?>/cortometrajes">Artistas</a>
+        <a href="<?php echo get_site_url(); ?>/artistas">Artistas</a>
         <span></span>
         <div class="dropdown-contain">
           <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/cortometrajes">Directores</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/cortometrajes">Ilustradores</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/cortometrajes">Diseñadores</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/cortometrajes">Desarrolladores</a></li>
+            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Directores</a></li>
+            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Ilustradores</a></li>
+            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Diseñadores</a></li>
+            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Desarrolladores</a></li>
         </div>
       </li>
       <li class="link-item">

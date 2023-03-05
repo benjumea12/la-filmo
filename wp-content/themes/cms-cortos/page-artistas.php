@@ -1,3 +1,15 @@
+<?php
+// Get authors
+$args_authors = array(
+  'post_type' => 'artist',
+  'post_status' => 'publish',
+  'posts_per_page' => -1,
+);
+
+$the_query_authors = new WP_Query($args_authors);
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -5,23 +17,7 @@
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
-  <!-- Styles just for this page -->
-  <style>
-    body {
-      background-color: black;
-      background-image: url("<?php echo get_template_directory_uri(); ?>/assets/images/artistas-background.svg");
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      color: white;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-    }
-  </style>
-  <!-- Styles just for this page -->
-  
+
 </head>
 
 
@@ -30,6 +26,7 @@
   <!-- Import header -->
   <?php get_header(); ?>
 
+  <img class="image-page-artists" src="<?php echo get_template_directory_uri(); ?>/assets/images/artistas-background.svg" alt="">
 
   <!-- Page content -->
   <main class="main-page-artists">
@@ -51,34 +48,25 @@
 
     <div id="contenido-cargado"></div>
 
-    <?php
-    global $wpdb;
-    $tabla_artistas = $wpdb->prefix . 'artistas';
-
-    if (isset($_GET['tipo'])) {
-      $tipo = $_GET['tipo'];
-      if ($tipo == 'todos') {
-        $registros = $wpdb->get_results("SELECT * FROM $tabla_artistas");
-      } else {
-        $registros = $wpdb->get_results("SELECT * FROM $tabla_artistas WHERE Tipo = '$tipo'");
-      }
-    } else {
-      $registros = $wpdb->get_results("SELECT * FROM $tabla_artistas");
-    }
-    ?>
 
     <div class="container">
       <div class="grid-container">
-        <?php foreach ($registros as $registro) : ?>
-          <div class="card">
-            <img class="artist" src="<?php echo get_template_directory_uri(); ?>/assets/images/<?php echo $registro->Imagen; ?>" alt="<?php echo $registro->Nombre; ?>" />
-            <h2><?php echo $registro->Nombre; ?></h2>
-            <p><?php echo $registro->Tipo; ?></p>
-          </div>
-        <?php endforeach; ?>
+        <?php
+        if ($the_query_authors->have_posts()) :
+          while ($the_query_authors->have_posts()) :
+            $the_query_authors->the_post();
+        ?>
+            <a class="card" href="#">
+              <img class="artist" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" />
+              <h2><?php echo get_the_title(); ?></h2>
+              <p>Animadores</p>
+            </a>
+        <?php
+          endwhile;
+        endif;
+        ?>
       </div>
     </div>
-
 
   </main>
   <!-- End page content -->
