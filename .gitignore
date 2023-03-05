@@ -24,6 +24,7 @@ wp-config.php
 
 # css sass
 /wp-content/themes/cms-cortos/assets/css/
+/wp-content/themes/cms-cortos/assets/images/home/
 
 # htaccess
 

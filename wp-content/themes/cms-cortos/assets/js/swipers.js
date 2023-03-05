@@ -29,3 +29,16 @@ $(function () {
     }
   })
 })
+
+$(function () {
+  new Swiper(".swiper-popular", {
+    loop: true,
+    grabCursor: true,
+    slidesPerView: 3,
+    spaceBetween: 30, 
+    navigation: {
+      nextEl: ".swiper-next",
+      prevEl: ".swiper-prev",
+    }
+  })
+})
