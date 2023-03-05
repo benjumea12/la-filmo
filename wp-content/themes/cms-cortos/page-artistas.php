@@ -9,17 +9,13 @@ $args_authors = array(
 $the_query_authors = new WP_Query($args_authors);
 ?>
 
-
 <!doctype html>
 <html lang="en">
 
 <head>
   <!-- Import default project head content -->
   <?php wp_head(); ?>
-
-
 </head>
-
 
 <body>
 
@@ -73,7 +69,6 @@ $the_query_authors = new WP_Query($args_authors);
 
   <!-- Import footer -->
   <?php get_footer(); ?>
-
 </body>
 
 </html>
