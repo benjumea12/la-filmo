@@ -15,7 +15,7 @@
     display: flex
     align-items: center
     justify-content: space-between
-    padding: 15px 3%
+    padding: 15px 4%
     position: relative
     .nav-logo
       display: flex
@@ -29,6 +29,35 @@
         font-size: 5rem
         font-weight: 800
         font-family: fonts.$primary
+
+    #icon-menu
+      display: flex
+      flex-direction: column
+      position: relative
+      cursor: pointer
+      span
+        right: 0
+        position: absolute
+        width: 30px
+        height: 4px
+        border-radius: 3px
+        background-color: colors.$light
+        transition: all .2s
+      span:nth-child(1)
+        top: -8px
+      span:nth-child(3)
+        top: 8px
+        
+    #icon-menu.close-icon
+      span:nth-child(2)
+        opacity: 0
+      span:nth-child(1)
+        top: 0px
+        transform: rotate(45deg)
+      span:nth-child(3)
+        top: 0px
+        transform: rotate(-45deg)
+
 
     // Nav Links
     .nav-links
@@ -121,6 +150,11 @@
         padding: 0em 0 0em 0
         flex-direction: column
         background-color: colors.$dark
+        transition: all .3s
+        &.open-menu
+          max-height: 50vh
+          padding: 10px 0 30px 0
+
         .link-item.dropdown.open
           padding: 0em 0 3em 0
         .link-item

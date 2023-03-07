@@ -9,115 +9,140 @@
   object-fit: cover
   z-index: 0
   top: 0
+  left: 0
   
 .main-page-artists
   margin-bottom: 15vh
   position: relative
   z-index: 1
-  h1
-    &.title
-      width: 100%
-      text-align: center
-      font-family: fonts.$primary
-      font-style: normal
-      font-weight: 700
-      font-size: 10rem
-      line-height: 111px
-      color: #FFFFFF
-      margin: 10px
-      margin-top: 85px
-  section
-    &.subtitle
-      display: block
-      margin: 0 auto
-      width: 40%
-      text-align: center
-      font-family: fonts.$secondary
-      font-style: normal
-      font-weight: 400
-      line-height: 170%
-      font-size: 2rem
-      color: rgba(255, 255, 255, 0.8)
-  p
-    &.bold
-      font-weight: bold
-      margin-top: 0
+  h1.title
+    width: 100%
+    text-align: center
+    font-family: fonts.$primary
+    font-style: normal
+    font-weight: 700
+    font-size: 10rem
+    line-height: 110%
+    color: #FFFFFF
+    margin-top: 10vh
+    margin-bottom: 3vh
+    @include media.screen-md
+      font-size: 8rem
+  section.subtitle
+    display: block
+    margin: 0 auto
+    width: 40%
+    text-align: center
+    font-family: fonts.$secondary
+    font-style: normal
+    font-weight: 400
+    line-height: 170%
+    font-size: 2rem
+    color: rgba(255, 255, 255, 0.8)
+    @include media.screen-md
+      width: 80%
+  p.bold
+    font-weight: bold
+    margin-top: 0
+
+
+
   .container
     display: flex
     justify-content: center
-  .grid-container
-    display: grid
-    grid-template-columns: repeat(5, 1fr)
-    grid-gap: 23px
-    justify-content: center
-    align-items: center
-  .card
+    .grid-container
+      display: grid
+      grid-template-columns: repeat(5, 1fr)
+      grid-gap: 23px
+      justify-content: center
+      align-items: center
+      @include media.screen-lg
+        grid-template-columns: repeat(4, 1fr)
+      @include media.screen-md
+        grid-template-columns: repeat(3, 1fr)
+      @include media.screen-sm
+        grid-template-columns: repeat(2, 1fr)
+      .card
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        padding: 4em 0
+        width: 15vw
+        height: 15vw
+        background: rgba(255, 255, 255, 0.05)
+        border-radius: 10px
+        max-width: 1200px
+        transition: all .2s
+        text-decoration: none
+        color: colors.$light
+        @include media.screen-lg
+          width: 18vw
+          height: 18vw
+        @include media.screen-md
+          width: 25vw
+          height: 25vw
+        @include media.screen-sm
+          width: 38vw
+          height: 38vw
+        h2
+          font-size: 1.9rem
+        p
+          font-size: 1.5rem
+          text-transform: uppercase
+          color: #FFFFFF80
+        &:hover
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
+          transform: scale(1.1)
+      .artist
+        width: 100%
+        height: auto
+      img.artist
+          width: 50%
+          border-radius: 20px
+
+
+  nav.art-types
     display: flex
-    flex-direction: column
-    align-items: center
-    width: 15vw
-    height: 18vw
-    background: rgba(255, 255, 255, 0.05)
-    border-radius: 10px
-    display: flex
-    flex-wrap: wrap
     justify-content: center
-    align-items: center
-    max-width: 1200px
-    transition: all .2s
-    text-decoration: none
-    color: colors.$light
-    h2
-      font-size: 1.9rem
-    p
-      font-size: 1.5rem
-      text-transform: uppercase
-      color: #FFFFFF80
-    & > *
-      flex: 0 0 calc(20% - 20px)
-      margin: 10px
-    &:hover
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
-      transform: scale(1.1)
-  .artist
-    width: 100%
-    height: auto
-  img
-    &.artist
-      width: 8vw
-      height: 8vw
-      border-radius: 30px
-  nav
-    &.art-types
+    font-family: fonts.$primary
+    font-style: normal
+    font-weight: 600
+    font-size: 10rem
+    line-height: 23px
+    color: #FFFFFF
+    margin: 8vh 0px
+    @include media.screen-md
+      margin: 4vh 0px 2vh
+
+    .menu-artistas
       display: flex
       justify-content: center
+      list-style: none
+      margin: 0
+      padding: 0
+      margin: 40px
       font-family: fonts.$primary
-      font-style: normal
-      font-weight: 600
-      font-size: 10rem
-      line-height: 23px
-      color: #FFFFFF
-      margin: 5vh 0px
-  .menu-artistas
-    display: flex
-    justify-content: center
-    list-style: none
-    margin: 0
-    padding: 0
-    margin: 40px
-    font-family: fonts.$primary
-    font-size: 2rem
-    li
-      margin: 0 10px
-      margin-right: 50px
+      font-size: 2rem
+      @include media.screen-md
+        flex-direction: column
+        text-align: center
+      li
+        margin: 0 10px
+        margin-right: 4vw
+        @include media.screen-md
+          margin-right: 0
+          margin-bottom: 5px
+        a
+          color: #FFFFFF80
+          padding: 5px 0
+          @include media.screen-md
+            padding: 2px 0
+          &:focus
+            border-bottom: 1px solid black
+          &.selected
+            color: colors.$light
+            border-bottom: 1px solid white
       a
-        color: #FFFFFF80
-        padding: 5px 0
-        &:focus
-          border-bottom: 1px solid black
-        &.selected
-          color: colors.$light
-          border-bottom: 1px solid white
-    a
-      color: white
-      text-decoration: none
+        color: white
+        text-decoration: none

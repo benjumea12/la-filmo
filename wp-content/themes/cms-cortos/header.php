@@ -4,7 +4,12 @@
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-light.svg" alt="Logo de GMA">
       <span>GMA</span>
     </a>
-    <ul class="nav-links">
+    <div id="icon-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-menu" class="nav-links">
       <li class="link-item">
         <a href="<?php echo get_site_url(); ?>/autores">Inicio</a>
         <span></span>
