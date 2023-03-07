@@ -4,24 +4,29 @@
   
 // Styles of navigation
 #nav-page
-  position: relative
-  z-index: 10
+  position: fixed
+  width: 100%
+  top: 0
+  left: 0
+  z-index: 20
+  background-color: colors.$dark
+
   .nav-contain
     display: flex
     align-items: center
     justify-content: space-between
-    padding: 10px 3%
-    margin-top: 10px
+    padding: 15px 3%
+    position: relative
     .nav-logo
       display: flex
       align-items: center 
       text-decoration: none
       color: colors.$light
       img
-        height: 8rem
+        height: 7rem
         margin-right: 10px
       span
-        font-size: 6rem
+        font-size: 5rem
         font-weight: 800
         font-family: fonts.$primary
 
@@ -42,7 +47,7 @@
         a
           font-weight: 400
           text-decoration: none
-          font-size: 2.5rem
+          font-size: 2.3rem
           color: colors.$light
           font-family: fonts.$primary
           transition: all .2s
@@ -67,9 +72,9 @@
         padding-right: 1.6vw
         &::after
           content: "🢓"
-          font-size: 4.8rem
+          font-size: 4.5rem
           position: absolute
-          right: -1.8rem
+          right: -1.5rem
 
         // Dropdown list
         .dropdown-contain
@@ -89,7 +94,7 @@
               margin: 2px 0 8px
               opacity: 0
               a
-                font-size: 2.2rem
+                font-size: 2rem
                 &:hover
                   color: colors.$primary
 
@@ -100,11 +105,53 @@
               transition: all 300ms
         &:hover
           .dropdown-menu
-            max-height: 20vw
+            max-height: 30vh
             padding: 20px 30px
             .dropdown-item
               opacity: 1
               transition: all 300ms 250ms
+      
+      @include media.screen-md
+        position: absolute
+        top: 90%
+        width: 100%
+        left: 0
+        max-height: 0px
+        overflow: hidden
+        padding: 0em 0 0em 0
+        flex-direction: column
+        background-color: colors.$dark
+        .link-item.dropdown.open
+          padding: 0em 0 3em 0
+        .link-item
+          margin-left: 0
+          margin-bottom: 1rem
+          a
+            font-size: 3.5rem
+        .link-item.dropdown
+          .dropdown-contain
+            position: relative
+            padding: 0
+            .dropdown-menu
+              width: 100%
+              background-color: colors.$dark
+              padding: 0px 0px
+              border-radius: 0px
+              .dropdown-item
+                text-align: center
+                margin: 2px 0 2px 0
+                a
+                  font-size: 3rem
+                  text-align: center
+                  opacity: .8
+          &:hover
+            .dropdown-menu
+              max-height: 30vh
+              padding: 10px 0px 20px
+              .dropdown-item
+                opacity: 1
+                transition: all 300ms 250ms
+
 
         
 

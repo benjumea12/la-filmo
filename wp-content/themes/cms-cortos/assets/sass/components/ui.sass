@@ -12,7 +12,10 @@ body
   color: colors.$light
 
   main
-    padding: 2vh 3%
+    margin: 0px
+    padding: 11em 3% 2vh 3%
+    @include media.screen-md
+      padding: 12em 3% 2vh 3%
 
 // Styles of UI elements
 .btn
@@ -31,6 +34,9 @@ body
 .btn-lg
   font-size: 3rem
   padding: 1.4rem 6.5rem
+  @include media.screen-md
+    font-size: 2.2rem
+    padding: 1rem 5.8rem
 .btn-more
   border-radius: 10px
   color: #FFFFFF80

@@ -4,18 +4,26 @@
 
 .section-basic
   margin-bottom: 8vh
+  @include media.screen-md
+    margin-bottom: 4vh
   .section-basic-header
     display: flex
     margin-bottom: 4vh
     align-items: center
     justify-content: space-between
+    @include media.screen-md
+      margin-bottom: 2vh
     .section-basic-title
       font-size: 3.3rem
+      @include media.screen-md
+        font-size: 2.5rem
     .section-basic-action
-      font-size: 2rem 
+      font-size: 2rem
       color: colors.$gray-light
       text-decoration: none
       transition: all .2s
+      @include media.screen-md
+        font-size: 1.8rem
       &:hover
         color: colors.$primary
     .icon
@@ -27,18 +35,23 @@
 .swiper-contain
   position: relative
   margin-bottom: 14vh
+  @include media.screen-md
+    margin-bottom: 6vh
   .swiper-home
     position: relative
-    border-radius: 30px
+    border-radius: 20px
     overflow: hidden
+    @include media.screen-md
+      border-radius: 20px
     .swiper-wrapper
-
       // Estilos del item de swiper
       .swiper-slide
         display: inline
         height: 100%
         height: 72vh
         position: relative
+        @include media.screen-md
+          height: 70vw
 
         // Imagen del swiper-slide
         .swiper-slide-image
@@ -81,6 +94,14 @@
             color: #FFFFFFCC
             margin: 3rem 0px
 
+          @include media.screen-md
+            .swiper-slide-title, .swiper-slide-text
+              width: 90%
+            .swiper-slide-title
+              font-size: 4.2rem
+            .swiper-slide-text
+              font-size: 1.6rem
+
         // Animacion hover not-hover del contenido
         &:not(:hover)
           .swiper-slide-title, .swiper-slide-text, .swiper-slide-button
@@ -101,6 +122,12 @@
       width: 3vh
       background-color: colors.$light
       margin: 0 10px
+    @include media.screen-md
+      bottom: -4vh
+      .swiper-pagination-bullet
+        height: 2vh
+        width: 2vh
+        margin: 5px
 
 // Estilos de los botones de accion prev/next del swiper
 .swiper-action-basic.swiper-next, .swiper-action-basic.swiper-prev
@@ -120,6 +147,10 @@
   user-select: none
   img
     height: 50%
+
+  @include media.screen-md
+    height: 10vw
+    width: 10vw
 .swiper-action-basic.swiper-prev
   left: 2%
   img
@@ -171,6 +202,16 @@
         .swiper-slide-text
           font-size: 1.8rem
           font-weight: 300
+      @include media.screen-md
+        height: 55vw
+        .swiper-slide-content
+          padding: 3vw 3vw
+          width: calc(100% - 6vw)
+          height: calc(100% - 6vw)
+          .swiper-slide-title
+            font-size: 3.4rem
+          .swiper-slide-text
+            font-size: 1.6rem
 
       &:hover
         .swiper-slide-image
@@ -195,7 +236,7 @@
         .swiper-slide-content
           margin: 2rem 0
           .swiper-slide-title
-            font-size: 2.4rem 
+            font-size: 2.4rem
             margin-bottom: 5px
           .swiper-slide-text
             display: flex
@@ -208,6 +249,17 @@
               width: 5rem
               margin: 0 2rem
               background-color: #FFFFFF80
+        @include media.screen-md
+          .swiper-slide-image
+            width: 100%
+            height: 35vw
+          .swiper-slide-content
+            .swiper-slide-title
+              font-size: 2.2rem
+            .swiper-slide-text
+              font-size: 1.6rem
+              span
+                width: 2rem
         &:hover
           .swiper-slide-image
             img
@@ -229,6 +281,13 @@
         height: 100%
         object-fit: cover
         transition: all .2s
+      @include media.screen-lg
+        width: 31%
+        height: 16vw
+        margin: 1rem 1%
+      @include media.screen-md
+        width: 48%
+        height: 24.5vw
       &:hover
         .explore-image
           transform: scale(1.1)
