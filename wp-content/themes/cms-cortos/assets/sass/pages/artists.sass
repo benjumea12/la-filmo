@@ -2,6 +2,7 @@
 @use '../utils/fonts'
 @use '../utils/media'
 
+// Images de fondo de la pagina artistas
 .image-page-artists
   position: fixed
   height: 100%
@@ -11,10 +12,13 @@
   top: 0
   left: 0
   
+// Contenido de la pagina artistas
 .main-page-artists
   margin-bottom: 15vh
   position: relative
   z-index: 1
+
+  // Header de la pagina
   h1.title
     width: 100%
     text-align: center
@@ -46,10 +50,12 @@
     margin-top: 0
 
 
-
+  // contendor del listado de artistas
   .container
     display: flex
     justify-content: center
+
+    // Listado de artistas
     .grid-container
       display: grid
       grid-template-columns: repeat(5, 1fr)
@@ -62,6 +68,8 @@
         grid-template-columns: repeat(3, 1fr)
       @include media.screen-sm
         grid-template-columns: repeat(2, 1fr)
+
+      // Item de artistas
       .card
         display: flex
         flex-direction: column
@@ -94,14 +102,11 @@
         &:hover
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
           transform: scale(1.1)
-      .artist
-        width: 100%
-        height: auto
-      img.artist
-          width: 50%
-          border-radius: 20px
+        .artist.img
+            width: 50%
+            border-radius: 20px
 
-
+  // Menú de seleccion de artistas
   nav.art-types
     display: flex
     justify-content: center
