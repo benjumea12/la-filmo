@@ -1,7 +1,7 @@
 <?php
 // Get authors
 $args_authors = array(
-  'post_type' => 'artist',
+  'post_type' => 'artista',
   'post_status' => 'publish',
   'posts_per_page' => -1,
 );
@@ -52,7 +52,7 @@ $the_query_authors = new WP_Query($args_authors);
           while ($the_query_authors->have_posts()) :
             $the_query_authors->the_post();
         ?>
-            <a class="card" href="#">
+            <a class="card" href="<?php echo get_permalink(); ?>">
               <img class="artist" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" />
               <h2><?php echo get_the_title(); ?></h2>
               <p>Animadores</p>

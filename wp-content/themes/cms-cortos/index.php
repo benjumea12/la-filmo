@@ -117,7 +117,7 @@
       <div class="section-home-content swiper swiper-popular">
         <div class="swiper-wrapper">
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-popular">
             <div class="swiper-slide-image">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
             </div>
@@ -128,7 +128,7 @@
           </a>
           <!-- End swiper slide -->
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-popular">
             <div class="swiper-slide-image">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
             </div>
@@ -139,7 +139,7 @@
           </a>
           <!-- End swiper slide -->
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-popular">
             <div class="swiper-slide-image">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-3.png" alt="Imagen de corto 'Nombre del corto'">
             </div>

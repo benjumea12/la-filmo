@@ -12,7 +12,7 @@ class Project_Model_Artist
   function __construct($template_parser)
   {
     $this->template_parser = $template_parser;
-    $this->post_type_name = 'artist';
+    $this->post_type_name = 'artista';
     $this->post_type_singular = __('Artista', 'enigmind');
     $this->post_type_plural = __('Artistas', 'enigmind');
     $this->menu_icon = 'dashicons-admin-users';

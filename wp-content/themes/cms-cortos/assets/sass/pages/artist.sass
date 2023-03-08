@@ -1,0 +1,105 @@
+@use '../utils/colors'
+@use '../utils/fonts'
+@use '../utils/media'
+  
+.main-artist
+  padding-right: 10%
+  padding-left: 10%
+  .artist-header
+    background-color: #FFFFFF08
+    padding: 10vh 0
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 8%
+    border-radius: 20px
+    position: relative
+
+    @include media.screen-md
+      flex-direction: column
+      padding: 8vh 0
+
+    .artist-pay
+      position: absolute
+      top: 1em 
+      right: 1em
+      color: colors.$light
+      background-color: #2B5DBE
+      font-size: 1.8rem
+      text-decoration: none
+      border-radius: 30px
+      display: flex
+      align-items: center
+      padding: .8rem 3rem
+      font-weight: 600
+      img
+        height: 3rem
+
+    .artist-header-image
+      width: 25%
+      @include media.screen-md
+        width: 50%
+        margin-bottom: 3rem
+      img
+        width: 100%
+    .artist-header-content
+      .artist-header-title
+        font-size: 6rem
+        width: 14ch
+        @include media.screen-md
+          font-size: 4rem
+          text-align: center
+      .artist-header-subtitle
+        color:#FFDC60
+        font-size: 3.5rem
+        font-weight: 500
+        margin-bottom: 1rem
+        @include media.screen-md
+          font-size: 2.3rem
+          text-align: center
+
+  .artist-detail
+    display: flex
+    gap: 5% 
+
+    @include media.screen-md
+      flex-direction: column
+
+    .section-title
+      font-size: 3.5rem
+      font-weight: 500
+      margin-bottom: 3rem
+      margin-top: 6rem
+
+    .artist-content
+      width: 35%
+      p
+        font-weight: 300
+        font-size: 1.6rem
+        line-height: 160%
+        letter-spacing: .2rem
+      .redes
+        display: flex
+        align-items: center
+        a
+          margin-right: 2rem
+      @include media.screen-md
+        width: 100%
+
+    .artist-cortos
+      width: 60%
+      .list-cortos
+        display: grid
+        gap: 4%
+        display: flex
+        flex-wrap: wrap
+        .card-popular
+          width: 48%
+          .swiper-slide-image
+            width: 100%
+            height: 13vw
+      @include media.screen-md
+        width: 100%
+        .swiper-slide-image
+          width: 100%
+          height: 20vw !important
