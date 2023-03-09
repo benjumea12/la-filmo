@@ -1,3 +1,9 @@
+<?php
+// Consultar los tipos de artistas
+$artist_types = get_terms("artist_type");
+?>
+
+
 <nav id="nav-page">
   <div class="nav-contain">
     <a href="<?php echo get_site_url(); ?>" class="nav-logo">
@@ -35,10 +41,19 @@
         <span></span>
         <div class="dropdown-contain">
           <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Directores</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Ilustradores</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Diseñadores</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/artistas">Desarrolladores</a></li>
+            <?php
+            if ($artist_types) :
+              foreach ($artist_types as $artist_type) :
+            ?>
+                <li class="dropdown-item">
+                  <a href="<?php echo get_site_url(); ?>/artistas/?tipo_artista=<?php echo $artist_type->slug; ?>">
+                    <?php echo $artist_type->description; ?>
+                  </a>
+                </li>
+            <?php
+              endforeach;
+            endif;
+            ?>
         </div>
       </li>
       <li class="link-item">
@@ -49,7 +64,6 @@
         <a href="<?php echo get_site_url(); ?>/cortometrajes">Sobre el proyecto</a>
         <span></span>
       </li>
-
     </ul>
   </div>
 </nav>

@@ -1,14 +1,49 @@
 <?php
-// Get authors
+
+// Consultar los tipos de artistas
+$terms = get_terms("artist_type");
+
+// Verificar si el filtro de tipo de artista existe
+if (isset($_GET["tipo_artista"])) :
+  $args_authors = array(
+    'post_type' => 'artista',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'artist_type',
+        'field' => 'slug',
+        'terms' => $_GET["tipo_artista"]
+      )
+    )
+  );
+else : // En caso de que no exista consulta todos
+  $args_authors = array(
+    'post_type' => 'artista',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+  );
+endif;
+
+// Consultar artistas
 $args_authors = array(
   'post_type' => 'artista',
   'post_status' => 'publish',
   'posts_per_page' => -1,
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'artist_type',
+      'field' => 'slug',
+      'terms' => "animador-a"
+    )
+  )
 );
 
 $the_query_authors = new WP_Query($args_authors);
 ?>
 
+
+<!-- Codigo html -->
 <!doctype html>
 <html lang="en">
 
@@ -35,10 +70,20 @@ $the_query_authors = new WP_Query($args_authors);
 
     <nav class="art-types">
       <ul class="menu-artistas">
-        <li><a href="?tipo=todos" <?php if (!isset($_GET['tipo']) || $_GET['tipo'] == 'todos') echo 'class="selected"'; ?>>TODOS</a></li>
-        <li><a href="?tipo=ANIMADORES" <?php if (isset($_GET['tipo']) && $_GET['tipo'] == 'ANIMADORES') echo 'class="selected"'; ?>>ANIMADORES</a></li>
-        <li><a href="?tipo=DISEÑADORES" <?php if (isset($_GET['tipo']) && $_GET['tipo'] == 'DISEÑADORES') echo 'class="selected"'; ?>>DISEÑADORES</a></li>
-        <li><a href="?tipo=DESARROLLADORES" <?php if (isset($_GET['tipo']) && $_GET['tipo'] == 'DESARROLLADORES') echo 'class="selected"'; ?>>DESARROLLADORES</a></li>
+        <li><a href="<?php echo get_site_url(); ?>/artistas" class="<?php echo !isset($_GET["tipo_artista"]) ? "selected" : ""; ?>">TODOS</a></li>
+        <?php
+        if ($terms) :
+          foreach ($terms as $term) :
+        ?>
+            <li>
+              <a href="?tipo_artista=<?php echo $term->slug; ?>" class="<?php echo isset($_GET["tipo_artista"]) && $_GET["tipo_artista"] === $term->slug ? "selected" : "" ?>">
+                <?php echo $term->description; ?>
+              </a>
+            </li>
+        <?php
+          endforeach;
+        endif;
+        ?>
       </ul>
     </nav>
 
@@ -51,11 +96,12 @@ $the_query_authors = new WP_Query($args_authors);
         if ($the_query_authors->have_posts()) :
           while ($the_query_authors->have_posts()) :
             $the_query_authors->the_post();
+            $post_terms = get_the_terms(get_the_ID(), "artist_type");
         ?>
             <a class="card" href="<?php echo get_permalink(); ?>">
               <img class="artist" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" />
               <h2><?php echo get_the_title(); ?></h2>
-              <p>Animadores</p>
+              <p><?php echo $post_terms[0]->name; ?></p>
             </a>
         <?php
           endwhile;

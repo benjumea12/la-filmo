@@ -132,19 +132,25 @@
       @include media.screen-md
         flex-direction: column
         text-align: center
+        font-size: 3rem
       li
         margin: 0 10px
         margin-right: 4vw
         @include media.screen-md
           margin-right: 0
-          margin-bottom: 5px
+          margin-bottom: 2rem
         a
           color: #FFFFFF80
           padding: 5px 0
+          transition: all .2s
+          text-transform: uppercase
           @include media.screen-md
             padding: 2px 0
           &:focus
             border-bottom: 1px solid black
+          &:hover
+            color: colors.$light
+            border-bottom: 1px solid white
           &.selected
             color: colors.$light
             border-bottom: 1px solid white

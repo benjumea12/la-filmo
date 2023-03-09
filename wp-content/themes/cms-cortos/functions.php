@@ -8,4 +8,4 @@ require get_template_directory() . '/includes/manage_posts_column.php';
 
 // Prefix models
 $prefix = 'shortfilm_';
-$prefix_authors = 'author_';
+$prefix_artist = 'artist_';

@@ -1,3 +1,16 @@
+<?php
+the_post();
+$post_terms = get_the_terms(get_the_ID(), "artist_type");
+
+$instagram = get_post_meta(get_the_ID(), "artist_instagram", true);
+$tiktok = get_post_meta(get_the_ID(), $prefix_artist . "tiktok", true);
+$youtube = get_post_meta(get_the_ID(), $prefix_artist . "youtube", true);
+$twitter = get_post_meta(get_the_ID(), $prefix_artist . "twitter", true);
+$facebook = get_post_meta(get_the_ID(), $prefix_artist . "facebook", true);
+$paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,14 +28,14 @@
   <!-- Page content -->
   <main class="main-artist">
     <section class="artist-header">
-      <a href="#" class="artist-pay">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/paypal.svg" alt=""> </a>
+      <a href="<?php echo $paypal; ?>" class="artist-pay">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/paypal.svg" alt=""> </a>
 
       <div class="artist-header-image">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="">
+        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Avatar de <?php echo get_the_title(); ?>">
       </div>
       <div class="artist-header-content">
-        <h2 class="artist-header-subtitle">Animador/a</h2>
-        <h1 class="artist-header-title">Camilo Gonzales</h1>
+        <h2 class="artist-header-subtitle"><?php echo $post_terms[0]->name; ?></h2>
+        <h1 class="artist-header-title"><?php echo get_the_title(); ?></h1>
       </div>
     </section>
 
@@ -30,21 +43,24 @@
       <div class="artist-content">
         <h3 class="section-title">Sobre mi</h3>
 
-        <p>Soy el creador de "Higiene del sueño", un corto animado que explora la importancia de tener una buena rutina de sueño para nuestra salud y bienestar. Desde joven, siempre he estado interesado en el arte de la animación y en la capacidad de esta forma de arte para transmitir mensajes importantes de una manera accesible y entretenida.
-          <br>
-          <br>
-          Con "Higiene del sueño", quería crear algo que fuera a la vez divertido y educativo, y que ayudara a las personas a entender la importancia de la higiene del sueño.
-        </p>
+        <p><?php echo nl2br(get_the_content()); ?></p>
+
         <h4 class="section-title">Redes sociales</h4>
         <div class="redes">
-          <a href="https://www.instagram.com/lafilmomaldita/" target="_blank">
+          <a href="<?php echo $instagram; ?>" target="_blank">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/instagram.svg" alt="Icono de Intagram">
           </a>
-          <a href="https://www.youtube.com/channel/UCvt0OljLuvQW017ppgmSVog" target="_blank">
+          <a href="<?php echo $youtube; ?>" target="_blank">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/youtube.svg" alt="Icono de Youtube">
           </a>
-          <a href="https://twitter.com/LaFilmoMaldita?s=20" target="_blank">
+          <a href="<?php echo $twitter; ?>" target="_blank">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/twitter.svg" alt="Icono de Twitter">
+          </a>
+          <a href="<?php echo $tiktok; ?>" target="_blank">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/tiktok.svg" alt="Icono de TikTok">
+          </a>
+          <a href="<?php echo $facebook; ?>" target="_blank">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/facebook.svg" alt="Icono de Facebook">
           </a>
         </div>
       </div>

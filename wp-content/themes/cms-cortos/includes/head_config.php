@@ -12,5 +12,6 @@ function add_meta_tags()
 
     <!-- App styles -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css">
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" type="image/x-icon">
 <?php
 }
