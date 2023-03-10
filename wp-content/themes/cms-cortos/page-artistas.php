@@ -4,7 +4,7 @@
 $terms = get_terms("artist_type");
 
 // Verificar si el filtro de tipo de artista existe
-if (isset($_GET["tipo_artista"])) :
+/*if (isset($_GET["tipo_artista"])) :
   $args_authors = array(
     'post_type' => 'artista',
     'post_status' => 'publish',
@@ -17,13 +17,13 @@ if (isset($_GET["tipo_artista"])) :
       )
     )
   );
-else : // En caso de que no exista consulta todos
+else :*/ // En caso de que no exista consulta todos
   $args_authors = array(
     'post_type' => 'artista',
     'post_status' => 'publish',
     'posts_per_page' => -1,
   );
-endif;
+//endif;
 
 // Consultar artistas
 $args_authors = array(

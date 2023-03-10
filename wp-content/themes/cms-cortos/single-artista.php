@@ -79,7 +79,7 @@ $paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
           </a>
           <a href="#" class="card-popular">
             <div class="swiper-slide-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
             </div>
             <div class="swiper-slide-content">
               <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
