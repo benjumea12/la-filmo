@@ -21,7 +21,7 @@ $artist_types = get_terms("artist_type");
         <span></span>
       </li>
       <li class="link-item dropdown">
-        <a href="<?php echo get_site_url(); ?>/cortometrajes">Colecciones</a>
+        <a href="<?php echo get_site_url(); ?>/colecciones">Colecciones</a>
         <i class="arrow down"></i>
         <span></span>
         <div class="dropdown-contain">

@@ -3,9 +3,11 @@ $(function () {
     if (!$(this).hasClass("close-icon")) {
       $(this).addClass("close-icon")
       $("#nav-menu").addClass("open-menu")
+      $("body").css("overflow", "hidden");
     } else {
       $(this).removeClass("close-icon")
       $("#nav-menu").removeClass("open-menu")
+      $("body").css("overflow", "scroll");
     }
   })
 })

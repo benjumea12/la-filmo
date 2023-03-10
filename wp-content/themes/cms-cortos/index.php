@@ -62,7 +62,7 @@
       <div class="section-home-content swiper swiper-collections">
         <div class="swiper-wrapper">
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-collection">
             <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/collection-4.png" alt="Imagen de corto 'Nombre del corto'">
             <div class="swiper-slide-content">
               <h4 class="swiper-slide-title">TOP</h4>
@@ -71,7 +71,7 @@
           </a>
           <!-- End swiper slide -->
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-collection">
             <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/collection-3.png" alt="Imagen de corto 'Nombre del corto'">
             <div class="swiper-slide-content">
               <h4 class="swiper-slide-title">+18</h4>
@@ -80,7 +80,7 @@
           </a>
           <!-- End swiper slide -->
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-collection">
             <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/collection-1.png" alt="Imagen de corto 'Nombre del corto'">
             <div class="swiper-slide-content">
               <h4 class="swiper-slide-title">Stop Motion</h4>
@@ -89,7 +89,7 @@
           </a>
           <!-- End swiper slide -->
           <!-- Swiper slide -->
-          <a href="#" class="swiper-slide">
+          <a href="#" class="swiper-slide card-collection">
             <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/collection-2.png" alt="Imagen de corto 'Nombre del corto'">
             <div class="swiper-slide-content">
               <h4 class="swiper-slide-title">A MANO ALZADA</h4>
