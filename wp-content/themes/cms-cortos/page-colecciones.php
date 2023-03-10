@@ -13,9 +13,8 @@
   <?php get_header(); ?>
 
   <!-- Page content -->
-  <main class="main-page-catagories">
+  <main class="main-page-collections">
     <h1 class="title">Ver cortos por categoria</h1>
-
 
     <div class="collections-list">
       <!-- Swiper slide -->
