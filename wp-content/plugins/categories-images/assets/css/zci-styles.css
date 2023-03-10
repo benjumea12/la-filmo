@@ -1,0 +1,6 @@
+/* Thumbnail style */
+th.column-thumb {width:60px;}
+.form-field img.zci-taxonomy-image {border:1px solid #eee;max-width:300px;max-height:300px;}
+.inline-edit-row fieldset .thumb label span.title {width:48px;height:48px;border:1px solid #eee;display:inline-block;}
+.column-thumb span {width:48px;height:48px;border:1px solid #eee;display:inline-block;}
+.inline-edit-row fieldset .thumb img,.column-thumb img {width:48px;height:48px;}

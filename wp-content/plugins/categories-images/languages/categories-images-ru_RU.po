@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Categories Images\n"
+"POT-Creation-Date: 2013-06-14 04:42+0200\n"
+"PO-Revision-Date: 2015-09-29 02:45+0200\n"
+"Last-Translator: Munamamad El Zahlan <zahlan@theplanet.com.eg>\n"
+"Language-Team: Muhammad Said El Zahlan <elzahlan@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru_RU\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: categories-images.php:59 categories-images.php:80
+#: categories-images.php:207
+msgid "Image"
+msgstr "Изображение"
+
+#: categories-images.php:62 categories-images.php:82
+#: categories-images.php:189
+msgid "Upload/Add image"
+msgstr "Загрузить/добавить изображение"
+
+#: categories-images.php:83 categories-images.php:190
+msgid "Remove image"
+msgstr "Убрать изображение"
+
+#: categories-images.php:225
+msgid "Thumbnail"
+msgstr "«Ноготок»"
+
+#: categories-images.php:245 categories-images.php:252
+msgid "Categories Images settings"
+msgstr "Настройки  плагина"
+
+#: categories-images.php:245 categories-images.php:283
+msgid "Categories Images"
+msgstr "Изображения таксономий"
+
+#: categories-images.php:253
+msgid "Excluded Taxonomies"
+msgstr "Исключённые таксономии"
+
+#: categories-images.php:258
+msgid ""
+"Please select the taxonomies you want to exclude it from Categories Images "
+"plugin"
+msgstr "Выберите таксономии которые не должны обслуживаться плагином"
+
+#: categories-images.php:278
+msgid "You do not have sufficient permissions to access this page."
+msgstr "У вас не хватает прав для доступа к данной странице."

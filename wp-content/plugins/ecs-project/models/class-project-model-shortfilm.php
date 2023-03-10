@@ -19,9 +19,9 @@ class Project_Model_Shortfilm
     $this->post_type_singular = __('Cortometraje', 'enigmind');
     $this->post_type_plural = __('Cortometrajes', 'enigmind');
 
-    $this->request_type_taxonomy_category = 'category';
-    $this->request_type_taxonomy_category_singular = __('Categoría', 'enigmind');
-    $this->request_type_taxonomy_category_plural = __('Categorías', 'enigmind');
+    $this->request_type_taxonomy_category = 'corto_collection';
+    $this->request_type_taxonomy_category_singular = __('Colección', 'enigmind');
+    $this->request_type_taxonomy_category_plural = __('Colecciónes', 'enigmind');
 
     $this->menu_icon = 'dashicons-format-video';
 

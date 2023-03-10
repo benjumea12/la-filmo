@@ -59,9 +59,9 @@ class Project_Model_Artist
 
     $args = array(
       'labels' => $labels,
-      'description'         => __('Productos', 'enigmind'),
-      'supports'            => array('title', 'editor', 'thumbnail'),
-      'hierarchical'        => false,
+      'description'         => __('Artistas', 'enigmind'),
+      'supports'            => array('title', 'editor', 'thumbnail', 'page-atributes'),
+      'hierarchical'        => true,
       'public'              => true,
       'show_ui'             => true,
       'show_in_menu'        => true,
