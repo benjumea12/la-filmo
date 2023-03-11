@@ -1,0 +1,240 @@
+@use '../utils/colors'
+@use '../utils/fonts'
+@use '../utils/media'
+
+body 
+	&.corto-container 
+		background-color: black 
+		background-image: url("<?php echo get_template_directory_uri() 
+		background-position: center top 
+		background-repeat: no-repeat 
+		background-size: 100% auto 
+		color: white 
+		margin: 0 
+		padding: 0 
+		font-family: 'Poppins', sans-serif 
+		overflow-x: hidden 
+		margin-top: 0 
+		margin-left: 9% 
+		margin-right: 5% 
+div 
+	&.corto-container-title 
+		display: flex 
+		width: 50% 
+		font-family: 'THICCCBOI' 
+		font-style: normal 
+		font-weight: 600 
+		font-size: 22px 
+		text-transform: capitalize 
+		color: #FFFFFF 
+		margin-top: 28% 
+		margin-bottom: 10px 
+		margin-bottom: 3% 
+		line-height: 0 
+.corto-container-title h1:nth-of-type(2),
+  .corto-container-title svg 
+	margin-left: 30px 
+.name 
+	font-family: 'THICCCBOI' 
+	font-style: normal 
+	font-weight: 700 
+	font-size: 60px 
+	line-height: 69px 
+	color: #FFFFFF 
+.btn-1 
+	width: 236px 
+	height: 41.36px 
+	background: rgba(255, 255, 255, 0.1) 
+	border-radius: 80.2887px 
+	font-family: 'THICCCBOI' 
+	font-style: normal 
+	font-weight: 600 
+	font-size: 24px 
+	line-height: 28px 
+	text-transform: capitalize 
+	color: #FFFFFF 
+	display: flex 
+	justify-content: center 
+	align-items: center 
+.corto-title 
+	font-family: 'Poppins' 
+	font-style: normal 
+	font-weight: 400 
+	font-size: 20px 
+	line-height: 170% 
+	color: rgba(255, 255, 255, 0.8) 
+	width: 50% 
+	margin-top: 1% 
+	margin-bottom: 2% 
+.corto-container-title2 
+	display: flex 
+	justify-content: space-between 
+.btn-2 
+	width: 277px 
+	height: 63px 
+	background: #FF0000 
+	border-radius: 99px 
+	font-family: 'THICCCBOI' 
+	font-style: normal 
+	font-weight: 600 
+	line-height: 28px 
+	text-transform: capitalize 
+	color: #FFFFFF 
+	display: flex 
+	justify-content: center 
+	align-items: center 
+	font-size: 34px 
+	&:hover 
+		background: #FF7575 
+		cursor: pointer 
+.btn-3 
+	width: 352px 
+	height: 63px 
+	background: rgba(255, 255, 255, 0.1) 
+	border-radius: 99px 
+	font-family: 'THICCCBOI' 
+	font-style: normal 
+	font-weight: 600 
+	line-height: 28px 
+	text-transform: capitalize 
+	color: #FFFFFF 
+	display: flex 
+	justify-content: center 
+	align-items: center 
+	font-size: 34px 
+.btn-1:hover,
+  .btn-3:hover 
+	background: rgba(255, 255, 255, 0.2) 
+	cursor: pointer 
+.corto-container-buttons 
+	display: flex 
+	justify-content: space-around 
+	width: 55% 
+	margin-left: -2% 
+.youtube-corto 
+	display: flex 
+	justify-content: center 
+iframe 
+	width: 1142px 
+	height: 642px 
+	border-radius: 15px 
+.alert 
+	display: flex 
+	flex-direction: row 
+	align-items: center 
+	height: 99px 
+	border-radius: 10px 
+	padding: 7px 
+	margin-bottom: 3% 
+	border: 1px solid 
+	& > *:first-child 
+		flex-basis: 10% 
+	& > *:last-child 
+		flex-basis: 90% 
+	img 
+		width: 100px 
+		height: 1000px 
+		margin-right: 20px 
+		object-fit: contain 
+		max-width: 100% 
+		max-height: 100% 
+	.tittle-alert 
+		width: 183px 
+		height: 26px 
+		font-family: 'THICCCBOI' 
+		font-style: normal 
+		font-weight: 600 
+		font-size: 2.3rem 
+		line-height: 26px 
+	p 
+		font-family: 'Poppins', sans-serif 
+		font-weight: 400 
+		font-size: 1.6rem 
+		line-height: 24px 
+		margin: 0 
+		margin-top: 5px 
+.underline 
+	color: #FFFFFF 
+	border-bottom: 1px solid white 
+.underline2 
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05) 
+.red 
+	background: rgba(255, 0, 0, 0.1) 
+	color: #FF1D1D 
+.yellow 
+	background: rgba(255, 206, 81, 0.1) 
+	color: #EAA410 
+.purpple 
+	background: rgba(159, 19, 229, 0.1) 
+	color: #9F13E5 
+.alert-text 
+	width: 395px 
+	height: 50px 
+	font-size: 1.9rem 
+	color: #FFFFFF 
+	width: 100% 
+.corto-container-columns 
+	display: flex 
+	justify-content: space-around 
+	margin-top: 3% 
+	margin-bottom: 5% 
+	& > div 
+		flex-basis: 50% 
+		&:first-child 
+			flex-basis: 65% 
+		&:last-child 
+			padding-left: 20px 
+			flex-basis: 35% 
+			background: rgba(255, 255, 255, 0.1) 
+.circle-artist 
+	background-image: url("<?php echo get_template_directory_uri() 
+	background-size: cover 
+	border-radius: 50% 
+	width: 100px 
+	height: 100px 
+.description-title 
+	width: 299px 
+	height: 37px 
+	font-family: 'THICCCBOI' 
+	font-style: normal 
+	font-weight: 600 
+	font-size: 32px 
+	line-height: 37px 
+	color: #FFFFFF 
+	margin-bottom: 3% 
+.description-text 
+	font-family: 'Poppins' 
+	font-style: normal 
+	font-weight: 400 
+	font-size: 19px 
+	line-height: 170% 
+	color: #FFFFFF 
+	margin-bottom: 3% 
+.card-corto 
+	width: 438px 
+	height: 825px 
+	background: rgba(255, 255, 255, 0.1) 
+	border-radius: 15px 
+	font-family: 'THICCCBOI' 
+	font-style: normal 
+	font-size: 20px 
+	line-height: 161.5% 
+	color: #FFFFFF 
+	padding: 14px 
+	margin-left: 7% 
+	& > * 
+		margin-bottom: 30px 
+.img-artist-name 
+	display: flex 
+	align-items: center 
+	text-align: center 
+	margin: 10px 
+	&:hover 
+		color: grey 
+		cursor: pointer 
+	img 
+		margin-right: 10px 
+.corto-container-colentions 
+	display: flex 
+	justify-content: space-between 
+	width: 90% 
