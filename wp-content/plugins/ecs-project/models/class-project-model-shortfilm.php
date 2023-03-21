@@ -11,6 +11,9 @@ class Project_Model_Shortfilm
   private $request_type_taxonomy_category;
   private $request_type_taxonomy_category_singular;
   private $request_type_taxonomy_category_plural;
+  private $request_type_taxonomy_prize;
+  private $request_type_taxonomy_prize_singular;
+  private $request_type_taxonomy_prize_plural;
 
   function __construct($template_parser)
   {
@@ -22,6 +25,10 @@ class Project_Model_Shortfilm
     $this->request_type_taxonomy_category = 'corto_collection';
     $this->request_type_taxonomy_category_singular = __('Colección', 'enigmind');
     $this->request_type_taxonomy_category_plural = __('Colecciónes', 'enigmind');
+
+    $this->request_type_taxonomy_prize = 'corto_prize';
+    $this->request_type_taxonomy_prize_singular = __('Premio', 'enigmind');
+    $this->request_type_taxonomy_prize_plural = __('Premios', 'enigmind');
 
     $this->menu_icon = 'dashicons-format-video';
 
@@ -114,10 +121,44 @@ class Project_Model_Shortfilm
     register_taxonomy($this->request_type_taxonomy_category, array($this->post_type_name), $args);
   }
 
+  function prize_taxonomy()
+  {
+    $labels = array(
+      'name'              => $this->request_type_taxonomy_prize_singular,
+      'singular_name'     => $this->request_type_taxonomy_prize_singular,
+      'search_items'      => sprintf(__('Buscar %s', 'enigmind'), $this->request_type_taxonomy_prize_plural),
+      'all_items'         => sprintf(__('Todos los %s', 'enigmind'), $this->request_type_taxonomy_prize_plural),
+      'parent_item'       => __('Parent Genre', 'textdomain'),
+      'parent_item_colon' => __('Parent Genre:', 'textdomain'),
+      'edit_item'         => sprintf(__('Editar %s', 'enigmind'), $this->request_type_taxonomy_prize_singular),
+      'update_item'       => sprintf(__('Actualizar %s', 'enigmind'), $this->request_type_taxonomy_prize_singular),
+      'add_new_item'      => sprintf(__('Agregar nuevo %s', 'enigmind'), $this->request_type_taxonomy_prize_singular),
+      'new_item_name'     => sprintf(__('Nuevo %s', 'enigmind'), $this->request_type_taxonomy_prize_singular),
+      'menu_name'         => $this->request_type_taxonomy_prize_plural,
+    );
+
+    $args = array(
+      'hierarchical'      => true,
+      'labels'            => $labels,
+      'show_ui'           => true,
+      'show_admin_column' => true,
+      'show_in_menu'          => true,
+      'show_in_nav_menus'     => true,
+      'query_var'         => true,
+      'rewrite'       => array(
+        'slug' => $this->request_type_taxonomy_prize
+      ),
+      'hierarchical'  => true
+    );
+
+    register_taxonomy($this->request_type_taxonomy_prize, array($this->post_type_name), $args);
+  }
+
 
   function create_taxonomies()
   {
     $this->category_taxonomy();
+    $this->prize_taxonomy();
   }
 
   function getAuthors()
