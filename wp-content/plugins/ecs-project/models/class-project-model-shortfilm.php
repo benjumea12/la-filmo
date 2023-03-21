@@ -125,7 +125,7 @@ class Project_Model_Shortfilm
     $arrayOptions = array();
 
     $args = array(
-      'post_type' => 'autor',
+      'post_type' => 'artista',
       'post_status' => 'publish',
       'posts_per_page' => -1,
     );
@@ -162,8 +162,24 @@ class Project_Model_Shortfilm
       'type'    => 'textarea_code'
     ));
 
+    $cmb->add_field( array(
+      'name'             => 'Edición',
+      'desc'             => '',
+      'id'               => $prefix . 'edition',
+      'type'             => 'select',
+      'show_option_none' => true,
+      'default'          => 'custom',
+      'options'          => array(
+          '2019' => __( '2019', 'cmb2' ),
+          '2020' => __( '2020', 'cmb2' ),
+          '2021' => __( '2021', 'cmb2' ),
+          '2022' => __( '2022', 'cmb2' ),
+          '2023' => __( '2023', 'cmb2' ),
+      ),
+  ) );
+
     $cmb->add_field(array(
-      'name'             => 'Autor del corto',
+      'name'             => 'Ilustrador por',
       'desc'             => '',
       'id'               => $prefix . 'author',
       'type'             => 'select',
@@ -171,6 +187,31 @@ class Project_Model_Shortfilm
       'default'          => 'custom',
       'options'          => $this->getAuthors(),
     ));
+
+    $group_field_id = $cmb->add_field(array(
+      'id'          => $prefix . 'created_at',
+      'type'        => 'group',
+      'description' => __('', 'cmb2'),
+      // 'repeatable'  => false, // use false if you want non-repeatable group
+      'options'     => array(
+        'group_title'       => __('Creador {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+        'add_button'        => __('Agregar otro creador', 'cmb2'),
+        'remove_button'     => __('Remove Entry', 'cmb2'),
+        'sortable'          => true,
+        // 'closed'         => true, // true to have the groups closed by default
+        // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+      ),
+    ));
+
+    $cmb->add_group_field( $group_field_id, array(
+      'name'             => 'Creador',
+      'desc'             => '',
+      'id'               => $prefix . 'author',
+      'type'             => 'select',
+      'show_option_none' => true,
+      'default'          => 'custom',
+      'options'          => $this->getAuthors(),
+  ) );
   }
 
   function add_meta_boxes()

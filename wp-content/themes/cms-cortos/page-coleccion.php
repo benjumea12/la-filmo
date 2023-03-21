@@ -29,7 +29,7 @@
     </header>
 
     <div class="list-cortos">
-      <a href="<?php echo get_site_url(); ?>/coleccion" class="card-popular">
+      <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
         <div class="swiper-slide-image">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
         </div>
@@ -38,7 +38,7 @@
           <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
         </div>
       </a>
-      <a href="<?php echo get_site_url(); ?>/coleccion" class="card-popular">
+      <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
         <div class="swiper-slide-image">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
         </div>
@@ -47,7 +47,7 @@
           <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
         </div>
       </a>
-      <a href="<?php echo get_site_url(); ?>/coleccion" class="card-popular">
+      <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
         <div class="swiper-slide-image">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-3.png" alt="Imagen de corto 'Nombre del corto'">
         </div>

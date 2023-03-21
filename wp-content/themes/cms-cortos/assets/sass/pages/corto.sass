@@ -1,0 +1,222 @@
+@use '../utils/colors'
+@use '../utils/fonts'
+@use '../utils/media'
+
+html
+  scroll-behavior: smooth
+
+.image-page-corto
+  width: 100%
+  position: relative
+  img
+    width: 100%
+    max-height: 90vh
+    object-fit: cover
+  .overlay
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: 20%
+    background: rgb(2,0,36)
+    background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(10,9,9,1) 67%)
+
+.main-page-corto
+  padding: 0vh 8% 0 8%
+
+  // Corto Top
+  .corto-top
+    position: relative
+    .corto-container-title
+      display: flex
+      align-items: center
+      font-style: normal
+      font-weight: 600
+      font-size: 2.2rem
+      text-transform: capitalize
+      color: colors.$light
+      margin-bottom: 3rem
+      & h1:nth-of-type(2)
+        margin-left: 2rem
+      svg
+        width: 10rem
+        margin-left: 2rem
+      @include media.screen-md
+        font-size: 1rem
+        margin-bottom: 2rem
+        & h1:nth-of-type(2)
+          margin-left: 1rem
+        svg
+          width: 5rem
+          margin-left: 1rem
+    .corto-container-title2
+      display: flex
+      justify-content: space-between
+    .name
+      font-style: normal
+      font-weight: 700
+      font-size: 6rem
+      width: 60%
+      color: colors.$light
+      margin: 2rem 0
+      @include media.screen-md
+        width: 100%
+    .corto-title
+      font-style: normal
+      font-weight: 300
+      font-size: 2.2rem
+      width: 60%
+      color: colors.$light
+      margin-top: 1rem
+      @include media.screen-md
+        width: 100%
+    .btn-1
+      background: #FFFFFF1A
+      border-radius: 80.2887px
+      font-style: normal
+      font-weight: 600
+      font-size: 2rem
+      height: 5rem
+      text-transform: capitalize
+      color: colors.$light
+      display: flex
+      justify-content: center
+      align-items: center
+      padding: 0rem 2rem
+      @include media.screen-md
+        position: absolute
+        top: -3em
+        right: 0
+      img
+        margin-right: 1rem
+
+  .corto-container-buttons
+    display: flex
+    justify-content: flex-start
+    width: 60%
+    gap: 5%
+    margin: 5em 0 10em 0
+    @include media.screen-md
+      align-items: center
+      width: 100%
+      flex-direction: column
+      .btn
+        margin-bottom: 1rem
+        img
+          height: 2rem
+
+  .corto-container-columns
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    flex-wrap: wrap
+
+    .corto-content
+      width: 63%
+      @include media.screen-md
+        width: 100%
+      .description-title
+        font-weight: 600
+        font-size: 3.8rem
+        color: colors.$light
+        margin-bottom: 4rem
+      .description-text
+        font-style: normal
+        font-weight: 300
+        font-size: 2rem
+        line-height: 170%
+        color: colors.$light
+        margin-bottom: 3%
+      .alerts
+        margin-top: 5em
+        .alert
+          display: flex
+          align-items: center
+          border-radius: 10px
+          padding: 10px
+          margin-bottom: 3%
+          border: 1px solid
+          img
+            width: 120px
+            height: 120px
+            margin-right: 20px
+            object-fit: contain
+          @include media.screen-md
+            img
+              width: 80px
+              height: 80px
+            div
+              width: 60%
+          .tittle-alert
+            font-weight: 600
+            font-size: 2.3rem
+          .alert-text
+            font-weight: 300
+            font-size: 1.9rem
+            color: colors.$light
+            margin-bottom: 1rem
+        .red
+          background: rgba(255, 0, 0, 0.1)
+          color: #FF1D1D
+        .yellow
+          background: rgba(255, 206, 81, 0.1)
+          color: #EAA410
+        .purpple
+          background: rgba(159, 19, 229, 0.1)
+          color: #9F13E5
+
+    .card-corto
+      width: calc( 30% - 80px )
+      padding: 40px
+      background: #FFFFFF0D
+      border-radius: 15px
+      color: #FFFFFF
+      @include media.screen-md
+        width: 100%
+        padding: 30px
+        margin-top: 5em
+      p, span, h6
+        font-size: 2.2rem
+      span, h6
+        font-weight: 500
+      p
+        font-weight: 300
+      h6
+        margin-top: 3rem
+        margin-bottom: 1rem
+      .underline2
+        font-size: 2.8rem
+        font-weight: 600
+        padding-bottom: 1rem
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+      .corto-container-colentions
+        display: flex
+        justify-content: space-between
+        width: 90%
+        margin-top: 3rem
+      .img-artist-name
+        display: flex
+        align-items: center
+        transition: all .2s
+        color: colors.$light
+        text-decoration: none
+        margin-left: 3%
+        font-size: 1.8rem
+        font-weight: 300
+        margin-bottom: 1rem
+        transition: all .2s
+        &:hover
+          color: colors.$primary
+        img
+          width: 10%
+          margin-right: 10px
+
+  .youtube-corto
+    width: 100%
+    margin-top: 8em
+    margin-bottom: 10em
+    iframe
+      width: 100%
+      height: 80vh
+      border-radius: 15px
+      @include media.screen-md
+        height: 50vw

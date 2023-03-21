@@ -68,7 +68,7 @@ $paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
 
         <h3 class="section-title">Mis tabajos</h3>
         <div class="list-cortos">
-          <a href="#" class="card-popular">
+          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
             <div class="swiper-slide-image">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
             </div>
@@ -77,7 +77,7 @@ $paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
               <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
             </div>
           </a>
-          <a href="#" class="card-popular">
+          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
             <div class="swiper-slide-image">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
             </div>
