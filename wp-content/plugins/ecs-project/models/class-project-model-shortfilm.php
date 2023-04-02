@@ -203,7 +203,7 @@ class Project_Model_Shortfilm
       'type'    => 'textarea_code'
     ));
 
-    $cmb->add_field( array(
+    $cmb->add_field(array(
       'name'             => 'Edición',
       'desc'             => '',
       'id'               => $prefix . 'edition',
@@ -211,13 +211,20 @@ class Project_Model_Shortfilm
       'show_option_none' => true,
       'default'          => 'custom',
       'options'          => array(
-          '2019' => __( '2019', 'cmb2' ),
-          '2020' => __( '2020', 'cmb2' ),
-          '2021' => __( '2021', 'cmb2' ),
-          '2022' => __( '2022', 'cmb2' ),
-          '2023' => __( '2023', 'cmb2' ),
+        '2019' => __('2019', 'cmb2'),
+        '2020' => __('2020', 'cmb2'),
+        '2021' => __('2021', 'cmb2'),
+        '2022' => __('2022', 'cmb2'),
+        '2023' => __('2023', 'cmb2'),
       ),
-  ) );
+    ));
+
+    $cmb->add_field(array(
+      'name' => 'Aviso de contenido',
+      'desc' => 'Este corto puede contener temas que no son aptos para todo tipo de público.',
+      'id'   => $prefix . 'danger',
+      'type' => 'checkbox',
+    ));
 
     $cmb->add_field(array(
       'name'             => 'Ilustrador por',
@@ -244,7 +251,7 @@ class Project_Model_Shortfilm
       ),
     ));
 
-    $cmb->add_group_field( $group_field_id, array(
+    $cmb->add_group_field($group_field_id, array(
       'name'             => 'Creador',
       'desc'             => '',
       'id'               => $prefix . 'author',
@@ -252,7 +259,7 @@ class Project_Model_Shortfilm
       'show_option_none' => true,
       'default'          => 'custom',
       'options'          => $this->getAuthors(),
-  ) );
+    ));
   }
 
   function add_meta_boxes()

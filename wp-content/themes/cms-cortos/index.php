@@ -11,7 +11,6 @@
   <!-- Import header -->
   <?php get_header(); ?>
 
-
   <!-- Page content -->
   <main>
 
