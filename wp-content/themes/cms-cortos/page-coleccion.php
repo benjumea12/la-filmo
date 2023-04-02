@@ -1,3 +1,19 @@
+<?php
+$selected_corto_collection;
+
+$coleccion = $_GET["coleccion"];
+$corto_collection_get = get_terms("corto_collection");
+$corto_collections = get_terms("corto_collection");
+
+if ($corto_collections) :
+  foreach ($corto_collections as $corto_collection) :
+    if ($corto_collection->slug === $coleccion) {
+      $selected_corto_collection = $corto_collection;
+    }
+  endforeach;
+endif;
+?>
+
 <!-- Codigo html -->
 <!doctype html>
 <html lang="en">
@@ -15,16 +31,15 @@
   <!-- Page content -->
   <main class="main-page-collection">
     <header class="header-collection">
-      <img class="image-collection" src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/category.png" alt="">
+      <img class="image-collection" src="<?php echo z_taxonomy_image_url($selected_corto_collection->term_id); ?>" alt="">
 
       <div class="header-content">
-        <h1 class="title">Cortos de <span>Stop Motion</span></h1>
+        <h1 class="title">Cortos de <span><?php echo $selected_corto_collection->name; ?></span></h1>
 
-        <div class="illustrator">
+        <!-- <div class="illustrator">
           <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/brush.svg" alt="">
           <p>Ilustración por @dulcezavala7</p>
-
-        </div>
+        </div> -->
       </div>
     </header>
 

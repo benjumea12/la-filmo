@@ -1,6 +1,6 @@
 <?php
-// Consultar los tipos de artistas
 $artist_types = get_terms("artist_type");
+$corto_collections = get_terms("corto_collection");
 ?>
 
 
@@ -26,13 +26,19 @@ $artist_types = get_terms("artist_type");
         <span></span>
         <div class="dropdown-contain">
           <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">TOP</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">Evolución</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">Cortos + Cortos</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">+18</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">Stop Motion</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">3D</a></li>
-            <li class="dropdown-item"><a href="<?php echo get_site_url(); ?>/coleccion">Mano Alzada</a></li>
+            <?php
+            if ($corto_collections) :
+              foreach ($corto_collections as $corto_collection) :
+            ?>
+                <li class="dropdown-item">
+                  <a href="<?php echo get_site_url(); ?>/coleccion/?coleccion=<?php echo $corto_collection->slug; ?>">
+                    <?php echo $corto_collection->name; ?>
+                  </a>
+                </li>
+            <?php
+              endforeach;
+            endif;
+            ?>
           </ul>
         </div>
       </li>

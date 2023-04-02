@@ -211,11 +211,11 @@ class Project_Model_Shortfilm
       'show_option_none' => true,
       'default'          => 'custom',
       'options'          => array(
-        '2019' => __('2019', 'cmb2'),
         '2020' => __('2020', 'cmb2'),
         '2021' => __('2021', 'cmb2'),
         '2022' => __('2022', 'cmb2'),
         '2023' => __('2023', 'cmb2'),
+        '2023' => __('2024', 'cmb2'),
       ),
     ));
 

@@ -11,7 +11,7 @@
   z-index: 0
   top: 0
   left: 0
-  
+
 // Contenido de la pagina artistas
 .main-page-artists
   margin-bottom: 15vh
@@ -48,7 +48,6 @@
   p.bold
     font-weight: bold
     margin-top: 0
-
 
   // contendor del listado de artistas
   .container
@@ -102,9 +101,9 @@
         &:hover
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
           transform: scale(1.1)
-        .artist.img
-            width: 50%
-            border-radius: 20px
+        img
+          width: 50%
+          border-radius: 20px
 
   // Menú de seleccion de artistas
   nav.art-types
@@ -158,7 +157,6 @@
         color: white
         text-decoration: none
 
-
 .main-artist
   padding-right: 8%
   padding-left: 8%
@@ -181,7 +179,7 @@
 
     .artist-pay
       position: absolute
-      top: 1em 
+      top: 1em
       right: 1em
       color: colors.$light
       background-color: #2B5DBE
@@ -211,7 +209,7 @@
           font-size: 4rem
           text-align: center
       .artist-header-subtitle
-        color:#FFDC60
+        color: #FFDC60
         font-size: 3.5rem
         font-weight: 500
         margin-bottom: 1rem
@@ -221,7 +219,7 @@
 
   .artist-detail
     display: flex
-    gap: 5% 
+    gap: 5%
 
     @include media.screen-md
       flex-direction: column
