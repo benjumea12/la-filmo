@@ -1,5 +1,20 @@
 <?php
+
 $corto_collections = get_terms("corto_collection");
+
+/* Argumentos de consulta de Sliders Home */
+$args_sliders = array(
+  'post_type' => 'slider-home',
+  'post_status' => 'publish',
+  'posts_per_page' => -1,
+);
+
+/* Argumentos de consulta de Sliders Home */
+$args_cortos = array(
+  'post_type' => 'cortometraje',
+  'post_status' => 'publish',
+  'posts_per_page' => -1,
+);
 ?>
 
 
@@ -23,27 +38,29 @@ $corto_collections = get_terms("corto_collection");
     <section class="swiper-contain">
       <div class="swiper swiper-home">
         <div class="swiper-wrapper">
-          <!-- Swiper slide -->
-          <section class="swiper-slide">
-            <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/swiper-image.png" alt="Imagen de corto 'Nombre del corto'">
-            <div class="swiper-slide-content">
-              <h2 class="swiper-slide-title">Higiene del sueño</h2>
-              <p class="swiper-slide-text">"Higiene del sueño" es un corto animado divertido y educativo que explora la importancia de tener una buena rutina de sueño para nuestra salud y bienestar. Síguelo en su aventura y descubre cómo mejorar tu propia higiene del sueño. ¡No te lo pierdas!</p>
-              <a href="<?php echo get_site_url(); ?>/cortometrajes" class="btn btn-lg btn-primary swiper-slide-button" type="button">Ver ahora</a>
-            </div>
-          </section>
-          <!-- End swiper slide -->
+          <?php
+          /* Consultar y mapear los Sliders Home */
+          $the_query_sliders = new WP_Query($args_sliders);
+          $prefix_sliders = 'slider_home_';
 
-          <!-- Swiper slide -->
-          <section class="swiper-slide">
-            <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/swiper-image.png" alt="Imagen de corto 'Nombre del corto'">
-            <div class="swiper-slide-content">
-              <h2 class="swiper-slide-title">Higiene del sueño</h2>
-              <p class="swiper-slide-text">"Higiene del sueño" es un corto animado divertido y educativo que explora la importancia de tener una buena rutina de sueño para nuestra salud y bienestar. Síguelo en su aventura y descubre cómo mejorar tu propia higiene del sueño. ¡No te lo pierdas!</p>
-              <a href="<?php echo get_site_url(); ?>/cortometrajes" class="btn btn-lg btn-primary swiper-slide-button" type="button">Ver ahora</a>
-            </div>
-          </section>
-          <!-- End swiper slide -->
+          if ($the_query_sliders->have_posts()) :
+            while ($the_query_sliders->have_posts()) :
+              $the_query_sliders->the_post();
+              $action = get_post_meta(get_the_ID(), $prefix_sliders . "action", true);
+          ?>
+              <section class="swiper-slide">
+                <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/swiper-image.png" alt="Imagen de corto 'Nombre del corto'">
+                <div class="swiper-slide-content">
+                  <h2 class="swiper-slide-title"><?php echo get_the_title(); ?></h2>
+                  <p class="swiper-slide-text"><?php echo get_the_excerpt(); ?></p>
+                  <a href="<?php echo $action; ?>" class="btn btn-lg btn-primary swiper-slide-button" type="button">Ver ahora</a>
+                </div>
+              </section>
+          <?php
+            endwhile;
+          endif;
+          /* Fin Consultar y mapear los Sliders Home */
+          ?>
         </div>
         <div class="swiper-action-basic swiper-next">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de item siguiente del slide">
@@ -102,38 +119,31 @@ $corto_collections = get_terms("corto_collection");
       <div class="section-home-content swiper swiper-popular">
         <div class="swiper-wrapper">
           <!-- Swiper slide -->
-          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="swiper-slide card-popular">
-            <div class="swiper-slide-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
-            </div>
-            <div class="swiper-slide-content">
-              <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
-              <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-            </div>
-          </a>
-          <!-- End swiper slide -->
-          <!-- Swiper slide -->
-          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="swiper-slide card-popular">
-            <div class="swiper-slide-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
-            </div>
-            <div class="swiper-slide-content">
-              <h4 class="swiper-slide-title">Dios Hazme Alto de GAMP</h4>
-              <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-            </div>
-          </a>
-          <!-- End swiper slide -->
-          <!-- Swiper slide -->
-          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="swiper-slide card-popular">
-            <div class="swiper-slide-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-3.png" alt="Imagen de corto 'Nombre del corto'">
-            </div>
-            <div class="swiper-slide-content">
-              <h4 class="swiper-slide-title">¿Qué es un Heroe?</h4>
-              <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-            </div>
-          </a>
-          <!-- End swiper slide -->
+          <?php
+          /* Consultar y mapear los cortos Home */
+          $the_query_cortos = new WP_Query($args_cortos);
+
+          if ($the_query_cortos->have_posts()) :
+            while ($the_query_cortos->have_posts()) :
+              $the_query_cortos->the_post();
+              $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
+
+          ?>
+              <a href="<?php echo get_the_permalink(); ?>" class="swiper-slide card-popular">
+                <div class="swiper-slide-image">
+                  <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
+                </div>
+                <div class="swiper-slide-content">
+                  <h4 class="swiper-slide-title"><?php echo get_the_title(); ?></h4>
+                  <p class="swiper-slide-text"><?php echo $edition; ?><span class="separator"></span></p>
+                </div>
+              </a>
+          <?php
+            endwhile;
+          endif;
+          /* Fin Consultar y mapear los cortos Home */
+          ?>
+
         </div>
         <div class="swiper-action-basic swiper-next">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de item siguiente del slide">
@@ -152,58 +162,26 @@ $corto_collections = get_terms("corto_collection");
       </header>
 
       <div class="explore-stories">
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-1.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-2.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-3.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-4.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-5.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-6.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-7.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-8.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-9.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-10.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-11.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-12.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-13.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-14.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-15.png" alt="">
-        </a>
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="explore-card">
-          <img class="explore-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/explore-16.png" alt="">
-        </a>
+        <?php
+        /* Consultar y mapear los cortos Home */
+        $the_query_cortos = new WP_Query($args_cortos);
+
+        if ($the_query_cortos->have_posts()) :
+          while ($the_query_cortos->have_posts()) :
+            $the_query_cortos->the_post();
+        ?>
+            <a href="<?php echo get_the_permalink(); ?>" class="explore-card">
+              <img class="explore-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
+            </a>
+        <?php
+          endwhile;
+        endif;
+        /* Fin Consultar y mapear los cortos Home */
+        ?>
       </div>
 
       <footer class="section-basic-footer">
-        <button class="btn btn-lg btn-more">Ver más</button>
+        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="btn btn-lg btn-more">Ver más</a>
       </footer>
     </section>
     <!-- End section popular -->

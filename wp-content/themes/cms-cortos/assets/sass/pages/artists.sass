@@ -102,8 +102,10 @@
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
           transform: scale(1.1)
         img
-          width: 50%
+          width: 20vw
+          height: 20vw
           border-radius: 20px
+          object-fit: cover
 
   // Menú de seleccion de artistas
   nav.art-types
@@ -194,12 +196,16 @@
         height: 3rem
 
     .artist-header-image
-      width: 25%
+      width: 20vw
+      height: 20vw
       @include media.screen-md
-        width: 50%
+        width: 50vw
+        height: 50vw
         margin-bottom: 3rem
       img
         width: 100%
+        height: 100%
+        object-fit: cover
         border-radius: 100%
     .artist-header-content
       .artist-header-title

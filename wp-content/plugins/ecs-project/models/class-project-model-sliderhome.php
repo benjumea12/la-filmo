@@ -1,6 +1,6 @@
 <?php
 
-class Project_Model_Artist
+class Project_Model_Sliderhome
 {
 
   private $post_type_name;
@@ -8,21 +8,14 @@ class Project_Model_Artist
   private $post_type_plural;
   public $template_parser;
   private $menu_icon;
-  private $request_type_taxonomy_artist_type;
-  private $request_type_taxonomy_artist_type_singular;
-  private $request_type_taxonomy_artist_type_plural;
 
   function __construct($template_parser)
   {
     $this->template_parser = $template_parser;
-    $this->post_type_name = 'artista';
-    $this->post_type_singular = __('Artista', 'enigmind');
-    $this->post_type_plural = __('Artistas', 'enigmind');
-    $this->menu_icon = 'dashicons-admin-users';
-
-    $this->request_type_taxonomy_artist_type = 'artist_type';
-    $this->request_type_taxonomy_artist_type_singular = __('Categoría', 'enigmind');
-    $this->request_type_taxonomy_artist_type_plural = __('Categorías', 'enigmind');
+    $this->post_type_name = 'slider-home';
+    $this->post_type_singular = __('Slider Inicio', 'enigmind');
+    $this->post_type_plural = __('Sliders Inicio', 'enigmind');
+    $this->menu_icon = 'dashicons-format-gallery';
 
     add_action('init', array($this, 'create_post_type'));
     add_action('init', array($this, 'create_taxonomies'));
@@ -59,8 +52,8 @@ class Project_Model_Artist
 
     $args = array(
       'labels' => $labels,
-      'description'         => __('Artista', 'enigmind'),
-      'supports'            => array('title', 'editor', 'thumbnail'),
+      'description'         => __('Slider Home', 'enigmind'),
+      'supports'            => array('title', 'excerpt', 'thumbnail'),
       'hierarchical'        => false,
       'public'              => true,
       'show_ui'             => true,
@@ -79,48 +72,13 @@ class Project_Model_Artist
     register_post_type($this->post_type_name, $args);
   }
 
-
-  function artist_type_taxonomy()
-  {
-    $labels = array(
-      'name'              => $this->request_type_taxonomy_artist_type_singular,
-      'singular_name'     => $this->request_type_taxonomy_artist_type_singular,
-      'search_items'      => sprintf(__('Buscar %s', 'enigmind'), $this->request_type_taxonomy_artist_type_plural),
-      'all_items'         => sprintf(__('Todos los %s', 'enigmind'), $this->request_type_taxonomy_artist_type_plural),
-      'parent_item'       => __('Parent Genre', 'textdomain'),
-      'parent_item_colon' => __('Parent Genre:', 'textdomain'),
-      'edit_item'         => sprintf(__('Editar %s', 'enigmind'), $this->request_type_taxonomy_artist_type_singular),
-      'update_item'       => sprintf(__('Actualizar %s', 'enigmind'), $this->request_type_taxonomy_artist_type_singular),
-      'add_new_item'      => sprintf(__('Agregar nuevo %s', 'enigmind'), $this->request_type_taxonomy_artist_type_singular),
-      'new_item_name'     => sprintf(__('Nuevo %s', 'enigmind'), $this->request_type_taxonomy_artist_type_singular),
-      'menu_name'         => $this->request_type_taxonomy_artist_type_plural,
-    );
-
-    $args = array(
-      'hierarchical'      => true,
-      'labels'            => $labels,
-      'show_ui'           => true,
-      'show_admin_column' => true,
-      'show_in_menu'          => true,
-      'show_in_nav_menus'     => true,
-      'query_var'         => true,
-      'rewrite'       => array(
-        'slug' => $this->request_type_taxonomy_artist_type
-      ),
-      'hierarchical'  => true
-    );
-
-    register_taxonomy($this->request_type_taxonomy_artist_type, array($this->post_type_name), $args);
-  }
-
   function create_taxonomies()
   {
-    $this->artist_type_taxonomy();
   }
 
   function metabox_general()
   {
-    $prefix = 'artist_';
+    $prefix = 'slider_home_';
 
     $cmb = new_cmb2_box(array(
       'id'           => $prefix . 'general',
@@ -132,44 +90,9 @@ class Project_Model_Artist
     ));
 
     $cmb->add_field(array(
-      'name'    => 'Link de Instagram',
+      'name'    => 'Link de botón',
       'desc'    => '',
-      'id'      => $prefix . 'instagram',
-      'type'    => 'text'
-    ));
-
-    $cmb->add_field(array(
-      'name'    => 'Link de TikTok',
-      'desc'    => '',
-      'id'      => $prefix . 'tiktok',
-      'type'    => 'text'
-    ));
-
-    $cmb->add_field(array(
-      'name'    => 'Link de YouTube',
-      'desc'    => '',
-      'id'      => $prefix . 'youtube',
-      'type'    => 'text'
-    ));
-
-    $cmb->add_field(array(
-      'name'    => 'Link de Twitter',
-      'desc'    => '',
-      'id'      => $prefix . 'twitter',
-      'type'    => 'text'
-    ));
-
-    $cmb->add_field(array(
-      'name'    => 'Link de Facebook',
-      'desc'    => '',
-      'id'      => $prefix . 'facebook',
-      'type'    => 'text'
-    ));
-
-    $cmb->add_field(array(
-      'name'    => 'Link de PayPal',
-      'desc'    => '',
-      'id'      => $prefix . 'paypal',
+      'id'      => $prefix . 'action',
       'type'    => 'text'
     ));
   }

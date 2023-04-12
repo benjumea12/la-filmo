@@ -12,6 +12,19 @@ if ($corto_collections) :
     }
   endforeach;
 endif;
+
+$args_cortos = array(
+  'post_type' => 'cortometraje',
+  'post_status' => 'publish',
+  'posts_per_page' => -1,
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'corto_collection',
+      'field' => 'slug',
+      'terms' => $corto_collection->slug,
+    )
+  )
+);
 ?>
 
 <!-- Codigo html -->
@@ -44,33 +57,31 @@ endif;
     </header>
 
     <div class="list-cortos">
-      <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
-        <div class="swiper-slide-image">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
-        </div>
-        <div class="swiper-slide-content">
-          <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
-          <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-        </div>
-      </a>
-      <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
-        <div class="swiper-slide-image">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
-        </div>
-        <div class="swiper-slide-content">
-          <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
-          <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-        </div>
-      </a>
-      <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
-        <div class="swiper-slide-image">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-3.png" alt="Imagen de corto 'Nombre del corto'">
-        </div>
-        <div class="swiper-slide-content">
-          <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
-          <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-        </div>
-      </a>
+      <!-- Swiper slide -->
+      <?php
+      /* Consultar y mapear los cortos Home */
+      $the_query_cortos = new WP_Query($args_cortos);
+
+      if ($the_query_cortos->have_posts()) :
+        while ($the_query_cortos->have_posts()) :
+          $the_query_cortos->the_post();
+          $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
+
+      ?>
+          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
+            <div class="swiper-slide-image">
+              <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
+            </div>
+            <div class="swiper-slide-content">
+              <h4 class="swiper-slide-title"><?php echo get_the_title(); ?></h4>
+              <p class="swiper-slide-text"><?php echo $edition; ?><span class="separator"></span></p>
+            </div>
+          </a>
+      <?php
+        endwhile;
+      endif;
+      /* Fin Consultar y mapear los cortos Home */
+      ?>
     </div>
 
   </main>

@@ -1,7 +1,7 @@
 @use '../utils/colors'
 @use '../utils/fonts'
 @use '../utils/media'
-  
+
 // Styles of navigation
 #nav-page
   position: fixed
@@ -19,7 +19,7 @@
     position: relative
     .nav-logo
       display: flex
-      align-items: center 
+      align-items: center
       text-decoration: none
       color: colors.$light
       img
@@ -33,11 +33,15 @@
     #icon-menu
       display: flex
       flex-direction: column
+      align-items: center
+      justify-content: center
       position: relative
       cursor: pointer
       display: none
+      height: 30px
+      width: 30px
       @include media.screen-md
-        display: block
+        display: flex
       span
         right: 0
         position: absolute
@@ -47,20 +51,19 @@
         background-color: colors.$light
         transition: all .2s
       span:nth-child(1)
-        top: -8px
+        transform: translateY(-8px)
       span:nth-child(3)
-        top: 8px
-        
+        transform: translateY(8px)
+
     #icon-menu.close-icon
       span:nth-child(2)
         opacity: 0
       span:nth-child(1)
-        top: 0px
+        transform: translateY(0px)
         transform: rotate(45deg)
       span:nth-child(3)
-        top: 0px
+        transform: translateY(0px)
         transform: rotate(-45deg)
-
 
     // Nav Links
     .nav-links
@@ -88,7 +91,7 @@
         span
           height: 1px
           width: 0%
-          background: colors.$primary 
+          background: colors.$primary
           transition: all .2s
         &:hover
           &::after
@@ -115,7 +118,7 @@
           z-index: 5
           padding-top: 10%
           .dropdown-menu
-            background-color:#222222
+            background-color: #0a0909fd
             list-style: none
             padding: 0px 30px
             border-radius: 20px
@@ -142,7 +145,7 @@
             .dropdown-item
               opacity: 1
               transition: all 300ms 250ms
-      
+
       @include media.screen-md
         position: absolute
         top: 90%
@@ -152,7 +155,7 @@
         overflow: hidden
         padding: 0em 0 0em 0
         flex-direction: column
-        background-color: colors.$dark
+        background-color: #0a0909b3
         transition: all .3s
         &.open-menu
           max-height: 50vh
@@ -171,7 +174,7 @@
             padding: 0
             .dropdown-menu
               width: 100%
-              background-color: colors.$dark
+              background-color: transparent
               padding: 0px 0px
               border-radius: 0px
               .dropdown-item
@@ -188,7 +191,3 @@
               .dropdown-item
                 opacity: 1
                 transition: all 300ms 250ms
-
-
-        
-

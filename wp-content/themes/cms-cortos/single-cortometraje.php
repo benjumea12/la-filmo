@@ -1,16 +1,65 @@
 <?php
 the_post();
 
-$prefix_corto = 'shortfilm_';
-
 $corto_collection = get_the_terms(get_the_ID(), "corto_collection");
 $corto_prizes = get_the_terms(get_the_ID(), "corto_prize");
 
-$danger = get_post_meta(get_the_ID(), $prefix_corto . "danger", true);
-$youtube = get_post_meta(get_the_ID(), $prefix_corto . "youtube", true);
-$edition = get_post_meta(get_the_ID(), $prefix_corto . "edition", true);
+$danger = get_post_meta(get_the_ID(), $prefix_cortos . "danger", true);
+$youtube = get_post_meta(get_the_ID(), $prefix_cortos . "youtube", true);
+$edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
+$illustrator = get_post_meta(get_the_ID(), $prefix_cortos . "illustrator", true);
+$created_at = get_post_meta(get_the_ID(), $prefix_cortos . "created_at", true);
 
-echo $edition;
+
+/* Argumentos de consulta de para cortometraje */
+$args_artist = array(
+  'post_type' => 'artista',
+  'post_status' => 'publish',
+  'posts_per_page' => -1,
+);
+
+$the_query_artist = new WP_Query($args_artist);
+
+$artist_ids = [];
+$illustrator_of_corto = null;
+$artists_of_corto = array();
+
+if ($the_query_artist->have_posts()) :
+  $artists = $the_query_artist->posts;
+  // Mapear todos los cortos existentes
+  foreach ($artists as $artist) :
+    $include_artist = false;
+    // Verificar que el corto no se haya incluido en "artists_of_corto"
+    // Verificar si artista actual es ilustrador del corto
+    if ($illustrator == $artist->ID) :
+      $illustrator_of_corto = array(
+        "name" => $artist->post_title,
+        "thumbnail_url" => get_the_post_thumbnail_url($artist->ID),
+        "permalink" => get_permalink($artist->ID),
+      );
+      echo json_encode($artists_of_corto);
+    endif;
+    // Verificar si artista actual es creador del corto
+    if (!in_array($artist->ID, $artist_ids)) :
+      if ($created_at) :
+        // Mapear todos los artistas
+        foreach ($created_at as $created) :
+          // Verificar si artista actual es creador del corto
+          if ($created["shortfilm_author"] == $artist->ID) :
+            array_push($artist_ids, $artist->ID);
+            array_push($artists_of_corto, array(
+              "name" => $artist->post_title,
+              "thumbnail_url" => get_the_post_thumbnail_url($artist->ID),
+              "permalink" => get_permalink($artist->ID),
+            ));
+          endif;
+        endforeach;
+      endif;
+    endif;
+  endforeach;
+endif;
+
+
 ?>
 
 <!doctype html>
@@ -54,17 +103,17 @@ echo $edition;
     </div>
 
     <div class="corto-container-buttons">
-      <a href="#youtube-corto" class="btn btn-lg btn-primary">
+      <a href="#ver-ahora" class="btn btn-lg btn-primary">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/play.svg" alt="Ver">
         Ver ahora
       </a>
-      <a class="btn btn-lg">
+      <a href="#mas-informacion" class="btn btn-lg">
         Más información
       </a>
     </div>
 
 
-    <div class="corto-container-columns">
+    <div class="corto-container-columns" id="mas-informacion">
       <div class="corto-content">
         <h4 class="description-title">Descripción general</h4>
         <div class="description-text">
@@ -132,36 +181,34 @@ echo $edition;
         <p>Corto, Animado, Higiene, Sueño, Saludable</p>
 
         <h6>Creado por</h6>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="img-artist-name">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="Ver">
-          Camilo Zhingre
-        </a>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="img-artist-name">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="Ver">
-          Diego Cuyago
-        </a>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="img-artist-name">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="Ver">
-          Jose Torres
-        </a>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="img-artist-name">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="Ver">
-          Esteban Onstante
-        </a>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="img-artist-name">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="Ver">
-          Andrés Cevallos
-        </a>
+        <?php
+        if ($artists_of_corto) :
+          foreach ($artists_of_corto as $artist_of_corto) :
+        ?>
+            <a href="<?php echo $artist_of_corto["permalink"]; ?>" class="img-artist-name">
+              <img src="<?php echo $artist_of_corto["thumbnail_url"]; ?>" alt="Ver">
+              <?php echo $artist_of_corto["name"]; ?>
+            </a>
+        <?php
+          endforeach;
+        endif;
+        ?>
 
         <h6>Ilustración por</h6>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="img-artist-name">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/artists/artist.png" alt="Ver">
-          Arriamis
-        </a>
+        <?php
+        if ($illustrator_of_corto) :
+        ?>
+          <a href="<?php echo $illustrator_of_corto["permalink"]; ?>" class="img-artist-name">
+            <img src="<?php echo $illustrator_of_corto["thumbnail_url"]; ?>" alt="Ver">
+            <?php echo $illustrator_of_corto["name"]; ?>
+          </a>
+        <?php
+        endif;
+        ?>
       </div>
     </div>
 
-    <div class="youtube-corto" id="youtube-corto">
+    <div class="youtube-corto" id="ver-ahora">
       <?php echo $youtube; ?>
     </div>
 

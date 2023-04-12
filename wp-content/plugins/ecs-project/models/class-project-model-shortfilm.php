@@ -67,7 +67,7 @@ class Project_Model_Shortfilm
 
     $args = array(
       'labels' => $labels,
-      'description'         => __('Productos', 'enigmind'),
+      'description'         => __('Cortometraje', 'enigmind'),
       'supports'            => array('title', 'editor', 'excerpt', 'thumbnail'),
       'hierarchical'        => false,
       'public'              => true,
@@ -215,7 +215,7 @@ class Project_Model_Shortfilm
         '2021' => __('2021', 'cmb2'),
         '2022' => __('2022', 'cmb2'),
         '2023' => __('2023', 'cmb2'),
-        '2023' => __('2024', 'cmb2'),
+        '2024' => __('2024', 'cmb2'),
       ),
     ));
 
@@ -229,7 +229,7 @@ class Project_Model_Shortfilm
     $cmb->add_field(array(
       'name'             => 'Ilustrador por',
       'desc'             => '',
-      'id'               => $prefix . 'author',
+      'id'               => $prefix . 'illustrator',
       'type'             => 'select',
       'show_option_none' => true,
       'default'          => 'custom',

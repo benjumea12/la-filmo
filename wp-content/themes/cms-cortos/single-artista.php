@@ -9,6 +9,57 @@ $twitter = get_post_meta(get_the_ID(), $prefix_artist . "twitter", true);
 $facebook = get_post_meta(get_the_ID(), $prefix_artist . "facebook", true);
 $paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
 
+/* Argumentos de consulta de para cortometraje */
+$args_cortos = array(
+  'post_type' => 'cortometraje',
+  'post_status' => 'publish',
+  'posts_per_page' => -1,
+);
+
+$the_query_cortos = new WP_Query($args_cortos);
+
+$cortos_ids = [];
+$cortos_of_artist = array();
+
+if ($the_query_cortos->have_posts()) :
+  $cortos = $the_query_cortos->posts;
+  // Mapear todos los cortos existentes
+  foreach ($cortos as $corto) :
+    $include_corto = false;
+    // Verificar que el corto no se haya incluido en "cortos_of_artist"
+    if (!in_array($corto->ID, $cortos_ids)) :
+      $illustrator = get_post_meta($corto->ID, $prefix_cortos . "illustrator", true);
+      // Verificar si artista actual es ilustrador del corto
+      if ($illustrator == get_the_ID()) :
+        $include_corto = true;
+        array_push($cortos_ids, get_the_ID());
+      else :
+        // Verificar si artista actual es creador del corto
+        $artists = get_post_meta($corto->ID, $prefix_cortos . "created_at", true);
+        if ($artists) :
+          // Mapear todos los artistas
+          foreach ($artists as $artist) :
+            // Verificar si artista actual es creador del corto
+            if ($artist["shortfilm_author"] == get_the_ID()) :
+              $include_corto = true;
+              array_push($cortos_ids, get_the_ID());
+            endif;
+          endforeach;
+        endif;
+      endif;
+    endif;
+
+    if ($include_corto) :
+      // Crear array de cortos en los que participó el artista actual
+      array_push($cortos_of_artist, array(
+        "title" => $corto->post_title,
+        "thumbnail_url" => get_the_post_thumbnail_url($corto->ID),
+        "permalink" => get_permalink($corto->ID),
+        "edition" => get_post_meta($corto->ID, $prefix_cortos . "edition", true)
+      ));
+    endif;
+  endforeach;
+endif;
 ?>
 
 <!doctype html>
@@ -66,26 +117,25 @@ $paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
       </div>
       <div class="artist-cortos">
 
-        <h3 class="section-title">Mis tabajos</h3>
+        <h3 class="section-title">Mis trabajos</h3>
         <div class="list-cortos">
-          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
-            <div class="swiper-slide-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-1.png" alt="Imagen de corto 'Nombre del corto'">
-            </div>
-            <div class="swiper-slide-content">
-              <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
-              <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-            </div>
-          </a>
-          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
-            <div class="swiper-slide-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home/popular-2.png" alt="Imagen de corto 'Nombre del corto'">
-            </div>
-            <div class="swiper-slide-content">
-              <h4 class="swiper-slide-title">El extraño mundo de Gumball</h4>
-              <p class="swiper-slide-text">2022 <span class="separator"></span> 5 minutos</p>
-            </div>
-          </a>
+          <?php
+          if ($cortos_of_artist) :
+            foreach ($cortos_of_artist as $corto_artist) :
+          ?>
+              <a href="<?php echo $corto_artist["permalink"]; ?>" class="card-popular">
+                <div class="swiper-slide-image">
+                  <img src="<?php echo $corto_artist["thumbnail_url"]; ?>" alt="Ilustración del corto_artist '<?php echo $corto_artist["title"]; ?>'">
+                </div>
+                <div class="swiper-slide-content">
+                  <h4 class="swiper-slide-title"><?php echo $corto_artist["title"]; ?></h4>
+                  <p class="swiper-slide-text"><?php echo $corto_artist["edition"]; ?><span class="separator"></span></p>
+                </div>
+              </a>
+          <?php
+            endforeach;
+          endif;
+          ?>
         </div>
 
       </div>
