@@ -19,10 +19,10 @@ $(function () {
 
 $(function () {
   new Swiper(".swiper-collections", {
-    loop: true,
+    //loop: true,
     grabCursor: true,
     slidesPerView: 2,
-    spaceBetween: 30, 
+    spaceBetween: 30,
     navigation: {
       nextEl: ".swiper-next",
       prevEl: ".swiper-prev",
@@ -50,10 +50,10 @@ $(function () {
 
 $(function () {
   new Swiper(".swiper-popular", {
-    loop: true,
+    //loop: true,
     grabCursor: true,
     slidesPerView: 2,
-    spaceBetween: 30, 
+    spaceBetween: 30,
     navigation: {
       nextEl: ".swiper-next",
       prevEl: ".swiper-prev",

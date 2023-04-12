@@ -37,7 +37,6 @@ if ($the_query_artist->have_posts()) :
         "thumbnail_url" => get_the_post_thumbnail_url($artist->ID),
         "permalink" => get_permalink($artist->ID),
       );
-      echo json_encode($artists_of_corto);
     endif;
     // Verificar si artista actual es creador del corto
     if (!in_array($artist->ID, $artist_ids)) :
@@ -177,8 +176,8 @@ endif;
           <p style="text-align: right;"><?php echo $corto_collection[0]->name; ?></p>
         </div>
 
-        <h6>Géneros</h6>
-        <p>Corto, Animado, Higiene, Sueño, Saludable</p>
+        <!-- <h6>Géneros</h6>
+        <p>Corto, Animado, Higiene, Sueño, Saludable</p> -->
 
         <h6>Creado por</h6>
         <?php

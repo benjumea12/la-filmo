@@ -70,7 +70,6 @@ class ECS_Project_Manager
     $this->shortfilm = new Project_Model_Shortfilm($this);
     $this->sliderhome = new Project_Model_Sliderhome($this);
 
-
     add_action('cmb2_admin_init', array($this, 'add_metaboxes'));
     add_action('init', array($this, 'textdomain'));
   }

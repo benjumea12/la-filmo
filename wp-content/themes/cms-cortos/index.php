@@ -1,22 +1,21 @@
 <?php
-
+// Traer todas las colecciones de cortos
 $corto_collections = get_terms("corto_collection");
 
-/* Argumentos de consulta de Sliders Home */
+// Argumentos de consulta de Sliders Home
 $args_sliders = array(
   'post_type' => 'slider-home',
   'post_status' => 'publish',
   'posts_per_page' => -1,
 );
 
-/* Argumentos de consulta de Sliders Home */
+// Argumentos de consulta de Sliders Home 
 $args_cortos = array(
-  'post_type' => 'cortometraje',
+  'post_type' => 'testimonioshino',
   'post_status' => 'publish',
   'posts_per_page' => -1,
 );
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -39,15 +38,17 @@ $args_cortos = array(
       <div class="swiper swiper-home">
         <div class="swiper-wrapper">
           <?php
-          /* Consultar y mapear los Sliders Home */
+          /* Consultar Sliders Home */
           $the_query_sliders = new WP_Query($args_sliders);
-          $prefix_sliders = 'slider_home_';
 
+          // Mapear Sliders Home 
           if ($the_query_sliders->have_posts()) :
             while ($the_query_sliders->have_posts()) :
               $the_query_sliders->the_post();
+              // Meta datos personalizados
               $action = get_post_meta(get_the_ID(), $prefix_sliders . "action", true);
           ?>
+              <!-- Swiper slide -->
               <section class="swiper-slide">
                 <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/swiper-image.png" alt="Imagen de corto 'Nombre del corto'">
                 <div class="swiper-slide-content">
@@ -56,6 +57,7 @@ $args_cortos = array(
                   <a href="<?php echo $action; ?>" class="btn btn-lg btn-primary swiper-slide-button" type="button">Ver ahora</a>
                 </div>
               </section>
+              <!-- End swiper slide -->
           <?php
             endwhile;
           endif;
@@ -84,6 +86,7 @@ $args_cortos = array(
         <div class="swiper-wrapper">
           <?php
           if ($corto_collections) :
+            // Mapear las colecciones de cortos
             foreach ($corto_collections as $corto_collection) :
           ?>
               <!-- Swiper slide -->
@@ -120,15 +123,16 @@ $args_cortos = array(
         <div class="swiper-wrapper">
           <!-- Swiper slide -->
           <?php
-          /* Consultar y mapear los cortos Home */
+          // Consultar y mapear los cortos Home
           $the_query_cortos = new WP_Query($args_cortos);
 
           if ($the_query_cortos->have_posts()) :
             while ($the_query_cortos->have_posts()) :
               $the_query_cortos->the_post();
+              // Meta datos personalizados
               $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
-
           ?>
+              <!-- Swiper slide -->
               <a href="<?php echo get_the_permalink(); ?>" class="swiper-slide card-popular">
                 <div class="swiper-slide-image">
                   <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
@@ -138,12 +142,12 @@ $args_cortos = array(
                   <p class="swiper-slide-text"><?php echo $edition; ?><span class="separator"></span></p>
                 </div>
               </a>
+              <!-- End swiper slide -->
           <?php
             endwhile;
           endif;
-          /* Fin Consultar y mapear los cortos Home */
+          // Fin Consultar y mapear los cortos Home 
           ?>
-
         </div>
         <div class="swiper-action-basic swiper-next">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de item siguiente del slide">

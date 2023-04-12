@@ -10,3 +10,4 @@ require get_template_directory() . '/includes/manage_posts_column.php';
 $prefix = 'shortfilm_';
 $prefix_artist = 'artist_';
 $prefix_cortos = 'shortfilm_';
+$prefix_sliders = 'slider_home_';
