@@ -102,10 +102,19 @@
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.4)
           transform: scale(1.1)
         img
-          width: 20vw
-          height: 20vw
+          width: 9vw
+          height: 9vw
           border-radius: 20px
           object-fit: cover
+          @include media.screen-lg
+            width: 11vw
+            height: 11vw
+          @include media.screen-md
+            width: 15vw
+            height: 15vw
+          @include media.screen-sm
+            width: 25vw
+            height: 25vw
 
   // Menú de seleccion de artistas
   nav.art-types

@@ -167,6 +167,13 @@ class Project_Model_Artist
     ));
 
     $cmb->add_field(array(
+      'name'    => 'Link de LinkedIn',
+      'desc'    => '',
+      'id'      => $prefix . 'linkedin',
+      'type'    => 'text'
+    ));
+
+    $cmb->add_field(array(
       'name'    => 'Link de PayPal',
       'desc'    => '',
       'id'      => $prefix . 'paypal',

@@ -68,7 +68,7 @@ $args_cortos = array(
           $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
 
       ?>
-          <a href="<?php echo get_site_url(); ?>/cortometrajes" class="card-popular">
+          <a href="<?php echo get_the_permalink(); ?>" class="card-popular">
             <div class="swiper-slide-image">
               <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
             </div>

@@ -50,7 +50,7 @@ $args_cortos = array(
           ?>
               <!-- Swiper slide -->
               <section class="swiper-slide">
-                <img class="swiper-slide-image" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/swiper-image.png" alt="Imagen de corto 'Nombre del corto'">
+                <img class="swiper-slide-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Imagen de corto '<?php echo get_the_title(); ?>'">
                 <div class="swiper-slide-content">
                   <h2 class="swiper-slide-title"><?php echo get_the_title(); ?></h2>
                   <p class="swiper-slide-text"><?php echo get_the_excerpt(); ?></p>
