@@ -9,6 +9,7 @@ $youtube = get_post_meta(get_the_ID(), $prefix_cortos . "youtube", true);
 $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
 $illustrator = get_post_meta(get_the_ID(), $prefix_cortos . "illustrator", true);
 $created_at = get_post_meta(get_the_ID(), $prefix_cortos . "created_at", true);
+$duration = get_post_meta(get_the_ID(), $prefix_cortos . "duration", true);
 
 
 /* Argumentos de consulta de para cortometraje */
@@ -87,7 +88,7 @@ endif;
         <svg class="line" height="4" viewBox="0 0 92 4" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="1.82609" y1="2.08697" x2="89.4783" y2="2.08697" stroke="white" stroke-width="3.65217" stroke-linecap="round" />
         </svg>
-        <h1>5 minutos</h1>
+        <h1><?php echo $duration; ?> minutos</h1>
       </div>
       <div class="corto-container-title2">
         <h1 class="name"><?php echo get_the_title(); ?></h1>

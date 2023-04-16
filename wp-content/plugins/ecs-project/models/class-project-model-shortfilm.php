@@ -204,6 +204,14 @@ class Project_Model_Shortfilm
     ));
 
     $cmb->add_field(array(
+      'name'    => 'Duración del corto en minutos',
+      'desc'    => '',
+      'default' => '0',
+      'id'      => $prefix . 'duration',
+      'type'    => 'text'
+    ));
+
+    $cmb->add_field(array(
       'name'             => 'Edición',
       'desc'             => '',
       'id'               => $prefix . 'edition',

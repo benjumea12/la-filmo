@@ -66,7 +66,7 @@ $args_cortos = array(
         while ($the_query_cortos->have_posts()) :
           $the_query_cortos->the_post();
           $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
-
+          $duration = get_post_meta(get_the_ID(), $prefix_cortos . "duration", true);
       ?>
           <a href="<?php echo get_the_permalink(); ?>" class="card-popular">
             <div class="swiper-slide-image">
@@ -74,7 +74,7 @@ $args_cortos = array(
             </div>
             <div class="swiper-slide-content">
               <h4 class="swiper-slide-title"><?php echo get_the_title(); ?></h4>
-              <p class="swiper-slide-text"><?php echo $edition; ?><span class="separator"></span></p>
+              <p class="swiper-slide-text"><?php echo $edition; ?><span class="separator"></span><?php echo $duration; ?> minutos</p>
             </div>
           </a>
       <?php
