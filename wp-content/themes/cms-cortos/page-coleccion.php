@@ -21,7 +21,7 @@ $args_cortos = array(
     array(
       'taxonomy' => 'corto_collection',
       'field' => 'slug',
-      'terms' => $corto_collection->slug,
+      'terms' => $selected_corto_collection->slug,
     )
   )
 );
