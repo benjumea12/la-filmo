@@ -11,7 +11,7 @@ $args_sliders = array(
 
 // Argumentos de consulta de Sliders Home 
 $args_cortos = array(
-  'post_type' => 'testimonioshino',
+  'post_type' => 'cortometraje',
   'post_status' => 'publish',
   'posts_per_page' => -1,
 );
