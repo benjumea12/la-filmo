@@ -18,9 +18,11 @@ $args_cortos = array(
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | Inicio</title>
+
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 </head>
@@ -65,10 +67,10 @@ $args_cortos = array(
           ?>
         </div>
         <div class="swiper-action-basic swiper-next">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de item siguiente del slide">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
         <div class="swiper-action-basic swiper-prev">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de item anterior del slide">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -91,7 +93,7 @@ $args_cortos = array(
           ?>
               <!-- Swiper slide -->
               <a href="<?php echo get_site_url(); ?>/coleccion/?coleccion=<?php echo $corto_collection->slug; ?>" class="swiper-slide card-collection">
-                <img class="swiper-slide-image" src="<?php echo z_taxonomy_image_url($corto_collection->term_id); ?>" alt="Imagen de corto 'Nombre del corto'">
+                <img class="swiper-slide-image" src="<?php echo z_taxonomy_image_url($corto_collection->term_id); ?>" alt="Imagen de l  coleccion '<?php echo $corto_collection->name; ?>'">
                 <div class="swiper-slide-content">
                   <h4 class="swiper-slide-title"><?php echo $corto_collection->name; ?></h4>
                   <p class="swiper-slide-text">18 CORTOS</p>
@@ -104,10 +106,10 @@ $args_cortos = array(
           ?>
         </div>
         <div class="swiper-action-basic swiper-next">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de item siguiente del slide">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
         <div class="swiper-action-basic swiper-prev">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de item anterior del slide">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>
     </section>
@@ -116,7 +118,7 @@ $args_cortos = array(
     <!-- Section popular -->
     <section class="section-basic swiper-popular-contain">
       <header class="section-basic-header">
-        <h3 class="section-basic-title title-2"><img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/star.svg" alt="Flecha de item anterior del slide">Cortos Populares</h3>
+        <h3 class="section-basic-title title-2"><img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/star.svg" alt="Icono de 'estrella'">Cortos Populares</h3>
       </header>
 
       <div class="section-home-content swiper swiper-popular">
@@ -151,10 +153,10 @@ $args_cortos = array(
           ?>
         </div>
         <div class="swiper-action-basic swiper-next">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de item siguiente del slide">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
         <div class="swiper-action-basic swiper-prev">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de item anterior del slide">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>
     </section>
@@ -163,7 +165,7 @@ $args_cortos = array(
     <!-- Section popular -->
     <section class="section-basic explore-stories-contain">
       <header class="section-basic-header">
-        <h3 class="section-basic-title title-2"><img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/explore.svg" alt="Flecha de item anterior del slide">Explora más historias</h3>
+        <h3 class="section-basic-title title-2"><img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/explore.svg" alt="icono de 'explorar">Explora más historias</h3>
       </header>
 
       <div class="explore-stories">

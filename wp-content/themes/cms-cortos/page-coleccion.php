@@ -29,11 +29,19 @@ $args_cortos = array(
 
 <!-- Codigo html -->
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | <?php echo $selected_corto_collection->name; ?></title>
+
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo $selected_corto_collection->name; ?>" />
+  <meta property="og:description" content="..." />
+  <meta property="og:url" content="<?php echo get_site_url(); ?>/coleccion/?coleccion=<?php echo $selected_corto_collection->slug; ?>" />
+  <meta property="og:image" content="<?php echo z_taxonomy_image_url($selected_corto_collection->term_id); ?>" />
+  <meta property="og:type" content="article" />
 </head>
 
 <body>

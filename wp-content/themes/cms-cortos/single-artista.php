@@ -73,11 +73,18 @@ endif;
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | <?php echo get_the_title(); ?></title>
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo get_the_title(); ?>" />
+  <meta property="og:description" content="<?php echo get_the_excerpt(); ?>" />
+  <meta property="og:url" content="<?php echo get_the_permalink(); ?>" />
+  <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
+  <meta property="og:type" content="article" />
 </head>
 
 <body>
@@ -92,7 +99,7 @@ endif;
       <a href="<?php echo $paypal; ?>" class="artist-pay">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/paypal.svg" alt=""> </a>
 
       <div class="artist-header-image">
-        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Avatar de <?php echo get_the_title(); ?>">
+        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Avatar de '<?php echo get_the_title(); ?>'">
       </div>
       <div class="artist-header-content">
         <h2 class="artist-header-subtitle"><?php echo $post_terms[0]->name; ?></h2>
@@ -164,7 +171,6 @@ endif;
 
         <?php
         if ($is_programer == "0") :
-          echo "no es"; // Contenido para creadores 
         ?>
           <h3 class="section-title">Mis trabajos</h3>
           <div class="list-cortos">
@@ -198,8 +204,6 @@ endif;
         <?php
         endif;
         ?>
-
-
 
       </div>
     </section>

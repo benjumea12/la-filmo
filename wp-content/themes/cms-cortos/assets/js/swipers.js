@@ -2,6 +2,7 @@
 $(function () {
   new Swiper(".swiper-home", {
     grabCursor: true,
+    loop: true,
     autoplay: {
       delay: 8000,
       disableOnInteraction: true,
@@ -19,7 +20,7 @@ $(function () {
 
 $(function () {
   new Swiper(".swiper-collections", {
-    //loop: true,
+    loop: true,
     grabCursor: true,
     slidesPerView: 2,
     spaceBetween: 30,
@@ -50,7 +51,7 @@ $(function () {
 
 $(function () {
   new Swiper(".swiper-popular", {
-    //loop: true,
+    loop: true,
     grabCursor: true,
     slidesPerView: 2,
     spaceBetween: 30,

@@ -1,7 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | Cortometrajes</title>
+
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 </head>

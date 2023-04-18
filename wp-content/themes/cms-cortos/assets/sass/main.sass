@@ -10,3 +10,52 @@
 @use "pages/collections"
 @use "pages/corto.sass"
 /* IMPORT IN THE MAIN */
+
+.page-loader
+  position: fixed
+  height: 100%
+  width: 100%
+  top: 0
+  z-index: 20
+  background-color: #000000eb
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: 300ms 300ms
+  .icon-gema
+    position: absolute
+    height: 60px
+    transition: 300ms
+  .lds-ring
+    display: inline-block
+    position: relative
+    width: 100px
+    height: 100px
+    transition: 200ms
+    div
+      box-sizing: border-box
+      display: block
+      position: absolute
+      width: 100px
+      height: 100px
+      border: 5px solid #fff
+      border-radius: 50%
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+      border-color: #fff transparent transparent transparent
+      &:nth-child(1)
+        animation-delay: -0.45s
+      &:nth-child(2)
+        animation-delay: -0.3s
+      &:nth-child(3)
+        animation-delay: -0.15s
+
+.page-loader-hide
+  opacity: 0
+  .icon-gema, .lds-ring
+    opacity: 0
+
+@keyframes lds-ring
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

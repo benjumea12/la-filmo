@@ -73,3 +73,23 @@ $corto_collections = get_terms("corto_collection");
     </ul>
   </div>
 </nav>
+
+
+<div class="page-loader">
+  <img class="icon-gema" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-light.svg" alt="Logo de GMA">
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<script>
+  setTimeout(() => {
+    $(".page-loader").addClass("page-loader-hide");
+  }, 1500);
+  setTimeout(() => {
+    $(".page-loader").hide();
+  }, 2000);
+</script>

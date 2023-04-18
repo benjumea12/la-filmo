@@ -63,11 +63,19 @@ endif;
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | <?php echo get_the_title(); ?></title>
+
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo get_the_title(); ?>" />
+  <meta property="og:description" content="<?php echo get_the_excerpt(); ?>" />
+  <meta property="og:url" content="<?php echo get_the_permalink(); ?>" />
+  <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
+  <meta property="og:type" content="article" />
 </head>
 
 <body>

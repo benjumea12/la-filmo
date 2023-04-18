@@ -4,9 +4,11 @@ $corto_collections = get_terms("corto_collection");
 
 <!-- Codigo html -->
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | Colecciónes</title>
+
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 </head>

@@ -32,9 +32,11 @@ $the_query_authors = new WP_Query($args_authors);
 
 <!-- Codigo html -->
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+  <title>GMA | Artistas</title>
+
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 </head>
@@ -50,7 +52,7 @@ $the_query_authors = new WP_Query($args_authors);
   <main class="main-page-artists">
     <h1 class="title">Conoce a los Artistas</h1>
     <section class="subtitle">Ante ustedes las personas que hacen posible que exista esta proyecto.
-      Desde Animadores y diseñadores, hasta Diseñadores y Desarrolladores.
+      Desde Animadores e Ilustradores, hasta Diseñadores y Desarrolladores.
       <p class="bold">¡Gracias a todos por ser parte de esto!
       <p>
     </section>
