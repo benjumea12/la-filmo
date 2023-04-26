@@ -20,7 +20,7 @@ $corto_collections = get_terms("corto_collection");
 
   <!-- Page content -->
   <main class="main-page-collections">
-    <h1 class="title">Ver cortos por colección</h1>
+    <h1 class="title">Conece nuestras colecciónes</h1>
 
     <div class="collections-list">
       <?php

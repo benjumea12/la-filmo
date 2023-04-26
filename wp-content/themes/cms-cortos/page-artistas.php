@@ -51,7 +51,7 @@ $the_query_authors = new WP_Query($args_authors);
   <!-- Page content -->
   <main class="main-page-artists">
     <h1 class="title">Conoce a los Artistas</h1>
-    <section class="subtitle">Ante ustedes las personas que hacen posible que exista esta proyecto.
+    <section class="subtitle">Ante ustedes las personas que hacen posible que exista este proyecto.
       Desde Animadores e Ilustradores, hasta Diseñadores y Desarrolladores.
       <p class="bold">¡Gracias a todos por ser parte de esto!
       <p>

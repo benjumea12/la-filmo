@@ -152,10 +152,10 @@ $args_cortos = array(
           // Fin Consultar y mapear los cortos Home 
           ?>
         </div>
-        <div class="swiper-action-basic swiper-next">
+        <div class="swiper-action-basic swiper-next swiper-action-popular">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
-        <div class="swiper-action-basic swiper-prev">
+        <div class="swiper-action-basic swiper-prev swiper-action-popular">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>

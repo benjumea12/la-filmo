@@ -14,9 +14,9 @@
     @include media.screen-md
       margin-bottom: 2vh
     .section-basic-title
-      font-size: 3.3rem
+      font-size: 3rem
       @include media.screen-md
-        font-size: 2.5rem
+        font-size: 2.7rem
     .section-basic-action
       font-size: 2rem
       color: colors.$gray-light
@@ -93,6 +93,8 @@
             font-weight: 400
             color: #FFFFFFCC
             margin: 3rem 0px
+            @include media.screen-md
+              width: 70%
 
           @include media.screen-md
             .swiper-slide-title, .swiper-slide-text
@@ -118,8 +120,8 @@
   .swiper-pagination
     bottom: -8vh
     .swiper-pagination-bullet
-      height: 3vh
-      width: 3vh
+      height: 2vh
+      width: 2vh
       background-color: colors.$light
       margin: 0 10px
     @include media.screen-md
@@ -159,13 +161,20 @@
   right: 2%
   img
     margin-left: 5%
-
 // Estado desabilitado del boton de accion
 .swiper-action-basic.swiper-button-disabled
   opacity: 0.8
   cursor: auto
   img
     opacity: 0.5
+.swiper-action-basic
+  transition: all 200ms
+  &:hover
+    background-color: #ffffffa1
+
+.swiper-action-popular
+  top: 6.5vw !important
+  bottom: auto !important
 
 .explore-stories-contain
   .explore-stories
@@ -176,7 +185,7 @@
       width: 24%
       height: 12.6vw
       margin: 1rem .5%
-      border-radius: 20px
+      border-radius: 10px
       overflow: hidden
       .explore-image
         width: 100%
@@ -188,8 +197,8 @@
         height: 16vw
         margin: 1rem 1%
       @include media.screen-md
-        width: 48%
-        height: 24.5vw
+        width: 100%
+        height: 50vw
       &:hover
         .explore-image
           transform: scale(1.1)

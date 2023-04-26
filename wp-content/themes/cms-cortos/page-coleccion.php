@@ -2,7 +2,6 @@
 $selected_corto_collection;
 
 $coleccion = $_GET["coleccion"];
-$corto_collection_get = get_terms("corto_collection");
 $corto_collections = get_terms("corto_collection");
 
 if ($corto_collections) :
@@ -25,6 +24,10 @@ $args_cortos = array(
     )
   )
 );
+
+
+
+$selected_corto_collection_data = get_term_meta($selected_corto_collection->term_id);
 ?>
 
 <!-- Codigo html -->
@@ -57,10 +60,15 @@ $args_cortos = array(
       <div class="header-content">
         <h1 class="title">Cortos de <span><?php echo $selected_corto_collection->name; ?></span></h1>
 
-        <!-- <div class="illustrator">
+        <div class="illustrator">
           <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/brush.svg" alt="">
-          <p>Ilustración por @dulcezavala7</p>
-        </div> -->
+          <p>
+            Ilustración por
+            <a href="<?php echo $selected_corto_collection_data["collection_red"][0]; ?>" target="_blank">
+              <?php echo $selected_corto_collection_data["collection_artist"][0]; ?>
+            </a>
+          </p>
+        </div>
       </div>
     </header>
 

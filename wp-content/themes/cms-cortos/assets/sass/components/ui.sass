@@ -2,21 +2,24 @@
 @use '../utils/fonts'
 @use '../utils/media'
 
+*
+  padding: 0
+  margin: 0
 html
   font-size: 62%
   @include media.screen-xl
     font-size: 44%
 
-body 
+body
   background-color: colors.$dark
   color: colors.$light
   margin: 0px
 
   main
     margin: 0px
-    padding: 11em 3% 2vh 3%
+    padding: 90px 3% 2vh 3%
     @include media.screen-md
-      padding: 12em 3% 2vh 3%
+      padding: 90px 3% 2vh 3%
 
 // Styles of UI elements
 .btn
@@ -32,6 +35,10 @@ body
   font-weight: 500
 .btn-primary
   background-color: colors.$primary
+  transition: all 300ms 0ms !important
+  &:hover
+    background-color: colors.$light
+    color: colors.$dark
 .btn-lg
   font-size: 3rem
   padding: 1.4rem 6.5rem
@@ -47,16 +54,14 @@ body
     color: colors.$dark
     background-color: colors.$light
 
-
 // Add fonts
 h1, h2, h3, h4, h5, h6, a, button
   font-family: fonts.$primary
   margin: 0px
-  
+
 p, span
   font-family: fonts.$secondary
   margin: 0px
-
 
 // Titles
 .title-1
@@ -71,17 +76,17 @@ p, span
 .title-5
   font-size: 1rem
 .title-6
-  font-size:.875rem
+  font-size: .875rem
 
 // Paragraphs
 .text-1
   font-size: 1rem
 .text-2
-  font-size:.875rem
+  font-size: .875rem
 .text-3
-  font-size:.75rem
+  font-size: .75rem
 .text-4
-  font-size:.875rem
+  font-size: .875rem
 
 // Paragraphs colors
 .color-primary
@@ -96,23 +101,24 @@ p, span
   color: colors.$light
 
 .text-underline
-  text-decoration: underline
+  padding-bottom: 0rem
+  border-bottom: 2px solid colors.$light
 .text-bold
   font-weight: bold !important
 
 // Scroll bar
-::-webkit-scrollbar 
+::-webkit-scrollbar
   width: 5px
 
 /* Track */
-::-webkit-scrollbar-track 
+::-webkit-scrollbar-track
   background: #000000
 
 /* Handle */
-::-webkit-scrollbar-thumb 
+::-webkit-scrollbar-thumb
   background: #888
   border-radius: 10px
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover 
+::-webkit-scrollbar-thumb:hover
   background: #555

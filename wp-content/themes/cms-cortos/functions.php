@@ -5,6 +5,8 @@ require get_template_directory() . '/includes/ajaxurl.php';
 require get_template_directory() . '/includes/scripts_config.php';
 // Manage posts column
 require get_template_directory() . '/includes/manage_posts_column.php';
+// Custom ollections taxonomy
+require get_template_directory() . '/includes/custom_collections_taxonomy.php';
 
 // Prefix models
 $prefix = 'shortfilm_';

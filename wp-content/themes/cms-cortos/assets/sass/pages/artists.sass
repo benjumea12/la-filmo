@@ -94,6 +94,7 @@
           height: 38vw
         h2
           font-size: 1.9rem
+          width: 80%
         p
           font-size: 1.5rem
           text-transform: uppercase
@@ -199,11 +200,17 @@
       border-radius: 30px
       display: flex
       align-items: center
-      padding: .8rem 3rem
+      padding: .8rem 2rem
       font-weight: 600
       img
-        height: 3rem
-
+        height: 2.5rem
+        margin-left: 1rem
+    .artist-pay.kofi
+      background-color: #4390FC
+    .artist-pay.cafecito
+      background-color: #445579
+    .artist-pay.matecito
+      background-color: #85B868
     .artist-header-image
       width: 20vw
       height: 20vw
@@ -262,6 +269,10 @@
 
     .artist-cortos
       width: 60%
+      .other-decription
+        font-size: 1.6rem
+        font-weight: 400
+        margin-bottom: 2em
       .list-cortos
         display: grid
         gap: 4%
@@ -269,11 +280,19 @@
         flex-wrap: wrap
         .card-popular
           width: 48%
+          margin-bottom: 2em
           .swiper-slide-image
             width: 100%
             height: 13vw
+        .card-popular-other
+          width: 100%
+          .swiper-slide-image
+            height: 25vw
       @include media.screen-md
         width: 100%
         .swiper-slide-image
           width: 100%
           height: 23vw !important
+        .card-popular-other
+          .swiper-slide-image
+            height: 25vh !important

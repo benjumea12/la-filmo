@@ -167,6 +167,20 @@ class Project_Model_Artist
     ));
 
     $cmb->add_field(array(
+      'name'    => 'Link de Artstation',
+      'desc'    => '',
+      'id'      => $prefix . 'artstation',
+      'type'    => 'text'
+    ));
+
+    $cmb->add_field(array(
+      'name'    => 'Link de Behance',
+      'desc'    => '',
+      'id'      => $prefix . 'behance',
+      'type'    => 'text'
+    ));
+
+    $cmb->add_field(array(
       'name'    => 'Link de LinkedIn',
       'desc'    => '',
       'id'      => $prefix . 'linkedin',
@@ -174,10 +188,39 @@ class Project_Model_Artist
     ));
 
     $cmb->add_field(array(
-      'name'    => 'Link de PayPal',
+      'name'             => 'Opcion de pago',
+      'desc'             => '',
+      'id'               => $prefix . 'pay_opcion',
+      'type'             => 'select',
+      'show_option_none' => true,
+      'default'          => 'custom',
+      'options'          => array(
+        'paypal' => __('PayPal', 'cmb2'),
+        'kofi' => __('Ko-fi', 'cmb2'),
+        'cafecito' => __('Cafecito', 'cmb2'),
+        'matecito' => __('Matecito', 'cmb2'),
+      ),
+    ));
+
+    $cmb->add_field(array(
+      'name'    => 'Link de pago',
       'desc'    => '',
       'id'      => $prefix . 'paypal',
       'type'    => 'text'
+    ));
+
+    $cmb->add_field(array(
+      'name' => 'Otros trabajos',
+      'desc' => 'Agregar imagenes de otros trabajor.',
+      'id'   => $prefix . 'others',
+      'type' => 'file_list',
+    ));
+
+    $cmb->add_field(array(
+      'name'    => 'Descripcion de otros trabajos',
+      'desc'    => '',
+      'id'      => $prefix . 'description_others',
+      'type'    => 'textarea'
     ));
   }
 

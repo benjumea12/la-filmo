@@ -8,9 +8,17 @@ $youtube = get_post_meta(get_the_ID(), $prefix_artist . "youtube", true);
 $twitter = get_post_meta(get_the_ID(), $prefix_artist . "twitter", true);
 $facebook = get_post_meta(get_the_ID(), $prefix_artist . "facebook", true);
 $linkedin = get_post_meta(get_the_ID(), $prefix_artist . "linkedin", true);
-$paypal = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
+$artstation = get_post_meta(get_the_ID(), $prefix_artist . "artstation", true);
+$behance = get_post_meta(get_the_ID(), $prefix_artist . "behance", true);
 
-$is_programer = false;
+$paylink = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
+$pay_opcion = get_post_meta(get_the_ID(), $prefix_artist . "pay_opcion", true);
+$others = get_post_meta(get_the_ID(), $prefix_artist . "others", true);
+
+$description_others = get_post_meta(get_the_ID(), $prefix_artist . "description_others", true);
+
+
+$other_artist = false;
 
 /* Argumentos de consulta de para cortometraje */
 $args_cortos = array(
@@ -19,12 +27,12 @@ $args_cortos = array(
   'posts_per_page' => -1,
 );
 
+$cortos_of_artist = array();
 
-if ($post_terms[0]->slug !== "programador-a") :
+if ($post_terms[0]->slug !== "programador-a" && $post_terms[0]->slug !== "fanzine") :
   $the_query_cortos = new WP_Query($args_cortos);
 
   $cortos_ids = [];
-  $cortos_of_artist = array();
 
   // Confirmar que existan cortos creados
   if ($the_query_cortos->have_posts()) :
@@ -61,13 +69,14 @@ if ($post_terms[0]->slug !== "programador-a") :
           "title" => $corto->post_title,
           "thumbnail_url" => get_the_post_thumbnail_url($corto->ID),
           "permalink" => get_permalink($corto->ID),
-          "edition" => get_post_meta($corto->ID, $prefix_cortos . "edition", true)
+          "edition" => get_post_meta($corto->ID, $prefix_cortos . "edition", true),
+          "duration" => get_post_meta($corto->ID, $prefix_cortos . "duration", true)
         ));
       endif;
     endforeach;
   endif;
 else :
-  $is_programer = true;
+  $other_artist = true;
 endif;
 
 ?>
@@ -96,8 +105,33 @@ endif;
   <!-- Page content -->
   <main class="main-artist">
     <section class="artist-header">
-      <a href="<?php echo $paypal; ?>" class="artist-pay">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/paypal.svg" alt=""> </a>
+      <?php
+      if ($pay_opcion && $paylink) :
+        switch ($pay_opcion) {
+          case 'paypal':
+      ?>
+            <a href="<?php echo $paylink; ?>" class="artist-pay">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/paypal.svg" alt=""></a>
+          <?php
+            break;
+          case 'kofi':
+          ?>
+            <a href="<?php echo $paylink; ?>" class="artist-pay kofi">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/kofi.svg" alt=""></a>
+          <?php
+            break;
+          case 'cafecito':
+          ?>
+            <a href="<?php echo $paylink; ?>" class="artist-pay cafecito">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cafecito.svg" alt=""></a>
+          <?php
+            break;
+          case 'matecito':
+          ?>
+            <a href="<?php echo $paylink; ?>" class="artist-pay matecito">Apoyar vía <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/matecito.svg" alt=""></a>
+      <?php
+            break;
+        }
 
+      endif;
+      ?>
       <div class="artist-header-image">
         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Avatar de '<?php echo get_the_title(); ?>'">
       </div>
@@ -124,7 +158,7 @@ endif;
           <?php
           endif;
 
-          if ($instagram) :
+          if ($youtube) :
           ?>
             <a href="<?php echo $youtube; ?>" target="_blank">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/youtube.svg" alt="Icono de Youtube">
@@ -155,6 +189,23 @@ endif;
             </a>
           <?php
           endif;
+
+          if ($artstation) :
+          ?>
+            <a href="<?php echo $artstation; ?>" target="_blank">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/artstation.svg" alt="Icono de Artstation">
+            </a>
+          <?php
+          endif;
+
+          if ($behance) :
+          ?>
+            <a href="<?php echo $behance; ?>" target="_blank">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/behance.svg" alt="Icono de Artstation">
+            </a>
+          <?php
+          endif;
+
           if ($linkedin) :
           ?>
             <a href="<?php echo $linkedin; ?>" target="_blank">
@@ -164,41 +215,61 @@ endif;
           endif;
           ?>
 
-
         </div>
       </div>
       <div class="artist-cortos">
 
         <?php
-        if ($is_programer == "0") :
+        if ($cortos_of_artist) :
+          if (count($cortos_of_artist) > 0) :
         ?>
-          <h3 class="section-title">Mis trabajos</h3>
-          <div class="list-cortos">
-            <?php
-            if ($cortos_of_artist) :
+            <h3 class="section-title">Mis trabajos</h3>
+            <div class="list-cortos">
+              <?php
               foreach ($cortos_of_artist as $corto_artist) :
-            ?>
+              ?>
                 <a href="<?php echo $corto_artist["permalink"]; ?>" class="card-popular">
                   <div class="swiper-slide-image">
                     <img src="<?php echo $corto_artist["thumbnail_url"]; ?>" alt="Ilustración del corto_artist '<?php echo $corto_artist["title"]; ?>'">
                   </div>
                   <div class="swiper-slide-content">
                     <h4 class="swiper-slide-title"><?php echo $corto_artist["title"]; ?></h4>
-                    <p class="swiper-slide-text"><?php echo $corto_artist["edition"]; ?><span class="separator"></span></p>
+                    <p class="swiper-slide-text"><?php echo $corto_artist["edition"]; ?><span class="separator"></span><?php echo $corto_artist["duration"]; ?> minutos</p>
                   </div>
                 </a>
-            <?php
+              <?php
               endforeach;
-            endif;
-            ?>
-          </div>
-        <?php
-        else :
-        ?>
+              ?>
+            </div>
+          <?php
+          endif;
+        endif;
+        if (count($others) > 0) :
+          ?>
           <h3 class="section-title">Mis trabajos</h3>
+          <?php
+
+          if ($description_others) :
+          ?>
+            <p class="other-decription"><?php echo $description_others; ?></p>
+          <?php
+          endif;
+          ?>
           <div class="list-cortos">
             <?php
-
+            foreach ($others as $other) :
+              $one_image = "";
+              if (count($others) === 1) {
+                $one_image = "card-popular-other";
+              }
+            ?>
+              <a href="<?php echo $other; ?>" target="_blank" class="card-popular <?php echo $one_image ?>">
+                <div class="swiper-slide-image">
+                  <img src="<?php echo $other; ?>" alt="Ilustración del corto_artist '">
+                </div>
+              </a>
+            <?php
+            endforeach;
             ?>
           </div>
         <?php
