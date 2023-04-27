@@ -261,7 +261,7 @@ endif;
             foreach ($others_works as $other_works) :
               $link = $other_works[$prefix_artist . "image_other_work"];
 
-              if (array_key_exists($prefix_artist . "link_other_work", $other_works)) {
+              if (array_key_exists($prefix_artist . "link_other_work", $other_works) && $other_works[$prefix_artist . "link_other_work"] !== "") {
                 $link = $other_works[$prefix_artist . "link_other_work"];
               }
             ?>

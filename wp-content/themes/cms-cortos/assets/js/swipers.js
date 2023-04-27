@@ -55,6 +55,10 @@ $(function () {
       nextEl: ".swiper-next-popular",
       prevEl: ".swiper-prev-popular",
     },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
     breakpoints: {
       "@0.00": {
         slidesPerView: 2,
