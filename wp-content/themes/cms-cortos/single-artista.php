@@ -2,7 +2,7 @@
 the_post();
 $post_terms = get_the_terms(get_the_ID(), "artist_type");
 
-$instagram = get_post_meta(get_the_ID(), "artist_instagram", true);
+$instagram = get_post_meta(get_the_ID(), $prefix_artist . "instagram", true);
 $tiktok = get_post_meta(get_the_ID(), $prefix_artist . "tiktok", true);
 $youtube = get_post_meta(get_the_ID(), $prefix_artist . "youtube", true);
 $twitter = get_post_meta(get_the_ID(), $prefix_artist . "twitter", true);
@@ -13,12 +13,13 @@ $behance = get_post_meta(get_the_ID(), $prefix_artist . "behance", true);
 
 $paylink = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
 $pay_opcion = get_post_meta(get_the_ID(), $prefix_artist . "pay_opcion", true);
-$others = get_post_meta(get_the_ID(), $prefix_artist . "others", true);
 
+$others_works = get_post_meta(get_the_ID(), $prefix_artist . "others_works", true);
+
+$others = get_post_meta(get_the_ID(), $prefix_artist . "others", true);
 $description_others = get_post_meta(get_the_ID(), $prefix_artist . "description_others", true);
 
-
-$other_artist = false;
+$others_title = "Trabajos";
 
 /* Argumentos de consulta de para cortometraje */
 $args_cortos = array(
@@ -29,54 +30,50 @@ $args_cortos = array(
 
 $cortos_of_artist = array();
 
-if ($post_terms[0]->slug !== "programador-a" && $post_terms[0]->slug !== "fanzine") :
-  $the_query_cortos = new WP_Query($args_cortos);
+$the_query_cortos = new WP_Query($args_cortos);
 
-  $cortos_ids = [];
+$cortos_ids = [];
 
-  // Confirmar que existan cortos creados
-  if ($the_query_cortos->have_posts()) :
-    $cortos = $the_query_cortos->posts;
-    // Mapear todos los cortos existentes
-    foreach ($cortos as $corto) :
-      $include_corto = false;
-      // Verificar que el corto no se haya incluido en "cortos_of_artist"
-      if (!in_array($corto->ID, $cortos_ids)) :
-        $illustrator = get_post_meta($corto->ID, $prefix_cortos . "illustrator", true);
-        // Verificar si artista actual es ilustrador del corto
-        if ($illustrator == get_the_ID()) :
-          $include_corto = true;
-          array_push($cortos_ids, get_the_ID());
-        else :
-          // Verificar si artista actual es creador del corto
-          $artists = get_post_meta($corto->ID, $prefix_cortos . "created_at", true);
-          if ($artists) :
-            // Mapear todos los artistas
-            foreach ($artists as $artist) :
-              // Verificar si artista actual es creador del corto
-              if ($artist["shortfilm_author"] == get_the_ID()) :
-                $include_corto = true;
-                array_push($cortos_ids, get_the_ID());
-              endif;
-            endforeach;
-          endif;
+// Confirmar que existan cortos creados
+if ($the_query_cortos->have_posts()) :
+  $cortos = $the_query_cortos->posts;
+  // Mapear todos los cortos existentes
+  foreach ($cortos as $corto) :
+    $include_corto = false;
+    // Verificar que el corto no se haya incluido en "cortos_of_artist"
+    if (!in_array($corto->ID, $cortos_ids)) :
+      $illustrator = get_post_meta($corto->ID, $prefix_cortos . "illustrator", true);
+      // Verificar si artista actual es ilustrador del corto
+      if ($illustrator == get_the_ID()) :
+        $include_corto = true;
+        array_push($cortos_ids, get_the_ID());
+      else :
+        // Verificar si artista actual es creador del corto
+        $artists = get_post_meta($corto->ID, $prefix_cortos . "created_at", true);
+        if ($artists) :
+          // Mapear todos los artistas
+          foreach ($artists as $artist) :
+            // Verificar si artista actual es creador del corto
+            if ($artist["shortfilm_author"] == get_the_ID()) :
+              $include_corto = true;
+              array_push($cortos_ids, get_the_ID());
+            endif;
+          endforeach;
         endif;
       endif;
+    endif;
 
-      if ($include_corto) :
-        // Crear array de cortos en los que participó el artista actual
-        array_push($cortos_of_artist, array(
-          "title" => $corto->post_title,
-          "thumbnail_url" => get_the_post_thumbnail_url($corto->ID),
-          "permalink" => get_permalink($corto->ID),
-          "edition" => get_post_meta($corto->ID, $prefix_cortos . "edition", true),
-          "duration" => get_post_meta($corto->ID, $prefix_cortos . "duration", true)
-        ));
-      endif;
-    endforeach;
-  endif;
-else :
-  $other_artist = true;
+    if ($include_corto) :
+      // Crear array de cortos en los que participó el artista actual
+      array_push($cortos_of_artist, array(
+        "title" => $corto->post_title,
+        "thumbnail_url" => get_the_post_thumbnail_url($corto->ID),
+        "permalink" => get_permalink($corto->ID),
+        "edition" => get_post_meta($corto->ID, $prefix_cortos . "edition", true),
+        "duration" => get_post_meta($corto->ID, $prefix_cortos . "duration", true)
+      ));
+    endif;
+  endforeach;
 endif;
 
 ?>
@@ -136,7 +133,15 @@ endif;
         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Avatar de '<?php echo get_the_title(); ?>'">
       </div>
       <div class="artist-header-content">
-        <h2 class="artist-header-subtitle"><?php echo $post_terms[0]->name; ?></h2>
+        <?php
+        if ($post_terms && count($post_terms) > 0) :
+          foreach ($post_terms as $term) :
+        ?>
+            <h2 class="artist-header-subtitle"><?php echo $term->name; ?></h2>
+        <?php
+          endforeach;
+        endif;
+        ?>
         <h1 class="artist-header-title"><?php echo get_the_title(); ?></h1>
       </div>
     </section>
@@ -222,6 +227,7 @@ endif;
         <?php
         if ($cortos_of_artist) :
           if (count($cortos_of_artist) > 0) :
+            $others_title = "Otros trabajos";
         ?>
             <h3 class="section-title">Mis trabajos</h3>
             <div class="list-cortos">
@@ -244,9 +250,42 @@ endif;
           <?php
           endif;
         endif;
-        if (count($others) > 0) :
+
+        // SECCION OTROS FANZINE Y OTROS TRABAJOS
+        if ($others_works && count($others_works) > 0) :
           ?>
-          <h3 class="section-title">Mis trabajos</h3>
+          <h3 class="section-title"><?php echo $others_title; ?></h3>
+
+          <div class="list-cortos">
+            <?php
+            foreach ($others_works as $other_works) :
+              $link = $other_works[$prefix_artist . "image_other_work"];
+
+              if (array_key_exists($prefix_artist . "link_other_work", $other_works)) {
+                $link = $other_works[$prefix_artist . "link_other_work"];
+              }
+            ?>
+              <a href="<?php echo $link; ?>" class="card-popular card-popular-work">
+                <div class="swiper-slide-image">
+                  <img src="<?php echo $other_works[$prefix_artist . "image_other_work"]; ?>" alt="Imagen de '<?php echo $other_works[$prefix_artist . "title_other_work"]; ?>'">
+                </div>
+                <div class="swiper-slide-content">
+                  <h4 class="swiper-slide-title"><?php echo $other_works[$prefix_artist . "title_other_work"]; ?></h4>
+                  <p class="swiper-slide-text"><?php echo $other_works[$prefix_artist . "year_other_work"]; ?></p>
+                </div>
+              </a>
+            <?php
+            endforeach;
+            ?>
+          </div>
+        <?php
+        endif;
+
+
+        // SECCION OTROS CONTENIDOS
+        if ($others && count($others) > 0) :
+        ?>
+          <h3 class="section-title">Participaciones</h3>
           <?php
 
           if ($description_others) :
@@ -258,12 +297,8 @@ endif;
           <div class="list-cortos">
             <?php
             foreach ($others as $other) :
-              $one_image = "";
-              if (count($others) === 1) {
-                $one_image = "card-popular-other";
-              }
             ?>
-              <a href="<?php echo $other; ?>" target="_blank" class="card-popular <?php echo $one_image ?>">
+              <a href="<?php echo $other; ?>" class="card-popular">
                 <div class="swiper-slide-image">
                   <img src="<?php echo $other; ?>" alt="Ilustración del corto_artist '">
                 </div>

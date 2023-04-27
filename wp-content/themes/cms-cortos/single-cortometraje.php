@@ -182,7 +182,8 @@ endif;
 
         <div class="corto-container-colentions">
           <span>Colección</span>
-          <p style="text-align: right;"><?php echo $corto_collection[0]->name; ?></p>
+          <p style="text-align: right;"><a href="<?php echo get_site_url(); ?>/coleccion/?coleccion=<?php echo $corto_collection[0]->slug; ?>"><?php echo $corto_collection[0]->name; ?></a></p>
+
         </div>
 
         <!-- <h6>Géneros</h6>

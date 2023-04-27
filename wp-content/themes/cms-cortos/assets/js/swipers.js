@@ -8,25 +8,23 @@ $(function () {
       disableOnInteraction: true,
     },
     navigation: {
-      nextEl: ".swiper-next",
-      prevEl: ".swiper-prev",
+      nextEl: ".swiper-next-home",
+      prevEl: ".swiper-prev-home",
     },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
   })
-})
 
-$(function () {
-  new Swiper(".swiper-collections", {
-    loop: true,
+  new Swiper(".swiper-collections-home", {
     grabCursor: true,
+    loop: true,
     slidesPerView: 2,
     spaceBetween: 30,
     navigation: {
-      nextEl: ".swiper-next",
-      prevEl: ".swiper-prev",
+      nextEl: ".swiper-next-collections",
+      prevEl: ".swiper-prev-collections",
     },
     breakpoints: {
       "@0.00": {
@@ -47,17 +45,15 @@ $(function () {
       },
     },
   })
-})
 
-$(function () {
   new Swiper(".swiper-popular", {
     loop: true,
     grabCursor: true,
     slidesPerView: 2,
     spaceBetween: 30,
     navigation: {
-      nextEl: ".swiper-next",
-      prevEl: ".swiper-prev",
+      nextEl: ".swiper-next-popular",
+      prevEl: ".swiper-prev-popular",
     },
     breakpoints: {
       "@0.00": {

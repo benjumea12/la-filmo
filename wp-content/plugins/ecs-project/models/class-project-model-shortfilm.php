@@ -244,6 +244,13 @@ class Project_Model_Shortfilm
       'options'          => $this->getAuthors(),
     ));
 
+    $cmb->add_field(array(
+      'name' => 'AGREGAR ARTISTAS',
+      'desc' => 'Esta sección es para agregar artistas colaboradores en el corto.',
+      'type' => 'title',
+      'id'   => 'created_at_title'
+    ));
+
     $group_field_id = $cmb->add_field(array(
       'id'          => $prefix . 'created_at',
       'type'        => 'group',

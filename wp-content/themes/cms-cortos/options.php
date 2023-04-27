@@ -66,7 +66,7 @@ function optionsframework_options()
   $options['url_fanzine'] = array(
     "name" => "Url del fanzine",
     "id" => "url_fanzine",
-    "type" => "text",
+    "type" => "upload",
   );
 
   return $options;

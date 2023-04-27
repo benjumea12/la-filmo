@@ -2,6 +2,14 @@
 // Traer todas las colecciones de cortos
 $corto_collections = get_terms("corto_collection");
 
+$posts_per_page = 12;
+$next = 1;
+
+if (isset($_GET["pagina"])) {
+  $pagina = intval($_GET["pagina"]);
+  $next = $pagina + 1;
+  $posts_per_page = $next * 12;
+}
 // Argumentos de consulta de Sliders Home
 $args_sliders = array(
   'post_type' => 'slider-home',
@@ -13,7 +21,7 @@ $args_sliders = array(
 $args_cortos = array(
   'post_type' => 'cortometraje',
   'post_status' => 'publish',
-  'posts_per_page' => -1,
+  'posts_per_page' => $posts_per_page,
 );
 ?>
 
@@ -66,10 +74,10 @@ $args_cortos = array(
           /* Fin Consultar y mapear los Sliders Home */
           ?>
         </div>
-        <div class="swiper-action-basic swiper-next">
+        <div class="swiper-action-basic swiper-next swiper-next-home">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
-        <div class="swiper-action-basic swiper-prev">
+        <div class="swiper-action-basic swiper-prev swiper-prev-home">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>
@@ -84,7 +92,7 @@ $args_cortos = array(
         <a href="<?php echo get_site_url(); ?>/colecciones" class="section-basic-action">VER TODAS</a>
       </header>
 
-      <div class="section-home-content swiper swiper-collections">
+      <div class="section-home-content swiper swiper-collections swiper-collections-home">
         <div class="swiper-wrapper">
           <?php
           if ($corto_collections) :
@@ -105,10 +113,10 @@ $args_cortos = array(
           endif;
           ?>
         </div>
-        <div class="swiper-action-basic swiper-next">
+        <div class="swiper-action-basic swiper-next swiper-next-collections">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
-        <div class="swiper-action-basic swiper-prev">
+        <div class="swiper-action-basic swiper-prev swiper-prev-collections">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>
@@ -126,7 +134,12 @@ $args_cortos = array(
           <!-- Swiper slide -->
           <?php
           // Consultar y mapear los cortos Home
-          $the_query_cortos = new WP_Query($args_cortos);
+          $the_query_cortos = new WP_Query(array(
+            'post_type' => 'cortometraje',
+            'post_status' => 'publish',
+            'order' => 'ASC',
+            'posts_per_page' => $posts_per_page,
+          ));
 
           if ($the_query_cortos->have_posts()) :
             while ($the_query_cortos->have_posts()) :
@@ -152,10 +165,10 @@ $args_cortos = array(
           // Fin Consultar y mapear los cortos Home 
           ?>
         </div>
-        <div class="swiper-action-basic swiper-next swiper-action-popular">
+        <div class="swiper-action-basic swiper-next swiper-next-popular swiper-action-popular">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-right.svg" alt="Flecha de siguiente del slide">
         </div>
-        <div class="swiper-action-basic swiper-prev swiper-action-popular">
+        <div class="swiper-action-basic swiper-prev swiper-prev-popular swiper-action-popular">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-light-left.svg" alt="Flecha de anterior del slide">
         </div>
       </div>
@@ -171,7 +184,12 @@ $args_cortos = array(
       <div class="explore-stories">
         <?php
         /* Consultar y mapear los cortos Home */
-        $the_query_cortos = new WP_Query($args_cortos);
+        $the_query_cortos = new WP_Query(array(
+          'post_type' => 'cortometraje',
+          'post_status' => 'publish',
+          'order' => 'DESC',
+          'posts_per_page' => $posts_per_page,
+        ));
 
         if ($the_query_cortos->have_posts()) :
           while ($the_query_cortos->have_posts()) :
@@ -188,7 +206,7 @@ $args_cortos = array(
       </div>
 
       <footer class="section-basic-footer">
-        <a href="<?php echo get_site_url(); ?>/cortometrajes" class="btn btn-lg btn-more">Ver más</a>
+        <a href="<?php echo get_site_url(); ?>?pagina=<?php echo $next; ?>" class="btn btn-lg btn-more">Ver más</a>
       </footer>
     </section>
     <!-- End section popular -->
@@ -199,6 +217,20 @@ $args_cortos = array(
 
   <!-- Import footer -->
   <?php get_footer(); ?>
+
+  <?php
+  if (isset($_GET["pagina"])) :
+  ?>
+    <script>
+      $(document).ready(function() {
+        $("html, body").animate({
+          scrollTop: `${$(document).height()-900}px`
+        }, 0);
+      });
+    </script>
+  <?php
+  endif;
+  ?>
 
 </body>
 

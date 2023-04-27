@@ -19,3 +19,10 @@ window.addEventListener("click", function (e) {
     $("#nav-menu").removeClass("open-menu")
   }
 })
+
+setTimeout(() => {
+  $(".page-loader").addClass("page-loader-hide")
+}, 1500)
+setTimeout(() => {
+  $(".page-loader").hide()
+}, 2000)

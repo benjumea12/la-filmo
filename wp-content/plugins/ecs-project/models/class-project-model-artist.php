@@ -131,6 +131,8 @@ class Project_Model_Artist
       'show_names'   => true, // Show field names on the left
     ));
 
+    // Inputs de redes
+
     $cmb->add_field(array(
       'name'    => 'Link de Instagram',
       'desc'    => '',
@@ -187,6 +189,15 @@ class Project_Model_Artist
       'type'    => 'text'
     ));
 
+    // Inputs de pagos
+
+    $cmb->add_field(array(
+      'name' => 'SECCION DE PAGOS',
+      'desc' => 'Esta sección es para agregar un medio de pago o colaboración para el artista.',
+      'type' => 'title',
+      'id'   => 'pay_title'
+    ));
+
     $cmb->add_field(array(
       'name'             => 'Opcion de pago',
       'desc'             => '',
@@ -209,15 +220,86 @@ class Project_Model_Artist
       'type'    => 'text'
     ));
 
+    // Inputs de otros trabajos
+
     $cmb->add_field(array(
-      'name' => 'Otros trabajos',
-      'desc' => 'Agregar imagenes de otros trabajor.',
+      'name' => 'FANZINE Y OTROS TRABAJOS',
+      'desc' => 'Esta sección es para capítulos individuales del Fanzine y otras colaboraciones del artista.',
+      'type' => 'title',
+      'id'   => 'other_work_title'
+    ));
+
+    $group_field_id = $cmb->add_field(array(
+      'id'          => $prefix . 'others_works',
+      'type'        => 'group',
+      'description' => __('', 'cmb2'),
+      // 'repeatable'  => false, // use false if you want non-repeatable group
+      'options'     => array(
+        'group_title'       => __('Trabajo {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+        'add_button'        => __('Agregar trabajo', 'cmb2'),
+        'remove_button'     => __('Remove Entry', 'cmb2'),
+        'sortable'          => true,
+        // 'closed'         => true, // true to have the groups closed by default
+        // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+      ),
+    ));
+
+    $cmb->add_group_field($group_field_id, array(
+      'name'    => 'Imagen de trabajo',
+      'desc'    => '',
+      'id'      => $prefix . 'image_other_work',
+      'type'    => 'file'
+    ));
+
+    $cmb->add_group_field($group_field_id, array(
+      'name'    => 'Titulo de trabajo',
+      'desc'    => '',
+      'id'      => $prefix . 'title_other_work',
+      'type'    => 'text'
+    ));
+
+
+    $cmb->add_group_field($group_field_id, array(
+      'name'             => 'Año de trabajo',
+      'desc'             => '',
+      'id'               => $prefix . 'year_other_work',
+      'type'             => 'select',
+      'show_option_none' => true,
+      'default'          => 'custom',
+      'options'          => array(
+        '2020' => __('2020', 'cmb2'),
+        '2021' => __('2021', 'cmb2'),
+        '2022' => __('2022', 'cmb2'),
+        '2023' => __('2023', 'cmb2'),
+        '2024' => __('2024', 'cmb2'),
+      ),
+    ));
+
+    $cmb->add_group_field($group_field_id, array(
+      'name'    => 'Link de otro trabajo',
+      'desc'    => 'Puede ser el mismo link que le genera cuando agrega la imagen.',
+      'id'      => $prefix . 'link_other_work',
+      'type'    => 'text'
+    ));
+
+    // Inputs de otro contenido
+
+    $cmb->add_field(array(
+      'name' => 'OTROS CONTENIDOS',
+      'desc' => 'Esta sección es para agregar una pequeña galería de imágenes y descripción general de otros contenidos que pueda tener el artista.',
+      'type' => 'title',
+      'id'   => 'others_title'
+    ));
+
+    $cmb->add_field(array(
+      'name' => 'Imagenes de otros contenidos',
+      'desc' => 'Agregar imagenes de otros contenidos.',
       'id'   => $prefix . 'others',
       'type' => 'file_list',
     ));
 
     $cmb->add_field(array(
-      'name'    => 'Descripcion de otros trabajos',
+      'name'    => 'Descripcion de otros contenidos',
       'desc'    => '',
       'id'      => $prefix . 'description_others',
       'type'    => 'textarea'

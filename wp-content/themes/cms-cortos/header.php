@@ -1,6 +1,8 @@
 <?php
 $artist_types = get_terms("artist_type");
 $corto_collections = get_terms("corto_collection");
+
+$url_fanzine = of_get_option("url_fanzine");
 ?>
 
 
@@ -81,11 +83,11 @@ $corto_collections = get_terms("corto_collection");
         </div>
       </li>
       <li class="link-item">
-        <a href="<?php echo get_site_url(); ?>/cortometrajes">Fanzine</a>
+        <a href="<?php echo $url_fanzine; ?>" target="_blank">Fanzine</a>
         <span></span>
       </li>
       <li class="link-item">
-        <a href="<?php echo get_site_url(); ?>/cortometrajes">Sobre el proyecto</a>
+        <a href="<?php echo get_site_url(); ?>">Sobre el proyecto</a>
         <span></span>
       </li>
     </ul>
@@ -102,12 +104,3 @@ $corto_collections = get_terms("corto_collection");
     <div></div>
   </div>
 </div>
-
-<script>
-  setTimeout(() => {
-    $(".page-loader").addClass("page-loader-hide");
-  }, 1500);
-  setTimeout(() => {
-    $(".page-loader").hide();
-  }, 2000);
-</script>
