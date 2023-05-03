@@ -61,7 +61,7 @@ $og_image = of_get_option("og_image");
   <main class="main-page-artists">
     <h1 class="title">Conoce a los Artistas</h1>
     <section class="subtitle">Ante ustedes las personas que hacen posible que exista este proyecto.
-      Desde Animadores e Ilustradores, hasta Diseñadores y Desarrolladores.
+      Desde Animadores e Ilustradores hasta Diseñadores y Desarrolladores.
       <p class="bold">¡Gracias a todos por ser parte de esto!
       <p>
     </section>
