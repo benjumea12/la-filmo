@@ -277,8 +277,11 @@ endif;
   <?php get_footer(); ?>
 
   <script>
-    $("#reply-title").html("Agregar una valoración")
-    $(".comment-form-url").hide()
+    $(function() {
+      $("#reply-title").html("Agregar una valoración")
+      $("#submit").attr("value", "Publicar valoración")
+      $(".comment-form-url").hide()
+    });
   </script>
 </body>
 
