@@ -1,5 +1,9 @@
 <?php
 $corto_collections = get_terms("corto_collection");
+
+$og_title = of_get_option("og_title");
+$og_description = of_get_option("og_description");
+$og_image = of_get_option("og_image");
 ?>
 
 <!-- Codigo html -->
@@ -11,6 +15,12 @@ $corto_collections = get_terms("corto_collection");
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo $og_title; ?>" />
+  <meta property="og:description" content="<?php echo $og_description; ?>" />
+  <meta property="og:url" content="<?php echo get_site_url(); ?>" />
+  <meta property="og:image" content="<?php echo $og_image; ?>" />
+  <meta property="og:type" content="web" />
 </head>
 
 <body>
@@ -25,6 +35,7 @@ $corto_collections = get_terms("corto_collection");
     <div class="collections-list">
       <?php
       if ($corto_collections) :
+        $corto_collections = array_reverse($corto_collections);
         foreach ($corto_collections as $corto_collection) :
       ?>
           <!-- Swiper slide -->

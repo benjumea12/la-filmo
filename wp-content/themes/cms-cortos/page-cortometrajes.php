@@ -1,3 +1,9 @@
+<?php
+$og_title = of_get_option("og_title");
+$og_description = of_get_option("og_description");
+$og_image = of_get_option("og_image");
+?>
+
 <!doctype html>
 <html lang="es">
 
@@ -6,6 +12,12 @@
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo $og_title; ?>" />
+  <meta property="og:description" content="<?php echo $og_description; ?>" />
+  <meta property="og:url" content="<?php echo get_site_url(); ?>" />
+  <meta property="og:image" content="<?php echo $og_image; ?>" />
+  <meta property="og:type" content="web" />
 </head>
 
 <body>

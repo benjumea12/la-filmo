@@ -69,6 +69,41 @@ function optionsframework_options()
     "type" => "upload",
   );
 
+  $options['description_fanzine'] = array(
+    "name" => "Descripción del fanzine",
+    "id" => "description_fanzine",
+    "type" => "textarea",
+  );
+
+  $options['image_fanzine'] = array(
+    "name" => "Portada del fanzine",
+    "id" => "image_fanzine",
+    "type" => "upload",
+  );
+
+  $options[] = array(
+    "name" => "Etiquetas Open Graph",
+    "type" => "heading"
+  );
+
+  $options['og_title'] = array(
+    "name" => "Titulo",
+    "id" => "og_title",
+    "type" => "text",
+  );
+
+  $options['og_description'] = array(
+    "name" => "Descripción",
+    "id" => "og_description",
+    "type" => "textarea",
+  );
+
+  $options['og_image'] = array(
+    "name" => "Imagen",
+    "id" => "og_image",
+    "type" => "upload",
+  );
+
   return $options;
 }
 

@@ -25,8 +25,11 @@ else : // En caso de que no exista consulta todos
   );
 endif;
 
-
 $the_query_authors = new WP_Query($args_authors);
+
+$og_title = of_get_option("og_title");
+$og_description = of_get_option("og_description");
+$og_image = of_get_option("og_image");
 ?>
 
 
@@ -39,6 +42,12 @@ $the_query_authors = new WP_Query($args_authors);
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo $og_title; ?>" />
+  <meta property="og:description" content="<?php echo $og_description; ?>" />
+  <meta property="og:url" content="<?php echo get_site_url(); ?>" />
+  <meta property="og:image" content="<?php echo $og_image; ?>" />
+  <meta property="og:type" content="web" />
 </head>
 
 <body>
@@ -62,6 +71,7 @@ $the_query_authors = new WP_Query($args_authors);
         <li><a href="<?php echo get_site_url(); ?>/artistas" class="<?php echo !isset($_GET["tipo_artista"]) ? "selected" : ""; ?>">TODOS</a></li>
         <?php
         if ($terms) :
+          $terms = array_reverse($terms);
           foreach ($terms as $term) :
         ?>
             <li>

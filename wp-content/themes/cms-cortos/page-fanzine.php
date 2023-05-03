@@ -1,5 +1,7 @@
 <?php
 $url_fanzine = of_get_option("url_fanzine");
+$description_fanzine = of_get_option("description_fanzine");
+$image_fanzine = of_get_option("image_fanzine");
 ?>
 
 <!-- Codigo html -->
@@ -7,16 +9,16 @@ $url_fanzine = of_get_option("url_fanzine");
 <html lang="es">
 
 <head>
-  <title>GMA | <?php echo $selected_corto_collection->name; ?></title>
+  <title>GMA | El Fanzine Maldito</title>
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
-  <!-- <meta property="og:title" content="<?php echo $selected_corto_collection->name; ?>" />
-  <meta property="og:description" content="..." />
-  <meta property="og:url" content="<?php echo get_site_url(); ?>/coleccion/?coleccion=<?php echo $selected_corto_collection->slug; ?>" />
-  <meta property="og:image" content="<?php echo z_taxonomy_image_url($selected_corto_collection->term_id); ?>" />
-  <meta property="og:type" content="article" /> -->
+  <meta property="og:title" content="El Fanzine Maldito" />
+  <meta property="og:description" content="<?php echo $description_fanzine; ?>" />
+  <meta property="og:url" content="<?php echo get_site_url(); ?>/fanzine" />
+  <meta property="og:image" content="<?php echo $image_fanzine; ?>" />
+  <meta property="og:type" content="article" />
 </head>
 
 <body>
@@ -33,6 +35,7 @@ $url_fanzine = of_get_option("url_fanzine");
 
   <!-- Import footer -->
   <?php get_footer(); ?>
+
 </body>
 
 </html>

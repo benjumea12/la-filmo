@@ -76,6 +76,8 @@ endif;
   <meta property="og:url" content="<?php echo get_the_permalink(); ?>" />
   <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
   <meta property="og:type" content="article" />
+  <meta property="article:author" content="<?php echo get_the_title(); ?>" />
+
 </head>
 
 <body>
@@ -221,11 +223,63 @@ endif;
       <?php echo $youtube; ?>
     </div>
 
+    <div class="flex-comments">
+
+      <?php
+      $args = array();
+
+      if (count(get_comments()) > 0) :
+      ?>
+        <section class="comments-section">
+          <h4 class="description-title">Valoraciónes</h4>
+
+          <ul class="comments-corto">
+            <?php
+            foreach (get_comments() as $comment) :
+              if ($comment->comment_parent === "0") :
+                $args_child = array(
+                  'parent' => $comment->comment_ID,
+                  'hierarchical' => true,
+                );
+                $child_comments = get_comments($args_child);
+            ?>
+                <li class="comment-item <?php echo count($child_comments) === 0 ? "individual" : "" ?>">
+                  <h6><span><?php echo $comment->comment_author; ?></span> - <?php echo date("Y/m/d", strtotime($comment->comment_date)); ?></h6>
+                  <p><?php echo $comment->comment_content; ?></p>
+                </li>
+
+                <?php
+                foreach ($child_comments as $child) :
+                ?>
+                  <li class="comment-item comment-item-child">
+                    <h6><span><?php echo $child->comment_author; ?></span> - <?php echo date("Y/m/d", strtotime($child->comment_date)); ?></h6>
+                    <p><?php echo $child->comment_content; ?></p>
+                  </li>
+            <?php
+                endforeach;
+              endif;
+            endforeach;
+            ?>
+          </ul>
+        </section>
+      <?php
+      endif;
+
+      comment_form($args, get_the_ID());
+      ?>
+    </div>
+
+
   </main>
   <!-- End page content -->
 
   <!-- Import footer -->
   <?php get_footer(); ?>
+
+  <script>
+    $("#reply-title").html("Agregar una valoración")
+    $(".comment-form-url").hide()
+  </script>
 </body>
 
 </html>

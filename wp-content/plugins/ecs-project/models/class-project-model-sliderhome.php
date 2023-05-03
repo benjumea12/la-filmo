@@ -90,6 +90,13 @@ class Project_Model_Sliderhome
     ));
 
     $cmb->add_field(array(
+      'name'    => 'Texto de botón',
+      'desc'    => '',
+      'id'      => $prefix . 'text_action',
+      'type'    => 'text'
+    ));
+
+    $cmb->add_field(array(
       'name'    => 'Link de botón',
       'desc'    => '',
       'id'      => $prefix . 'action',

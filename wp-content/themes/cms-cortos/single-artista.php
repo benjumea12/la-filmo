@@ -10,6 +10,7 @@ $facebook = get_post_meta(get_the_ID(), $prefix_artist . "facebook", true);
 $linkedin = get_post_meta(get_the_ID(), $prefix_artist . "linkedin", true);
 $artstation = get_post_meta(get_the_ID(), $prefix_artist . "artstation", true);
 $behance = get_post_meta(get_the_ID(), $prefix_artist . "behance", true);
+$link = get_post_meta(get_the_ID(), $prefix_artist . "link", true);
 
 $paylink = get_post_meta(get_the_ID(), $prefix_artist . "paypal", true);
 $pay_opcion = get_post_meta(get_the_ID(), $prefix_artist . "pay_opcion", true);
@@ -90,7 +91,8 @@ endif;
   <meta property="og:description" content="<?php echo get_the_excerpt(); ?>" />
   <meta property="og:url" content="<?php echo get_the_permalink(); ?>" />
   <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>" />
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="profile" />
+  <meta property="profile:first_name " content="<?php echo get_the_title(); ?>" />
 </head>
 
 <body>
@@ -215,6 +217,14 @@ endif;
           ?>
             <a href="<?php echo $linkedin; ?>" target="_blank">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/linkedin.svg" alt="Icono de LinkedIn">
+            </a>
+          <?php
+          endif;
+
+          if ($link) :
+          ?>
+            <a href="<?php echo $link; ?>" target="_blank">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/link.svg" alt="Icono de otr link">
             </a>
           <?php
           endif;

@@ -189,6 +189,13 @@ class Project_Model_Artist
       'type'    => 'text'
     ));
 
+    $cmb->add_field(array(
+      'name'    => 'Otro link',
+      'desc'    => '',
+      'id'      => $prefix . 'link',
+      'type'    => 'text'
+    ));
+
     // Inputs de pagos
 
     $cmb->add_field(array(

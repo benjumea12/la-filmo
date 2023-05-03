@@ -68,7 +68,7 @@ class Project_Model_Shortfilm
     $args = array(
       'labels' => $labels,
       'description'         => __('Cortometraje', 'enigmind'),
-      'supports'            => array('title', 'editor', 'excerpt', 'thumbnail'),
+      'supports'            => array('title', 'editor', 'excerpt', 'thumbnail', 'comments'),
       'hierarchical'        => false,
       'public'              => true,
       'show_ui'             => true,
@@ -255,14 +255,11 @@ class Project_Model_Shortfilm
       'id'          => $prefix . 'created_at',
       'type'        => 'group',
       'description' => __('', 'cmb2'),
-      // 'repeatable'  => false, // use false if you want non-repeatable group
       'options'     => array(
         'group_title'       => __('Creador {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
         'add_button'        => __('Agregar otro creador', 'cmb2'),
         'remove_button'     => __('Remove Entry', 'cmb2'),
         'sortable'          => true,
-        // 'closed'         => true, // true to have the groups closed by default
-        // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
       ),
     ));
 

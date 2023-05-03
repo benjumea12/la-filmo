@@ -48,6 +48,7 @@ $url_fanzine = of_get_option("url_fanzine");
           <ul class="dropdown-menu">
             <?php
             if ($corto_collections) :
+              $corto_collections = array_reverse($corto_collections);
               foreach ($corto_collections as $corto_collection) :
             ?>
                 <li class="dropdown-item">
@@ -69,6 +70,7 @@ $url_fanzine = of_get_option("url_fanzine");
           <ul class="dropdown-menu">
             <?php
             if ($artist_types) :
+              $artist_types = array_reverse($artist_types);
               foreach ($artist_types as $artist_type) :
             ?>
                 <li class="dropdown-item">
@@ -88,6 +90,10 @@ $url_fanzine = of_get_option("url_fanzine");
       </li>
       <li class="link-item">
         <a href="<?php echo get_site_url(); ?>">Sobre el proyecto</a>
+        <span></span>
+      </li>
+      <li class="link-item">
+        <a href="<?php echo get_site_url(); ?>/buscar"> <img class="icon-gema" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.svg" alt="Icono de buscar"></a>
         <span></span>
       </li>
     </ul>

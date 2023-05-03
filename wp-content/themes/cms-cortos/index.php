@@ -23,6 +23,10 @@ $args_cortos = array(
   'post_status' => 'publish',
   'posts_per_page' => $posts_per_page,
 );
+
+$og_title = of_get_option("og_title");
+$og_description = of_get_option("og_description");
+$og_image = of_get_option("og_image");
 ?>
 
 <!doctype html>
@@ -33,6 +37,12 @@ $args_cortos = array(
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
+
+  <meta property="og:title" content="<?php echo $og_title; ?>" />
+  <meta property="og:description" content="<?php echo $og_description; ?>" />
+  <meta property="og:url" content="<?php echo get_site_url(); ?>" />
+  <meta property="og:image" content="<?php echo $og_image; ?>" />
+  <meta property="og:type" content="web" />
 </head>
 
 <body>
@@ -56,6 +66,7 @@ $args_cortos = array(
             while ($the_query_sliders->have_posts()) :
               $the_query_sliders->the_post();
               // Meta datos personalizados
+              $text_action = get_post_meta(get_the_ID(), $prefix_sliders . "text_action", true);
               $action = get_post_meta(get_the_ID(), $prefix_sliders . "action", true);
           ?>
               <!-- Swiper slide -->
@@ -64,7 +75,7 @@ $args_cortos = array(
                 <div class="swiper-slide-content">
                   <h2 class="swiper-slide-title"><?php echo get_the_title(); ?></h2>
                   <p class="swiper-slide-text"><?php echo get_the_excerpt(); ?></p>
-                  <a href="<?php echo $action; ?>" class="btn btn-lg btn-primary swiper-slide-button" type="button">Ver ahora</a>
+                  <a href="<?php echo $action; ?>" class="btn btn-lg btn-primary swiper-slide-button" type="button"><?php echo $text_action; ?></a>
                 </div>
               </section>
               <!-- End swiper slide -->
@@ -97,6 +108,7 @@ $args_cortos = array(
           <?php
           if ($corto_collections) :
             // Mapear las colecciones de cortos
+            $corto_collections = array_reverse($corto_collections);
             foreach ($corto_collections as $corto_collection) :
           ?>
               <!-- Swiper slide -->
@@ -206,7 +218,7 @@ $args_cortos = array(
       </div>
 
       <footer class="section-basic-footer">
-        <a href="<?php echo get_site_url(); ?>?pagina=<?php echo $next; ?>" class="btn btn-lg btn-more">Ver más</a>
+        <a href="?pagina=<?php echo $next; ?>" class="btn btn-lg btn-more">Ver más</a>
       </footer>
     </section>
     <!-- End section popular -->
@@ -223,9 +235,15 @@ $args_cortos = array(
   ?>
     <script>
       $(document).ready(function() {
-        $("html, body").animate({
-          scrollTop: `${$(document).height()-900}px`
-        }, 0);
+        if ($(window).width() < 768) {
+          $("html, body").animate({
+            scrollTop: `${$(document).height()-3600}px`
+          }, 0);
+        } else {
+          $("html, body").animate({
+            scrollTop: `${$(document).height()-1100}px`
+          }, 0);
+        }
       });
     </script>
   <?php
