@@ -110,7 +110,6 @@ $contact = of_get_option("contact");
 
       <div class="actions">
         <a href="<?php echo get_site_url(); ?>/artistas" class="btn btn-lg btn-light swiper-slide-button" type="button">Ver artistas</a>
-        <a href="<?php echo get_site_url(); ?>/artistas" class="link"><?php echo get_site_url(); ?>/artistas</a>
       </div>
     </section>
 
@@ -136,7 +135,6 @@ $contact = of_get_option("contact");
 
       <div class="actions">
         <a href="https://discord.gg/G8wdXx3tUm" class="btn btn-lg btn-light swiper-slide-button" type="button">Ir a discord</a>
-        <a href="https://discord.gg/G8wdXx3tUm" class="link">https://discord.gg/G8wdXx3tUm</a>
       </div>
     </section>
 
