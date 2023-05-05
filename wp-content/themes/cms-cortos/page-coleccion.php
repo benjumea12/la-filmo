@@ -63,7 +63,7 @@ $selected_corto_collection_data = get_term_meta($selected_corto_collection->term
           <img class="icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/brush.svg" alt="">
           <p>
             Ilustración por
-            <a href="<?php echo $selected_corto_collection_data["collection_red"][0]; ?>" target="_blank">
+            <a href="<?php echo $selected_corto_collection_data["collection_red"][0]; ?>">
               <?php echo $selected_corto_collection_data["collection_artist"][0]; ?>
             </a>
           </p>

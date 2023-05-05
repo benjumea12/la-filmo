@@ -231,7 +231,7 @@ endif;
       if (count(get_comments()) > 0) :
       ?>
         <section class="comments-section">
-          <h4 class="description-title">Valoraciónes</h4>
+          <h4 class="description-title">Valoraciones</h4>
 
           <ul class="comments-corto">
             <?php

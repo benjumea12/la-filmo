@@ -89,7 +89,7 @@ $url_fanzine = of_get_option("url_fanzine");
         <span></span>
       </li>
       <li class="link-item">
-        <a href="<?php echo get_site_url(); ?>">Sobre el proyecto</a>
+        <a href="<?php echo get_site_url(); ?>/sobre-el-proyecto">Sobre el proyecto</a>
         <span></span>
       </li>
       <li class="link-item">

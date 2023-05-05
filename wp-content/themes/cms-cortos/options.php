@@ -104,6 +104,158 @@ function optionsframework_options()
     "type" => "upload",
   );
 
+
+
+  $options[] = array(
+    "name" => "Sobre el proyecto",
+    "type" => "heading"
+  );
+
+  $options['image_1'] = array(
+    "name" => "Imagen 1",
+    "id" => "image_1",
+    "type" => "upload",
+  );
+
+  $options['artist_1'] = array(
+    "name" => "Artista imagen 1",
+    "id" => "artist_1",
+    "type" => "text",
+  );
+
+  $options['link_1'] = array(
+    "name" => "Link artista 1",
+    "id" => "link_1",
+    "type" => "text",
+  );
+
+  $options['image_2'] = array(
+    "name" => "Imagen 2",
+    "id" => "image_2",
+    "type" => "upload",
+  );
+
+  $options['artist_2'] = array(
+    "name" => "Artista imagen 2",
+    "id" => "artist_2",
+    "type" => "text",
+  );
+
+  $options['link_2'] = array(
+    "name" => "Link artista 2",
+    "id" => "link_2",
+    "type" => "text",
+  );
+
+  $options['about_us'] = array(
+    "name" => "Sobre nosotros",
+    "id" => "about_us",
+    "type" => "textarea",
+  );
+
+  $options['history'] = array(
+    "name" => "Historia",
+    "id" => "history",
+    "type" => "textarea",
+  );
+
+  $options['image_3'] = array(
+    "name" => "Imagen 3",
+    "id" => "image_3",
+    "type" => "upload",
+  );
+
+  $options['artist_3'] = array(
+    "name" => "Artista imagen 3",
+    "id" => "artist_3",
+    "type" => "text",
+  );
+
+  $options['link_3'] = array(
+    "name" => "Link artista 3",
+    "id" => "link_3",
+    "type" => "text",
+  );
+
+  $options['image_4'] = array(
+    "name" => "Imagen 4",
+    "id" => "image_4",
+    "type" => "upload",
+  );
+
+  $options['artist_4'] = array(
+    "name" => "Artista imagen 4",
+    "id" => "artist_4",
+    "type" => "text",
+  );
+
+  $options['link_4'] = array(
+    "name" => "Link artista 4",
+    "id" => "link_4",
+    "type" => "text",
+  );
+
+  $options['vision_mission'] = array(
+    "name" => "Misión y Visión",
+    "id" => "vision_mission",
+    "type" => "textarea",
+  );
+
+  $options['about_us_2'] = array(
+    "name" => "Quiénes somos",
+    "id" => "about_us_2",
+    "type" => "textarea",
+  );
+
+  $options['image_5'] = array(
+    "name" => "Imagen 5",
+    "id" => "image_5",
+    "type" => "upload",
+  );
+
+  $options['artist_5'] = array(
+    "name" => "Artista imagen 5",
+    "id" => "artist_5",
+    "type" => "text",
+  );
+
+  $options['link_5'] = array(
+    "name" => "Link artista 5",
+    "id" => "link_5",
+    "type" => "text",
+  );
+
+  $options['image_6'] = array(
+    "name" => "Imagen 6",
+    "id" => "image_6",
+    "type" => "upload",
+  );
+
+  $options['artist_6'] = array(
+    "name" => "Artista imagen 6",
+    "id" => "artist_6",
+    "type" => "text",
+  );
+
+  $options['link_6'] = array(
+    "name" => "Link artista 6",
+    "id" => "link_6",
+    "type" => "text",
+  );
+
+  $options['our_pillars'] = array(
+    "name" => "Nuestros pilares",
+    "id" => "our_pillars",
+    "type" => "textarea",
+  );
+
+  $options['contact'] = array(
+    "name" => "Contacto",
+    "id" => "contact",
+    "type" => "textarea",
+  );
+
+
   return $options;
 }
 

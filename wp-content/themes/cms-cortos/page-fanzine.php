@@ -29,6 +29,9 @@ $image_fanzine = of_get_option("image_fanzine");
   <!-- Page content -->
   <main class="main-page-fanzine">
     <iframe class="iframe-fanzine" src="<?php echo $url_fanzine; ?>" frameborder="0"></iframe>
+    <a href="<?php echo $url_fanzine; ?>" class="portada">
+      <img src="<?php echo $image_fanzine; ?>" alt="Portada Fanzine">
+    </a>
     <a href="<?php echo $url_fanzine; ?>" target="_blank" class="btn btn-primary" type="button">Abrir en una pestaña</a>
   </main>
   <!-- End page content -->

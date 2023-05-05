@@ -7,13 +7,41 @@
   padding-top: 15em
   padding-bottom: 0px
   margin-bottom: 10em
-  min-height: calc( 80vh - 12em )
+  min-height: calc( 68vh - 12em )
+  position: relative
+  @include media.screen-md
+    min-height: calc( 68vh - 14em )
+
+  .background-page
+    position: fixed
+    height: 90vh
+    width: 100vw
+    top: 0
+    left: 0
+    img
+      height: 100%
+      width: 100%
+      object-fit: cover
+      position: relative
+    .overlay
+      position: absolute
+      bottom: 0
+      left: 0
+      height: 100%
+      width: 100%
+      z-index: 2
+      background: rgb(10,9,9)
+      background: linear-gradient(0deg, rgba(10,9,9,1) 0%, rgba(0, 0, 0, 0.132) 100%)
+
   .input-buscar
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
     height: 100vh
+    position: relative
+    z-index: 2
+    margin-top: 12vh
     form
       width: 50%
       display: flex
@@ -28,7 +56,7 @@
       input
         width: 100%
         padding: 1.8rem 3rem
-        font-size: 2.6rem
+        font-size: 2.4rem
         border-radius: 4rem
         border: none
         background-color: #ffffff1b
@@ -59,6 +87,8 @@
     display: flex
     justify-content: space-evenly
     margin-top: 3em
+    position: relative
+    z-index: 2
     @include media.screen-md
       flex-direction: column
     .search-results-list
