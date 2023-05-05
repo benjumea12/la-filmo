@@ -38,12 +38,12 @@ $og_image = of_get_option("og_image");
 <html lang="es">
 
 <head>
-  <title>GMA | Artistas</title>
+  <title><?php echo $og_title; ?> | Artistas</title>
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
-  <meta property="og:title" content="<?php echo $og_title; ?>" />
+  <meta property="og:title" content="<?php echo $og_title; ?> | Artistas" />
   <meta property="og:description" content="<?php echo $og_description; ?>" />
   <meta property="og:url" content="<?php echo get_site_url(); ?>" />
   <meta property="og:image" content="<?php echo $og_image; ?>" />

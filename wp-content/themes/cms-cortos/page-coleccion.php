@@ -27,6 +27,8 @@ $args_cortos = array(
 
 
 $selected_corto_collection_data = get_term_meta($selected_corto_collection->term_id);
+
+$og_title = of_get_option("og_title");
 ?>
 
 <!-- Codigo html -->
@@ -34,7 +36,7 @@ $selected_corto_collection_data = get_term_meta($selected_corto_collection->term
 <html lang="es">
 
 <head>
-  <title>GMA | <?php echo $selected_corto_collection->name; ?></title>
+  <title><?php echo $og_title; ?> | <?php echo $selected_corto_collection->name; ?></title>
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>

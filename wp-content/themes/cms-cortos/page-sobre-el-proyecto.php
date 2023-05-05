@@ -44,12 +44,12 @@ $contact = of_get_option("contact");
 <html lang="es">
 
 <head>
-  <title>GMA | Sobre el Proyecto</title>
+  <title><?php echo $og_title; ?> | Sobre el Proyecto</title>
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
-  <meta property="og:title" content="<?php echo $og_title; ?>" />
+  <meta property="og:title" content="<?php echo $og_title; ?>  | Sobre el Proyecto" />
   <meta property="og:description" content="<?php echo $og_description; ?>" />
   <meta property="og:url" content="<?php echo get_site_url(); ?>" />
   <meta property="og:image" content="<?php echo $og_image; ?>" />
@@ -78,7 +78,7 @@ $contact = of_get_option("contact");
       </section>
 
       <section class="section-content">
-        <h2 class="section-title">sobre nosotros</h2>
+        <h2 class="section-title">sobre GMA</h2>
         <p class="section-text"><?php echo nl2br($about_us); ?></p>
       </section>
     </div>

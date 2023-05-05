@@ -2,6 +2,8 @@
 $url_fanzine = of_get_option("url_fanzine");
 $description_fanzine = of_get_option("description_fanzine");
 $image_fanzine = of_get_option("image_fanzine");
+
+$og_title = of_get_option("og_title");
 ?>
 
 <!-- Codigo html -->
@@ -9,7 +11,7 @@ $image_fanzine = of_get_option("image_fanzine");
 <html lang="es">
 
 <head>
-  <title>GMA | El Fanzine Maldito</title>
+  <title><?php echo $og_title; ?> | El Fanzine Maldito</title>
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>

@@ -77,13 +77,14 @@ if ($the_query_cortos->have_posts()) :
   endforeach;
 endif;
 
+$og_title = of_get_option("og_title");
 ?>
 
 <!doctype html>
 <html lang="es">
 
 <head>
-  <title>GMA | <?php echo get_the_title(); ?></title>
+  <title><?php echo $og_title; ?> | <?php echo get_the_title(); ?></title>
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
