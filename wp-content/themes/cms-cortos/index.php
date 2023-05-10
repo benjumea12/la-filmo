@@ -1,29 +1,35 @@
 <?php
-// Traer todas las colecciones de cortos
+// Get all collections of shorts
 $corto_collections = get_terms("corto_collection");
 
-$posts_per_page = 12;
-$next = 1;
+// "View Shorter" Pager Indicators
+$posts_per_page = 12; // 12 shorts are shown per page
+$next = 1; // Variable that carries the number of the next page
 
+// Check if the parameter "page" exists
 if (isset($_GET["pagina"])) {
+  // In case it exists, 12 more shorts are added to the previous query
   $pagina = intval($_GET["pagina"]);
   $next = $pagina + 1;
   $posts_per_page = $next * 12;
 }
-// Argumentos de consulta de Sliders Home
+
+// Home Slider Query Arguments
 $args_sliders = array(
   'post_type' => 'slider-home',
   'post_status' => 'publish',
   'posts_per_page' => -1,
 );
 
-// Argumentos de consulta de Sliders Home 
+// Short Film Query Arguments
 $args_cortos = array(
   'post_type' => 'cortometraje',
   'post_status' => 'publish',
+  'order' => 'DESC',
   'posts_per_page' => $posts_per_page,
 );
 
+// Consult information for Open Graph labels
 $og_title = of_get_option("og_title");
 $og_description = of_get_option("og_description");
 $og_image = of_get_option("og_image");
@@ -38,6 +44,7 @@ $og_image = of_get_option("og_image");
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
+  <!-- Open Graph labels -->
   <meta property="og:title" content="<?php echo $og_title; ?> Inicio" />
   <meta property="og:description" content="<?php echo $og_description; ?>" />
   <meta property="og:url" content="<?php echo get_site_url(); ?>" />
@@ -47,25 +54,25 @@ $og_image = of_get_option("og_image");
 
 <body>
 
-  <!-- Import header -->
+  <!-- Import header from "header.php" -->
   <?php get_header(); ?>
 
   <!-- Page content -->
   <main>
 
-    <!-- Swiper -->
+    <!-- Swiper Home -->
     <section class="swiper-contain">
       <div class="swiper swiper-home">
         <div class="swiper-wrapper">
           <?php
-          /* Consultar Sliders Home */
+          /* Consult Sliders Home¨*/
           $the_query_sliders = new WP_Query($args_sliders);
 
-          // Mapear Sliders Home 
+          // Map Sliders Home
           if ($the_query_sliders->have_posts()) :
             while ($the_query_sliders->have_posts()) :
               $the_query_sliders->the_post();
-              // Meta datos personalizados
+              // Extract custom meta data
               $text_action = get_post_meta(get_the_ID(), $prefix_sliders . "text_action", true);
               $action = get_post_meta(get_the_ID(), $prefix_sliders . "action", true);
           ?>
@@ -82,7 +89,7 @@ $og_image = of_get_option("og_image");
           <?php
             endwhile;
           endif;
-          /* Fin Consultar y mapear los Sliders Home */
+          /* End consult and map Sliders Home */
           ?>
         </div>
         <div class="swiper-action-basic swiper-next swiper-next-home">
@@ -94,7 +101,7 @@ $og_image = of_get_option("og_image");
       </div>
       <div class="swiper-pagination"></div>
     </section>
-    <!-- End swiper -->
+    <!-- End Swiper Home -->
 
     <!-- Section collections -->
     <section class="section-basic swiper-collections-contain">
@@ -107,7 +114,7 @@ $og_image = of_get_option("og_image");
         <div class="swiper-wrapper">
           <?php
           if ($corto_collections) :
-            // Mapear las colecciones de cortos
+            // Map short collections
             $corto_collections = array_reverse($corto_collections);
             foreach ($corto_collections as $corto_collection) :
           ?>
@@ -145,18 +152,18 @@ $og_image = of_get_option("og_image");
         <div class="swiper-wrapper">
           <!-- Swiper slide -->
           <?php
-          // Consultar y mapear los cortos Home
+          /* Consult and map the shorts Home */
           $the_query_cortos = new WP_Query(array(
             'post_type' => 'cortometraje',
             'post_status' => 'publish',
             'order' => 'ASC',
-            'posts_per_page' => $posts_per_page,
+            'posts_per_page' => 10,
           ));
 
           if ($the_query_cortos->have_posts()) :
             while ($the_query_cortos->have_posts()) :
               $the_query_cortos->the_post();
-              // Meta datos personalizados
+              // Extract custom meta data
               $edition = get_post_meta(get_the_ID(), $prefix_cortos . "edition", true);
               $duration = get_post_meta(get_the_ID(), $prefix_cortos . "duration", true);
           ?>
@@ -174,7 +181,7 @@ $og_image = of_get_option("og_image");
           <?php
             endwhile;
           endif;
-          // Fin Consultar y mapear los cortos Home 
+          /* End consult and map the shorts Home */
           ?>
         </div>
         <div class="swiper-action-basic swiper-next swiper-next-popular swiper-action-popular">
@@ -195,13 +202,8 @@ $og_image = of_get_option("og_image");
 
       <div class="explore-stories">
         <?php
-        /* Consultar y mapear los cortos Home */
-        $the_query_cortos = new WP_Query(array(
-          'post_type' => 'cortometraje',
-          'post_status' => 'publish',
-          'order' => 'DESC',
-          'posts_per_page' => $posts_per_page,
-        ));
+        /* Consult and map the shorts Home */
+        $the_query_cortos = new WP_Query($args_cortos);
 
         if ($the_query_cortos->have_posts()) :
           while ($the_query_cortos->have_posts()) :
@@ -213,7 +215,7 @@ $og_image = of_get_option("og_image");
         <?php
           endwhile;
         endif;
-        /* Fin Consultar y mapear los cortos Home */
+        /* End consult and map the shorts Home */
         ?>
       </div>
 
@@ -234,6 +236,7 @@ $og_image = of_get_option("og_image");
   if (isset($_GET["pagina"])) :
   ?>
     <script>
+      /* Event that is executed when the user clicks on "see more" and takes the scroll to continue with the shorts he was seeing */
       $(document).ready(function() {
         if ($(window).width() < 768) {
           $("html, body").animate({

@@ -3,22 +3,24 @@
 @use '../utils/media'
 
 .main-page-fanzine
-  padding-top: 90px
   display: flex
   flex-direction: column
   align-items: center
-  justify-content: center
-  .iframe-fanzine
-    width: 80%
-    height: 82vh
-    @include media.screen-md
-      display: none
   .portada
-    display: none
-    width: 90%
     img
-      width: 100%
-    @include media.screen-md
-      display: flex
+      height: 60vh
+      @include media.screen-md
+        height: auto
+        width: 80vw
   .btn
-    margin-top: 2em
+    margin-top: 1em
+
+.main-page-fanzine-item
+  display: flex
+  #nav-page
+    display: none
+  #footer-page
+    display: none
+  #container-book
+    width: 80%
+    z-index: 20

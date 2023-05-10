@@ -228,14 +228,18 @@ $og_title = of_get_option("og_title");
       <?php
       $args = array();
 
-      if (count(get_comments()) > 0) :
+      $args_comments = array(
+        'post_id' => get_the_ID()
+      );
+
+      if (count(get_comments($args_comments)) > 0) :
       ?>
         <section class="comments-section">
           <h4 class="description-title">Valoraciones</h4>
 
           <ul class="comments-corto">
             <?php
-            foreach (get_comments() as $comment) :
+            foreach (get_comments($args_comments) as $comment) :
               if ($comment->comment_parent === "0") :
                 $args_child = array(
                   'parent' => $comment->comment_ID,
