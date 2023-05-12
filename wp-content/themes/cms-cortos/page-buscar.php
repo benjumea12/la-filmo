@@ -21,11 +21,15 @@ $cortos = [];
 if ($the_query_authors->have_posts()) :
   while ($the_query_authors->have_posts()) :
     $the_query_authors->the_post();
+    $type = "";
+    if (isset(get_the_terms(get_the_ID(), "artist_type")[0]->name)) {
+      $type = get_the_terms(get_the_ID(), "artist_type")[0]->name;
+    }
     array_push($authors, array(
       "title" => get_the_title(),
       "image" => get_the_post_thumbnail_url(),
       "link" => get_permalink(),
-      "type" => get_the_terms(get_the_ID(), "artist_type")[0]->name,
+      "type" => $type,
       "description" => get_the_excerpt() . get_the_content()
     ));
   endwhile;

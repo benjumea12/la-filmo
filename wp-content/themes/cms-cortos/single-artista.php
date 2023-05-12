@@ -132,9 +132,9 @@ $og_title = of_get_option("og_title");
 
       endif;
       ?>
-      <div class="artist-header-image">
+      <a class="artist-header-image image-popup" href="<?php echo get_the_post_thumbnail_url(); ?>">
         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Avatar de '<?php echo get_the_title(); ?>'">
-      </div>
+      </a>
       <div class="artist-header-content">
         <?php
         if ($post_terms && count($post_terms) > 0) :
@@ -153,7 +153,7 @@ $og_title = of_get_option("og_title");
       <div class="artist-content">
         <h3 class="section-title">Sobre mi</h3>
 
-        <p><?php echo nl2br(get_the_content()); ?></p>
+        <p><?php echo get_the_content(); ?></p>
 
         <h4 class="section-title">Redes sociales</h4>
         <div class="redes">
@@ -271,12 +271,14 @@ $og_title = of_get_option("og_title");
             <?php
             foreach ($others_works as $other_works) :
               $link = $other_works[$prefix_artist . "image_other_work"];
+              $popup = "image-popup";
 
               if (array_key_exists($prefix_artist . "link_other_work", $other_works) && $other_works[$prefix_artist . "link_other_work"] !== "") {
                 $link = $other_works[$prefix_artist . "link_other_work"];
+                $popup = "";
               }
             ?>
-              <a href="<?php echo $link; ?>" class="card-popular card-popular-work">
+              <a href="<?php echo $link; ?>" class="card-popular card-popular-work <?php echo $popup; ?>">
                 <div class="swiper-slide-image">
                   <img src="<?php echo $other_works[$prefix_artist . "image_other_work"]; ?>" alt="Imagen de '<?php echo $other_works[$prefix_artist . "title_other_work"]; ?>'">
                 </div>
@@ -309,7 +311,7 @@ $og_title = of_get_option("og_title");
             <?php
             foreach ($others as $other) :
             ?>
-              <a href="<?php echo $other; ?>" class="card-popular">
+              <a href="<?php echo $other; ?>" class="card-popular image-popup">
                 <div class="swiper-slide-image">
                   <img src="<?php echo $other; ?>" alt="Ilustración del corto_artist '">
                 </div>

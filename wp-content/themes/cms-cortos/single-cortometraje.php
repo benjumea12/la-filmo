@@ -94,7 +94,7 @@ $og_title = of_get_option("og_title");
 
     <div class="corto-top">
       <div class="corto-container-title">
-        <h1>2022</h1>
+        <h1><?php echo $edition; ?></h1>
         <svg class="line" height="4" viewBox="0 0 92 4" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="1.82609" y1="2.08697" x2="89.4783" y2="2.08697" stroke="white" stroke-width="3.65217" stroke-linecap="round" />
         </svg>
@@ -102,7 +102,7 @@ $og_title = of_get_option("og_title");
       </div>
       <div class="corto-container-title2">
         <h1 class="name"><?php echo get_the_title(); ?></h1>
-        <a class="btn-1" href="<?php echo get_the_post_thumbnail_url(); ?>" target="_blank">
+        <a class="btn-1 image-popup" href="<?php echo get_the_post_thumbnail_url(); ?>" target="_blank">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/eye.svg" alt="Ver" width="24" height="24">
           Ver ilustración
         </a>
@@ -127,7 +127,7 @@ $og_title = of_get_option("og_title");
       <div class="corto-content">
         <h4 class="description-title">Descripción general</h4>
         <div class="description-text">
-          <p><?php echo nl2br(get_the_content()); ?></p>
+          <p><?php echo get_the_content(); ?></p>
         </div>
 
         <div class="alerts">
@@ -287,6 +287,7 @@ $og_title = of_get_option("og_title");
       $(".comment-form-url").hide()
     });
   </script>
+
 </body>
 
 </html>

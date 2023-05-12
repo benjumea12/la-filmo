@@ -10,6 +10,20 @@ $(function () {
       $("body").css("overflow", "scroll")
     }
   })
+
+  $(".image-popup").magnificPopup({
+    type: "image",
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    fixedContentPos: true,
+    image: {
+      verticalFit: true,
+    },
+    zoom: {
+      enabled: true,
+      duration: 250,
+    },
+  })
 })
 
 window.addEventListener("click", function (e) {
