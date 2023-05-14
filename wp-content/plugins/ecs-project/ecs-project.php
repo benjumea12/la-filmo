@@ -31,11 +31,8 @@ function project_autoloader($class_name)
   ) {
 
     $class_directory = $class_components[1];
-
     unset($class_components[0], $class_components[1]);
-
     $file_name = implode("_", $class_components);
-
     $base_path = plugin_dir_path(__FILE__);
 
     switch ($class_directory) {
@@ -58,6 +55,8 @@ class ECS_Project_Manager
   public $artist;
   public $shortfilm;
   public $sliderhome;
+  public $place;
+  public $question;
 
   function __construct()
   {
@@ -69,6 +68,8 @@ class ECS_Project_Manager
     $this->artist = new Project_Model_Artist($this);
     $this->shortfilm = new Project_Model_Shortfilm($this);
     $this->sliderhome = new Project_Model_Sliderhome($this);
+    $this->place = new Project_Model_Place($this);
+    $this->question = new Project_Model_Question($this);
 
     add_action('cmb2_admin_init', array($this, 'add_metaboxes'));
     add_action('init', array($this, 'textdomain'));

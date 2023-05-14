@@ -153,7 +153,7 @@ $og_title = of_get_option("og_title");
       <div class="artist-content">
         <h3 class="section-title">Sobre mi</h3>
 
-        <p><?php echo get_the_content(); ?></p>
+        <p><?php echo nl2br(get_the_content()); ?></p>
 
         <h4 class="section-title">Redes sociales</h4>
         <div class="redes">
