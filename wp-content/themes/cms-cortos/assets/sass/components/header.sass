@@ -9,7 +9,23 @@
   top: 0
   left: 0
   z-index: 20
-  background: linear-gradient(to bottom, rgba(10, 9, 9, 0.6) 50%, rgba(10, 9, 9, 0) 100%)
+  background: linear-gradient(180deg, #0a0909c4 50%, #0a090900 100%)
+  .overflow
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    transition: all .2s .2s
+    background: #0a0909d8
+
+  @include media.screen-md
+    &.open-nav-page
+      .overflow
+        opacity: 1
+        &:not(:hover)
+          transition: all .2s 0s
 
   .nav-contain
     display: flex
@@ -107,19 +123,19 @@
         position: relative
         padding-right: 1.6vw
         &::after
-          content: "🢓"
-          font-size: 4.5rem
+          content: "\25bc"
+          font-size: 1.6rem
           position: absolute
           right: -1.0rem
 
         // Dropdown list
         .dropdown-contain
           position: absolute
-          top: 100%
+          top: 10%
           z-index: 5
-          padding-top: 10%
+          padding-top: 30%
           .dropdown-menu
-            background-color: #0a0909fd
+            background-color: #0a0909cc
             list-style: none
             padding: 0px 30px
             border-radius: 20px
@@ -149,17 +165,17 @@
 
       @include media.screen-md
         position: absolute
-        top: 90%
+        top: 100%
         width: 100%
         left: 0
         max-height: 0px
         overflow: hidden
         padding: 0em 0 0em 0
         flex-direction: column
-        background-color: #0a0909b3
-        transition: all .3s
+        background-color: #0a0909d8
+        transition: all .4s
         &.open-menu
-          max-height: 50vh
+          max-height: 100vh
           padding: 10px 0 30px 0
 
         .link-item.dropdown.open
@@ -170,6 +186,9 @@
           a
             font-size: 3.5rem
         .link-item.dropdown
+          &::after
+            font-size: 2.2rem
+            top: .4rem
           .dropdown-contain
             position: relative
             padding: 0

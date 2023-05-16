@@ -7,6 +7,7 @@ $url_fanzine = of_get_option("url_fanzine");
 
 
 <nav id="nav-page">
+  <div class="overflow"></div>
   <div class="nav-contain">
     <a href="<?php echo get_site_url(); ?>" class="nav-logo">
       <svg id="Capa_2" viewBox="0 0 178.23 70.29">

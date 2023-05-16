@@ -156,8 +156,10 @@ $og_image = of_get_option("og_image");
           $the_query_cortos = new WP_Query(array(
             'post_type' => 'cortometraje',
             'post_status' => 'publish',
-            'order' => 'ASC',
             'posts_per_page' => 10,
+            'meta_key' => 'post_views',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC'
           ));
 
           if ($the_query_cortos->have_posts()) :

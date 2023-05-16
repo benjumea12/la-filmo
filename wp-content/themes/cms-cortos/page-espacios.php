@@ -82,21 +82,6 @@ $args_questions = array(
           <a href="?pais=<?php echo $country->slug; ?>" class="<?php echo isset($_GET["pais"]) && $_GET["pais"] === $country->slug ? "selected" : "" ?>">
             <?php echo $country->name; ?>
           </a>
-          <a href="?pais=<?php echo $country->slug; ?>" class="<?php echo isset($_GET["pais"]) && $_GET["pais"] === $country->slug ? "selected" : "" ?>">
-            <?php echo $country->name; ?>
-          </a>
-          <a href="?pais=<?php echo $country->slug; ?>" class="<?php echo isset($_GET["pais"]) && $_GET["pais"] === $country->slug ? "selected" : "" ?>">
-            <?php echo $country->name; ?>
-          </a>
-          <a href="?pais=<?php echo $country->slug; ?>" class="<?php echo isset($_GET["pais"]) && $_GET["pais"] === $country->slug ? "selected" : "" ?>">
-            <?php echo $country->name; ?>
-          </a>
-          <a href="?pais=<?php echo $country->slug; ?>" class="<?php echo isset($_GET["pais"]) && $_GET["pais"] === $country->slug ? "selected" : "" ?>">
-            <?php echo $country->name; ?>
-          </a>
-          <a href="?pais=<?php echo $country->slug; ?>" class="<?php echo isset($_GET["pais"]) && $_GET["pais"] === $country->slug ? "selected" : "" ?>">
-            <?php echo $country->name; ?>
-          </a>
       <?php
         endforeach;
       endif;
@@ -115,9 +100,9 @@ $args_questions = array(
           // Extract custom meta data
           $address = get_post_meta(get_the_ID(), $prefix_places . "address", true);
           $hour = get_post_meta(get_the_ID(), $prefix_places . "hour", true);
-          $time = get_post_meta(get_the_ID(), $prefix_places . "time", true);
           $more = get_post_meta(get_the_ID(), $prefix_places . "more", true);
           $city = get_post_meta(get_the_ID(), $prefix_places . "city", true);
+          $date = get_post_meta(get_the_ID(), $prefix_places . "date", true);
       ?>
           <section class="place-item">
             <div class="place-image">
@@ -132,8 +117,8 @@ $args_questions = array(
                 <h3>Dirección:</h3>
                 <p><?php echo $address; ?></p>
 
-                <h3>Hora:</h3>
-                <p><?php echo $hour; ?> <?php echo $time; ?></p>
+                <h3>Fecha y hora:</h3>
+                <p> <?php echo $date; ?> - <?php echo $hour; ?></p>
                 <a href="<?php echo $more; ?>" target="_blank">Mas información</a>
               </div>
 

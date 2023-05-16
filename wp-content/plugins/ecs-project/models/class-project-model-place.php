@@ -144,25 +144,24 @@ class Project_Model_Place
       'type'    => 'text'
     ));
 
+    // $cmb->add_field(array(
+    //   'name'        => 'Hora',
+    //   'desc'        => 'Ejemplo "6:00"',
+    //   'placeholder' => '',
+    //   'id'          => $prefix . 'hour',
+    //   'type'        => 'text'
+    // ));
+
     $cmb->add_field(array(
-      'name'        => 'Hora',
-      'desc'        => 'Ejemplo "6:00"',
-      'placeholder' => '',
+      'name' => 'Hora',
       'id'          => $prefix . 'hour',
-      'type'        => 'text'
+      'type' => 'text_time'
     ));
 
     $cmb->add_field(array(
-      'name'             => 'Tiempo',
-      'desc'             => '',
-      'id'                => $prefix . 'time',
-      'type'             => 'select',
-      'show_option_none' => true,
-      'default'          => 'AM',
-      'options'          => array(
-        'AM' => __('AM', 'time'),
-        'PM'   => __('PM', 'time'),
-      ),
+      'name' => 'Fehca',
+      'id'          => $prefix . 'date',
+      'type' => 'text_date',
     ));
 
     $cmb->add_field(array(

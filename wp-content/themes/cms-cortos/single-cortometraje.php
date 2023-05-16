@@ -1,6 +1,8 @@
 <?php
 the_post();
 
+$post_views = get_post_views(get_the_ID());
+
 $corto_collection = get_the_terms(get_the_ID(), "corto_collection");
 $corto_prizes = get_the_terms(get_the_ID(), "corto_prize");
 
@@ -348,6 +350,9 @@ $og_title = of_get_option("og_title");
 
       comment_form($args, get_the_ID());
       ?>
+
+      <!-- <p>Este post ha sido visto <?php echo sprintf(_n('%s vez', '%s veces', $post_views, 'your_textdomain'), $post_views); ?></p> -->
+
     </div>
 
 
