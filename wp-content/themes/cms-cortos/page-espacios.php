@@ -67,7 +67,7 @@ $args_questions = array(
         <h1>Estreno Mundial</h1>
         <p>Encuentra los horarios y lugares de proyección más cercanos a ti y no te <br />pierdas la oportunidad de vivir la Genius Party.</p>
         <div class="btn-contain">
-          <a href="#frequent-questions" class="btn btn-lg btn-light" type="button">Preguntas frecuentes</a>
+          <a href="#frequent-questions" class="btn btn-lg btn-light" role="button">Preguntas frecuentes</a>
         </div>
       </div>
     </section>

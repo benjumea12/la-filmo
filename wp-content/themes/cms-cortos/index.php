@@ -82,7 +82,7 @@ $og_image = of_get_option("og_image");
                 <div class="swiper-slide-content">
                   <h2 class="swiper-slide-title"><?php echo get_the_title(); ?></h2>
                   <p class="swiper-slide-text"><?php echo get_the_excerpt(); ?></p>
-                  <a href="<?php echo $action; ?>" class="btn btn-lg btn-primary swiper-slide-button" type="button"><?php echo $text_action; ?></a>
+                  <a href="<?php echo $action; ?>" class="btn btn-lg btn-primary swiper-slide-button" role="button"><?php echo $text_action; ?></a>
                 </div>
               </section>
               <!-- End swiper slide -->

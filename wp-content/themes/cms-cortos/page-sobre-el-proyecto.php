@@ -109,7 +109,7 @@ $contact = of_get_option("contact");
       <p class="section-text"><?php echo nl2br($about_us_2); ?> </p>
 
       <div class="actions">
-        <a href="<?php echo get_site_url(); ?>/artistas" class="btn btn-lg btn-light swiper-slide-button" type="button">Ver artistas</a>
+        <a href="<?php echo get_site_url(); ?>/artistas" class="btn btn-lg btn-light swiper-slide-button" role="button">Ver artistas</a>
       </div>
     </section>
 
@@ -134,7 +134,7 @@ $contact = of_get_option("contact");
       <p class="section-text"><?php echo nl2br($contact); ?></p>
 
       <div class="actions">
-        <a href="https://discord.gg/G8wdXx3tUm" class="btn btn-lg btn-light swiper-slide-button" type="button">Ir a discord</a>
+        <a href="https://discord.gg/G8wdXx3tUm" class="btn btn-lg btn-light swiper-slide-button" role="button">Ir a discord</a>
       </div>
     </section>
 

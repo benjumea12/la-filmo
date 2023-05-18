@@ -35,7 +35,7 @@ $og_title = of_get_option("og_title");
       <!-- <img src="<?php echo $image_fanzine; ?>" alt="Portada Fanzine"> -->
     </a>
 
-    <a href="<?php echo get_site_url(); ?>/fanzine-2023" target="_blank" class="btn btn-primary" type="button">Ver Fanzine</a>
+    <a href="<?php echo get_site_url(); ?>/fanzine-2023" target="_blank" class="btn btn-primary" role="button">Ver Fanzine</a>
   </main>
   <!-- End page content -->
 
