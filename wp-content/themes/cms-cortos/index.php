@@ -78,7 +78,7 @@ $og_image = of_get_option("og_image");
           ?>
               <!-- Swiper slide -->
               <section class="swiper-slide">
-                <img class="swiper-slide-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Imagen de corto '<?php echo get_the_title(); ?>'">
+                <img class="swiper-slide-image" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), [1080, 462]); ?>" alt="Imagen de corto '<?php echo get_the_title(); ?>'">
                 <div class="swiper-slide-content">
                   <h2 class="swiper-slide-title"><?php echo get_the_title(); ?></h2>
                   <p class="swiper-slide-text"><?php echo get_the_excerpt(); ?></p>
@@ -172,7 +172,7 @@ $og_image = of_get_option("og_image");
               <!-- Swiper slide -->
               <a href="<?php echo get_the_permalink(); ?>" class="swiper-slide card-popular">
                 <div class="swiper-slide-image">
-                  <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
+                  <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), [400, 225]); ?>; ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
                 </div>
                 <div class="swiper-slide-content">
                   <h4 class="swiper-slide-title"><?php echo get_the_title(); ?></h4>
@@ -212,7 +212,7 @@ $og_image = of_get_option("og_image");
             $the_query_cortos->the_post();
         ?>
             <a href="<?php echo get_the_permalink(); ?>" class="explore-card">
-              <img class="explore-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
+              <img class="explore-image" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), [350, 196]); ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
             </a>
         <?php
           endwhile;

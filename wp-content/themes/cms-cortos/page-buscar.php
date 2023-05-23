@@ -126,7 +126,6 @@ $og_image = of_get_option("og_image");
     var vm = new Vue({
       el: '#app',
       data: {
-        searchInput: "",
         searchAuthors: [],
         searchCortos: []
       }
