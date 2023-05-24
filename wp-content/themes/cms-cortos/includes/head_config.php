@@ -11,7 +11,7 @@ function add_meta_tags()
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/magnific-popup/magnific-popup.css">
 
     <!-- App styles -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css?ver=1.2.29">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css?ver=1.2.30">
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" type="image/x-icon">
 <?php
 }
