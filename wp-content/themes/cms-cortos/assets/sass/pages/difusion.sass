@@ -136,6 +136,7 @@
           border-radius: 5rem
           border: 3px solid colors.$light
           transition: 200ms
+          font-size: 2rem
           &:hover
             background-color: colors.$light
             color: colors.$dark
@@ -160,6 +161,7 @@
       font-family: fonts.$tertiary
       color: #A5FFB3
       margin-bottom: 3rem
+      font-weight: 500
       @include media.screen-md
        // margin-top: 2em
     h4
@@ -452,3 +454,44 @@
         .messages-list
           margin-top: 2.6rem
           max-height: 100vh
+  .section-documentos
+    border-top: 1px solid #FFFFFF33
+    padding-top: 6em
+    h2
+      text-align: left
+      font-size: 6.4rem
+      margin-top: 1rem
+    .flex-documentos
+      gap: 2%
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+
+      .document-card
+        width: 20%
+        background-color: #FFFFFF0D
+        border-radius: 20px
+        text-decoration: none
+        height: 15vw
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: all 200ms
+        margin-bottom: 2em
+        @include media.screen-lg
+          width: 31%
+          height: 22vw
+        @include media.screen-md
+          width: 48%
+          height: 30vw
+        p
+          font-size: 2rem
+          width: 80%
+          text-align: center
+          font-weight: 600
+          color: colors.$light
+          transition: all 200ms
+        &:hover
+          background-color: #A5FFB3
+          p
+            color: colors.$dark

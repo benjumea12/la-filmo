@@ -22,8 +22,8 @@ $og_title = of_get_option("og_title");
   <meta property="og:image" content="<?php echo $image_fanzine; ?>" />
   <meta property="og:type" content="article" />
 
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/flipbook/css/flipbook.style.css">
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/flipbook/js/flipbook.min.js"></script>
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/lib//flipbook/css/flipbook.style.css">
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/lib/flipbook/js/flipbook.min.js"></script>
 
 </head>
 

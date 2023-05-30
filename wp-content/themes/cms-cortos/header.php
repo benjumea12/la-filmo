@@ -89,9 +89,20 @@ $url_fanzine = of_get_option("url_fanzine");
         <a href="<?php echo get_site_url(); ?>/fanzine">Fanzine</a>
         <span></span>
       </li>
-      <li class="link-item">
-        <a href="<?php echo get_site_url(); ?>/espacios">Espacios</a>
+      <li class="link-item dropdown">
+        <a>Estreno</a>
+        <i class="arrow down"></i>
         <span></span>
+        <div class="dropdown-contain">
+          <ul class="dropdown-menu">
+            <li class="dropdown-item">
+              <a href="<?php echo get_site_url(); ?>/espacios">Espacios</a>
+            </li>
+            <li class="dropdown-item">
+              <a href="<?php echo get_site_url(); ?>/difusion">Difusión</a>
+            </li>
+          </ul>
+        </div>
       </li>
       <li class="link-item">
         <a href="<?php echo get_site_url(); ?>/sobre-el-proyecto">Sobre el proyecto</a>

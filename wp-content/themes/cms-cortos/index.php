@@ -120,7 +120,7 @@ $og_image = of_get_option("og_image");
           ?>
               <!-- Swiper slide -->
               <a href="<?php echo get_site_url(); ?>/coleccion/?coleccion=<?php echo $corto_collection->slug; ?>" class="swiper-slide card-collection">
-                <img class="swiper-slide-image" src="<?php echo z_taxonomy_image_url($corto_collection->term_id); ?>" alt="Imagen de l  coleccion '<?php echo $corto_collection->name; ?>'">
+                <img class="swiper-slide-image" src="<?php echo z_taxonomy_image_url($corto_collection->term_id, [400, 225]); ?>" alt="Imagen de l  coleccion '<?php echo $corto_collection->name; ?>'">
                 <div class="swiper-slide-content">
                   <h4 class="swiper-slide-title"><?php echo $corto_collection->name; ?></h4>
                   <p class="swiper-slide-text">18 CORTOS</p>
@@ -172,7 +172,7 @@ $og_image = of_get_option("og_image");
               <!-- Swiper slide -->
               <a href="<?php echo get_the_permalink(); ?>" class="swiper-slide card-popular">
                 <div class="swiper-slide-image">
-                  <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), [400, 225]); ?>; ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
+                  <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), [350, 196]); ?>; ?>" alt="Ilustración del corto '<?php echo get_the_title(); ?>'">
                 </div>
                 <div class="swiper-slide-content">
                   <h4 class="swiper-slide-title"><?php echo get_the_title(); ?></h4>

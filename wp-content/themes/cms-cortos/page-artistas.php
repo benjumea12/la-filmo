@@ -97,7 +97,7 @@ $og_image = of_get_option("og_image");
             $post_terms = get_the_terms(get_the_ID(), "artist_type");
         ?>
             <a class="card" href="<?php echo get_permalink(); ?>">
-              <img class="artist" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" />
+              <img class="artist" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), [150, 150]); ?>" alt="<?php echo get_the_title(); ?>" />
               <h2><?php echo get_the_title(); ?></h2>
               <p><?php echo $post_terms[0]->name; ?></p>
             </a>

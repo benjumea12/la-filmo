@@ -22,7 +22,7 @@ $countries = get_terms("place_country");
   <meta property="og:image" content="<?php echo $og_image; ?>" />
   <meta property="og:type" content="web" />
 
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/iziToast/css/iziToast.min.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/lib/izitoast/css/iziToast.min.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@ $countries = get_terms("place_country");
 
       <div class="header-content">
         <figure class="figure">
-          <a href="<?php echo get_site_url(); ?>/fanzine">
+          <a href="<?php echo get_site_url(); ?>/fanzine" target="_blank">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/difusion-1.svg" alt="">
           </a>
         </figure>
@@ -55,12 +55,12 @@ $countries = get_terms("place_country");
           <p>Guía completa sobre el <br> estreno internacional de la <br> Genius Party</p>
           <img class="arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-down.png" alt="">
 
-          <a href="" class="manual">
+          <a href=" https://drive.google.com/drive/folders/1y5KQhCPtYh3lfiZnuHjQVxX9rGMwZwVg?usp=sharing" target="_blank" class="manual">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/difusion-3.svg" alt="">
           </a>
         </div>
         <figure class="figure">
-          <a href="<?php echo get_site_url(); ?>/sobre-el-proyecto">
+          <a href="<?php echo get_site_url(); ?>/sobre-el-proyecto" target="_blank">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/difusion-2.svg" alt="">
           </a>
         </figure>
@@ -69,14 +69,14 @@ $countries = get_terms("place_country");
         <nav class="nav-link">
           <div>
             <a href="#difusion">DIFUSIÓN</a>
-            <a href="">DIFUSIÓN</a>
+            <a href="#promocion">PROMO</a>
 
           </div>
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon.svg" alt="">
           <div>
 
-            <a href="">DIFUSIÓN</a>
-            <a href="">DIFUSIÓN</a>
+            <a href="#documentos">DOCS</a>
+            <a href="<?php echo get_site_url(); ?>/espacios/#preguntas-frecuentes" target="_blank">DUDAS</a>
           </div>
         </nav>
       </div>
@@ -95,7 +95,7 @@ $countries = get_terms("place_country");
           </div>
 
           <article class="section-col section-meta">
-            <p>“Lograr proyectar la <a href="#">Genius Party</a> en al menos 20 <a href="#">espacios</a> en diferentes partes del mundo para aumentar la exposición y el alcance del proyecto”</p>
+            <p>“Lograr proyectar la <a href="https://drive.google.com/file/d/14jy1MF1nHVpqDt6cAohZI_JmP-ON4Ihq/view" target="_blank">Película (click para verla)</a> en al menos 20 <a href="<?php echo get_site_url(); ?>/espacios" target="_blank">espacios</a> en diferentes partes del mundo para aumentar la exposición y el alcance del proyecto”</p>
           </article>
         </div>
       </section>
@@ -103,7 +103,7 @@ $countries = get_terms("place_country");
       <article class="section-basic">
         <h3>¿De qué se trata?</h3>
         <p>
-          Este proyecto tiene como objetivo dar a conocer el talento de más de 160 artitas mediante la creación de una película colaborativa, al estilo de Genius Party, que incluirá una selección de los mejores cortos animados de las cuatro ediciones del Festival de Cortometrajes organizado por el canal de YouTube; <a href="#">La Filmoteca Maldita</a> .
+          Este proyecto tiene como objetivo dar a conocer el talento de más de 160 artitas mediante la creación de una película colaborativa, al estilo de Genius Party, que incluirá una selección de los mejores cortos animados de las cuatro ediciones del Festival de Cortometrajes organizado por el canal de YouTube; <a href="https://www.youtube.com/@Lafilmotecamaldita" target="_blank">La Filmoteca Maldita</a> .
           <br><br>
           La película estará compuesta de una colección consecutiva de cortos, cada uno acompañado de su portada y respectivos créditos. El estreno de la película será a nivel mundial el <a href="#">24 de junio</a> y contará con la participación de diversos movimientos culturales de todas partes del mundo hispanohablante, quienes han aceptado ser parte de esta propuesta cinematográfica ofrecida por el colectivo artístico GMA.
         </p>
@@ -118,7 +118,7 @@ $countries = get_terms("place_country");
             <div>
               <h5>Artistas & Colaboradores</h5>
               <p>Si te apasiona la creación de portadas, ilustraciones, piezas publicitarias y más. Todavía tenemos una gran cantidad de contenidos por crear.</p>
-              <a href="#" class="link-go">
+              <a href="https://discord.gg/p8hdu2PcHp" target="_blank" class="link-go">
                 Unirme al servidor
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/go.svg" alt="">
               </a>
@@ -129,7 +129,7 @@ $countries = get_terms("place_country");
             <div>
               <h5>Anfitriones & Gestores</h5>
               <p>Si tienes un espacio para proyectar películas o estás interesado en formar parte del circuito de distribución independiente, tenemos una guía especialmente diseñada para ti.</p>
-              <a href="#" class="link-go">
+              <a href="#postular" class="link-go">
                 Cómo empezar
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/go.svg" alt="">
               </a>
@@ -138,7 +138,7 @@ $countries = get_terms("place_country");
         </div>
       </section>
 
-      <section class="section-basic section-steps">
+      <section class="section-basic section-steps" id="promocion">
         <h3>paso a paso</h3>
 
         <div class="section-flex">
@@ -153,8 +153,8 @@ $countries = get_terms("place_country");
                 Mira este listado de mensajes que puedes usar como referencia:
               </p>
             </div>
-            <a href="#" class="link-go">
-              Cómo empezar
+            <a href="#mensajes" class="link-go">
+              Ver mensajes
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/go.svg" alt="">
             </a>
           </article>
@@ -170,7 +170,7 @@ $countries = get_terms("place_country");
               </p>
             </div>
             <a href="#" class="link-go">
-              Cómo empezar
+              Ver documentos
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/go.svg" alt="">
             </a>
           </article>
@@ -178,14 +178,14 @@ $countries = get_terms("place_country");
           <article class="section-col">
             <div>
               <span>3</span>
-              <h5>Contactar con lugares</h5>
+              <h5>Rellenar formulario</h5>
               <p>Una vez que hayas confirmado el espacio y la hora con los encargados (esta puede ser en cualquier hora del 24 de junio) , es importante que llenes el siguiente formulario con los datos.
                 <br><br>
                 De esta manera, podremos incluir el lugar del evento en la cartelera del sitio web y hacerlo visible para las personas de ese país.
               </p>
             </div>
-            <a href="#" class="link-go">
-              Cómo empezar
+            <a href="https://forms.gle/fysrfD9f8ZsVuwK5A" target="_blank" class="link-go">
+              Formulario
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/go.svg" alt="">
             </a>
           </article>
@@ -193,14 +193,14 @@ $countries = get_terms("place_country");
       </section>
 
 
-      <section class="section-basic section-space">
+      <section class="section-basic section-space" id="postular">
         <h3>postular un espacio</h3>
         <div class="section-flex">
           <div class="section-content">
             <h2>Quiero ser anfitrión de la pelicula </h2>
             <p>Si cuentas con un espacio de proyección, o ya te confirmaron uno, es importante que rellenes el siguiente formulario en el cual encontrarás la información que necesitamos para añadir el lugar a nuestra cartelera. </p>
 
-            <a href="#" class="link-go link-go-outline">
+            <a href="https://forms.gle/fysrfD9f8ZsVuwK5A" target="_blank" class="link-go link-go-outline">
               Rellenar formulario
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/go-green.svg" alt="">
             </a>
@@ -228,26 +228,26 @@ $countries = get_terms("place_country");
             </div>
             <div class="item">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/diamond.svg" alt="">
-              <span>Ser parte de una red internacional de distribución independiente</span>
+              <span>Participación en futuros proyectos y colaboraciones con el colectivo</span>
             </div>
             <div class="item">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/thank.svg" alt="">
-              <span>Ser parte de una red internacional de distribución independiente</span>
+              <span>Agradecimientos especiales en los créditos del estreno</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section-basic section-how-start">
+      <section class="section-basic section-how-start" id="mensajes">
         <h3>¿No sabes como empezar?</h3>
         <h2>Mensajes para enviar a <br> potenciales espacios</h2>
 
         <div class="messages-types">
           <span class="color-professional">Profesional</span>
-          <span class="color-informal">Profesional</span>
-          <span class="color-enthusiastic">Profesional</span>
-          <span class="color-informative">Profesional</span>
-          <span class="color-fun">Profesional</span>
+          <span class="color-informal">Informal</span>
+          <span class="color-enthusiastic">Entusiasta</span>
+          <span class="color-informative">Informativo</span>
+          <span class="color-fun">Alegre</span>
         </div>
 
         <h5>MENSAJES DIRECTOS</h5>
@@ -384,14 +384,32 @@ $countries = get_terms("place_country");
         </section>
       </section>
 
+      <section class="section-basic section-documentos" id="documentos">
+        <h3>Documentos usados por la comunidad</h3>
+        <h2>Documentos que se <br> pueden utilizar</h2>
 
+        <div class="flex-documentos">
+          <a href="#" class="document-card">
+            <p>Nombre del documento</p>
+          </a>
+          <a href="#" class="document-card">
+            <p>Nombre del documento</p>
+          </a>
+          <a href="#" class="document-card">
+            <p>Nombre del documento</p>
+          </a>
+          <a href="#" class="document-card">
+            <p>Nombre del documento</p>
+          </a>
+        </div>
+      </section>
     </div>
   </main>
 
   <!-- Import footer -->
   <?php get_footer(); ?>
 
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/iziToast/js/iziToast.min.js" type="text/javascript"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/lib/izitoast/js/iziToast.min.js" type="text/javascript"></script>
 
   <script>
     $(".message-category").click(function() {
