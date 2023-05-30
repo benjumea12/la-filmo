@@ -137,7 +137,7 @@ $og_title = of_get_option("og_title");
           if ($danger == "on") :
           ?>
             <div class="alert red">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/skull.svg" alt="Ver">
+              <img  style="margin-right:3em;" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/skull.svg" alt="Ver">
               <div>
                 <p class="tittle-alert">Aviso importante</p>
                 <p class="alert-text">Este corto puede contener temas que no son aptos para todo tipo de público.</p>
