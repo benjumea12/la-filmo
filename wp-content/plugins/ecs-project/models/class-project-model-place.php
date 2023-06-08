@@ -151,7 +151,7 @@ class Project_Model_Place
     ));
 
     $cmb->add_field(array(
-      'name' => 'Fehca',
+      'name' => 'Fecha',
       'id'          => $prefix . 'date',
       'type' => 'text_date',
     ));
