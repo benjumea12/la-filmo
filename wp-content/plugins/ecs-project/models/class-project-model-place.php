@@ -144,14 +144,6 @@ class Project_Model_Place
       'type'    => 'text'
     ));
 
-    // $cmb->add_field(array(
-    //   'name'        => 'Hora',
-    //   'desc'        => 'Ejemplo "6:00"',
-    //   'placeholder' => '',
-    //   'id'          => $prefix . 'hour',
-    //   'type'        => 'text'
-    // ));
-
     $cmb->add_field(array(
       'name' => 'Hora',
       'id'          => $prefix . 'hour',

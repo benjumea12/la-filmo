@@ -27,10 +27,10 @@ if ($the_query_authors->have_posts()) :
     }
     array_push($authors, array(
       "title" => get_the_title(),
-      "image" => get_the_post_thumbnail_url(),
+      "image" => get_the_post_thumbnail_url(get_the_ID(), [200, 112]),
       "link" => get_permalink(),
       "type" => $type,
-      "description" => get_the_excerpt() . get_the_content()
+      "description" => get_the_excerpt() . get_the_content([200, 112])
     ));
   endwhile;
 endif;
@@ -126,6 +126,7 @@ $og_image = of_get_option("og_image");
     var vm = new Vue({
       el: '#app',
       data: {
+        searchInput: "",
         searchAuthors: [],
         searchCortos: []
       }
