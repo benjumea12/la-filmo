@@ -39,13 +39,13 @@ $og_image = of_get_option("og_image");
 <html lang="es">
 
 <head>
-  <title><?php echo $og_title; ?> | Inicio</title>
+  <title><?php echo $og_title; ?> | Generación Maldita</title>
 
   <!-- Import default project head content -->
   <?php wp_head(); ?>
 
   <!-- Open Graph labels -->
-  <meta property="og:title" content="<?php echo $og_title; ?> Inicio" />
+  <meta property="og:title" content="<?php echo $og_title; ?> Generación Maldita" />
   <meta property="og:description" content="<?php echo $og_description; ?>" />
   <meta property="og:url" content="<?php echo get_site_url(); ?>" />
   <meta property="og:image" content="<?php echo $og_image; ?>" />
