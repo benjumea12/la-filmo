@@ -107,5 +107,4 @@ $og_title = of_get_option("og_title");
   <!-- Import footer -->
   <?php get_footer(); ?>
 </body>
-
 </html>

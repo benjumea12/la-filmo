@@ -1,0 +1,20 @@
+/* IMPORT IN THE MAIN */
+@use "utils/globals";
+
+/* IMPORT IN THE MAIN */
+@use "components/ui";
+@use "components/header";
+@use "components/footer";
+@use "components/cards";
+
+/* PAGES */
+@use "pages/home";
+@use "pages/artists";
+@use "pages/collections";
+@use "pages/corto";
+@use "pages/fanzine";
+@use "pages/buscar";
+@use "pages/about";
+@use "pages/espacios";
+@use "pages/difusion";
+/* IMPORT IN THE MAIN */

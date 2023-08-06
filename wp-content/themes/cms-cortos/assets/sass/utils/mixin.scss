@@ -1,0 +1,26 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin img-absolute-cover {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+}
+@mixin absolute-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

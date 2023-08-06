@@ -1,0 +1,177 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/media";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62%;
+  @include media.screen-xl {
+    font-size: 46%;
+  }
+
+  body {
+    background-color: colors.$dark;
+    color: colors.$light;
+    margin: 0px;
+
+    main {
+      margin: 0px;
+      padding: 90px 3% 2vh 3%;
+      @include media.screen-md {
+        padding: 90px 3% 2vh 3%;
+      }
+    }
+  }
+}
+
+// Styles of UI elements
+.btn {
+  color: colors.$light;
+  font-size: 2.2rem;
+  font-family: fonts.$primary;
+  text-decoration: none;
+  border: none;
+  background-color: gray;
+  padding: 1rem 4.2rem;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 600;
+}
+.btn-light {
+  background-color: colors.$light;
+  transition: all 300ms 0ms !important;
+  color: colors.$dark;
+  &:hover {
+    background-color: colors.$gray-dark;
+    color: colors.$light;
+  }
+}
+.btn-primary {
+  background-color: colors.$primary;
+  transition: all 300ms 0ms !important;
+  &:hover {
+    background-color: colors.$light;
+    color: colors.$dark;
+  }
+}
+.btn-lg {
+  font-size: 3rem;
+  padding: 1.4rem 6.5rem;
+  @include media.screen-md {
+    font-size: 2.8rem;
+    padding: 1rem 5.8rem;
+  }
+}
+.btn-more {
+  border-radius: 10px;
+  color: #ffffff80;
+  background-color: #ffffff0d;
+  transition: all 0.2s;
+  &:hover {
+    color: colors.$dark;
+    background-color: colors.$light;
+  }
+}
+
+// Add fonts
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+  font-family: fonts.$primary;
+  margin: 0px;
+}
+
+p,
+span,
+div {
+  font-family: fonts.$secondary;
+  margin: 0px;
+}
+
+// Titles
+.title-1 {
+  font-size: 2.5rem;
+}
+.title-2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.title-3 {
+  font-size: 1.25rem;
+}
+.title-4 {
+  font-size: 1.125rem;
+}
+.title-5 {
+  font-size: 1rem;
+}
+.title-6 {
+  font-size: 0.875rem;
+}
+
+// Paragraphs
+.text-1 {
+  font-size: 1rem;
+}
+.text-2 {
+  font-size: 0.875rem;
+}
+.text-3 {
+  font-size: 0.75rem;
+}
+.text-4 {
+  font-size: 0.875rem;
+}
+
+// Paragraphs colors
+.color-primary {
+  color: colors.$primary;
+}
+.color-secondary {
+  color: colors.$secondary;
+}
+.color-tertiary {
+  color: colors.$tertiary;
+}
+.color-dark {
+  color: colors.$dark;
+}
+.color-light {
+  color: colors.$light;
+}
+
+.text-underline {
+  padding-bottom: 0rem;
+  border-bottom: 2px solid colors.$light;
+}
+.text-bold {
+  font-weight: bold !important;
+}
+
+// Scroll bar
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

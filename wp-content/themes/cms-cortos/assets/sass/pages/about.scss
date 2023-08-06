@@ -1,0 +1,119 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/media";
+
+.main-page-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12em 5% 2em 5%;
+
+  .icon-gema {
+    width: 50vw;
+    margin-bottom: 8em;
+  }
+  .reverse-md {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include media.screen-md {
+      flex-direction: column-reverse;
+    }
+  }
+  .section-images {
+    display: flex;
+    flex-direction: row;
+    gap: 8vw;
+    margin-bottom: 8em;
+    @include media.screen-md {
+      flex-direction: column;
+    }
+    .image-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      img {
+        border-radius: 10px;
+      }
+      p {
+        font-size: 1.6rem;
+        color: colors.$light;
+        margin-top: 1rem;
+        a {
+          font-weight: bold;
+          text-decoration: none;
+          color: colors.$light;
+        }
+      }
+    }
+    .image-item-size-1 {
+      img {
+        height: 90vh;
+      }
+    }
+    .image-item-size-2 {
+      img {
+        height: 100vh;
+      }
+    }
+    .image-item-size-3 {
+      img {
+        width: 22vw;
+      }
+    }
+    .image-item-size-4 {
+      img {
+        width: 45vw;
+      }
+    }
+    @include media.screen-md {
+      .image-item {
+        width: 100% !important;
+        img {
+          height: auto;
+          width: 100% !important;
+        }
+      }
+    }
+  }
+  .section-content {
+    width: 70%;
+    margin-bottom: 8em;
+    text-align: left;
+    @include media.screen-md {
+      width: 100%;
+    }
+    .section-title {
+      font-size: 4.8rem;
+      font-family: fonts.$primary;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 2rem;
+    }
+    .section-text {
+      font-size: 1.9rem;
+      font-weight: 400;
+    }
+    .actions {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .btn {
+        margin-right: 2rem;
+      }
+      .link {
+        font-size: 2rem;
+        text-decoration: none;
+        color: colors.$light;
+      }
+      @include media.screen-md {
+        align-items: flex-start;
+        flex-direction: column;
+        .btn {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}

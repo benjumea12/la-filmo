@@ -1,0 +1,34 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/media";
+
+.main-page-fanzine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .portada {
+    img {
+      height: 60vh;
+      @include media.screen-md {
+        height: auto;
+        width: 80vw;
+      }
+    }
+  }
+  .btn {
+    margin-top: 1em;
+  }
+}
+.main-page-fanzine-item {
+  display: flex;
+  #nav-page {
+    display: none;
+  }
+  #footer-page {
+    display: none;
+  }
+  #container-book {
+    width: 80%;
+    z-index: 20;
+  }
+}

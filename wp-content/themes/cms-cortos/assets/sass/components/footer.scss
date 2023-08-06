@@ -1,0 +1,53 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/media";
+
+// Styles of footer
+#footer-page {
+  // style code
+  position: relative;
+  z-index: 1;
+  margin-top: 4vh;
+  .footer-contain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vh 3%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    h6 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #ffffff4d;
+      text-transform: uppercase;
+    }
+    .white {
+      color: colors.$light;
+    }
+    .redes {
+      display: flex;
+      align-items: center;
+      a {
+        text-decoration: none;
+        margin-right: 3rem;
+      }
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
+    @include media.screen-md {
+      text-align: center;
+      flex-direction: column;
+      .redes {
+        flex-direction: column;
+        margin-bottom: 3vh;
+        a {
+          margin: 0 1.5rem;
+        }
+        div {
+          margin-bottom: 3vh;
+        }
+      }
+    }
+  }
+}
