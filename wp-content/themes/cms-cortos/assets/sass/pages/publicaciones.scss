@@ -1,0 +1,29 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/media";
+
+.main-page-publicaciones {
+  position: relative;
+  .image-page-publicaciones {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+  }
+
+  .new-publication {
+    display: flex;
+    .publication-content {
+      .publication-beagle {
+      }
+      h1 {
+      }
+      p {
+      }
+    }
+    .pubication-image {
+      img {
+      }
+    }
+  }
+}

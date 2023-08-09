@@ -29,16 +29,21 @@ $og_title = of_get_option("og_title");
   <?php get_header(); ?>
 
   <!-- Page content -->
-  <main class="main-page-fanzine">
+  <main class="main-page-publicaciones">
+    <img class="image-page-publicaciones" src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-archivo.png" alt="">
 
-    <img class="image-new" src="<?php echo get_template_directory_uri(); ?>/assets/images/new-fanzine.svg" alt="">
-
-    <a href="<?php echo get_site_url(); ?>/fanzine-2023" target="_blank" class="portada">
-      <img src="https://generacionmaldita.com/wp-content/uploads/2020/04/Captura-de-pantalla-2023-05-01-124411.png" alt="Portada Fanzine">
-      <!-- <img src="<?php echo $image_fanzine; ?>" alt="Portada Fanzine"> -->
-    </a>
-
-    <a href="<?php echo get_site_url(); ?>/fanzine-2023" target="_blank" class="btn btn-primary" role="button">Ver Fanzine</a>
+    <section class="new-publication">
+      <div class="publication-content">
+        <span class="publication-beagle">
+          Nuevo
+        </span>
+        <h1>FANZINE MALDITO 2</h1>
+        <p>Sumérgete en el universo del fanzines a través de historias únicas donde la creatividad y la pasión se encuentran en cada página.</p>
+      </div>
+      <div class="pubication-image">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fanzine-2.png" alt="">
+      </div>
+    </section>
   </main>
   <!-- End page content -->
 
